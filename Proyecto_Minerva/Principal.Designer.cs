@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.btnSalir = new FontAwesome.Sharp.IconButton();
             this.lblUser = new System.Windows.Forms.Label();
             this.MenuLateral = new System.Windows.Forms.Panel();
             this.btnInventario = new FontAwesome.Sharp.IconButton();
@@ -54,8 +56,8 @@
             this.panelComprar = new System.Windows.Forms.Panel();
             this.panelVender = new System.Windows.Forms.Panel();
             this.panelconteiner = new System.Windows.Forms.Panel();
-            this.btnSalir = new FontAwesome.Sharp.IconButton();
-            this.btnMinimizar = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.MenuLateral.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +74,38 @@
             this.panel1.Size = new System.Drawing.Size(1000, 47);
             this.panel1.TabIndex = 0;
             // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.btnMinimizar.IconColor = System.Drawing.Color.Black;
+            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMinimizar.IconSize = 30;
+            this.btnMinimizar.Location = new System.Drawing.Point(928, 11);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(27, 27);
+            this.btnMinimizar.TabIndex = 17;
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnSalir.IconColor = System.Drawing.Color.Black;
+            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSalir.IconSize = 30;
+            this.btnSalir.Location = new System.Drawing.Point(967, 11);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(27, 27);
+            this.btnSalir.TabIndex = 16;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // lblUser
             // 
             this.lblUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -86,6 +120,8 @@
             // MenuLateral
             // 
             this.MenuLateral.BackColor = System.Drawing.Color.Khaki;
+            this.MenuLateral.Controls.Add(this.panel2);
+            this.MenuLateral.Controls.Add(this.iconButton1);
             this.MenuLateral.Controls.Add(this.btnInventario);
             this.MenuLateral.Controls.Add(this.panelInventario);
             this.MenuLateral.Controls.Add(this.btnUsuarios);
@@ -442,37 +478,34 @@
             this.panelconteiner.Size = new System.Drawing.Size(819, 553);
             this.panelconteiner.TabIndex = 2;
             // 
-            // btnSalir
+            // iconButton1
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.btnSalir.IconColor = System.Drawing.Color.Black;
-            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalir.IconSize = 30;
-            this.btnSalir.Location = new System.Drawing.Point(967, 11);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(27, 27);
-            this.btnSalir.TabIndex = 16;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 25;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.iconButton1.Location = new System.Drawing.Point(10, 418);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(171, 32);
+            this.iconButton1.TabIndex = 26;
+            this.iconButton1.Text = "Dashboard";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // btnMinimizar
+            // panel2
             // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            this.btnMinimizar.IconColor = System.Drawing.Color.Black;
-            this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMinimizar.IconSize = 30;
-            this.btnMinimizar.Location = new System.Drawing.Point(928, 11);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(27, 27);
-            this.btnMinimizar.TabIndex = 17;
-            this.btnMinimizar.UseVisualStyleBackColor = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel2.Location = new System.Drawing.Point(0, 418);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(9, 32);
+            this.panel2.TabIndex = 25;
             // 
             // Principal
             // 
@@ -521,5 +554,7 @@
         private Panel panelInventario;
         private FontAwesome.Sharp.IconButton btnSalir;
         private FontAwesome.Sharp.IconButton btnMinimizar;
+        private Panel panel2;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

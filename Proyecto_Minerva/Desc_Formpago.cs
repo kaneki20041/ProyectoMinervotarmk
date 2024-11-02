@@ -3,7 +3,7 @@ using CapaLogica;
 
 namespace Proyecto_Minerva
 {
-    public partial class Desc_Formpago : Form
+    public partial class Desc_Formpago :Form
     {
         public Desc_Formpago()
         {

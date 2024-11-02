@@ -385,5 +385,11 @@ namespace Proyecto_Minerva
         {
             this.Close();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Dashboard nuevo = new Dashboard();
+            nuevo.Show();
+        }
     }
 }

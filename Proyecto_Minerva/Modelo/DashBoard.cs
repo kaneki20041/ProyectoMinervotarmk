@@ -59,8 +59,9 @@ namespace CapaPresentacion.Modelo
                     NumeroPrenda = (int)command.ExecuteScalar();
 
                     //Numero total de Compras
-                    command.CommandText = @"SELECT COUNT(O.venta) FROM[O.venta]"+
-                               "WHERE Fecha BETWEEN @fromDate AND @toDate";
+                    command.CommandText = @"SELECT COUNT([O.ventaID])
+                                            FROM[O.venta]
+                                            WHERE Fecha BETWEEN @fromDate AND @toDate";
                     command.Parameters.Add("@fromdate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     numOrders = (int)command.ExecuteScalar();
@@ -80,10 +81,10 @@ namespace CapaPresentacion.Modelo
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = @"select Fecha, sum(MontoTotal)" +
-                                          "from [O.venta]" +
-                                          "where Fecha BETWEEN @fromDate AND @toDategroup" +
-                                          "by Fecha";
+                    command.CommandText = @"select Fecha, sum(MontoTotal) 
+                                          from [O.venta] 
+                                          where Fecha BETWEEN @fromDate AND @toDate
+                                          group by Fecha";
                     command.Parameters.Add("@fromdate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     var reader = command.ExecuteReader();
@@ -93,7 +94,7 @@ namespace CapaPresentacion.Modelo
                         resultTable.Add(
                             new KeyValuePair<DateTime, decimal>((DateTime)reader[0], (decimal)reader[1])
                             );
-                        TotalRevenue += (decimal)reader[0];
+                        TotalRevenue += (decimal)reader[1];
                     }
                     TotalProfit = TotalRevenue * 0.2m;//20%
                     reader.Close();
@@ -169,13 +170,13 @@ namespace CapaPresentacion.Modelo
                 using (var command = new SqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = @"select top 5 p.Descripcion, sum(Detalleventa.Cantidad) as Q"+
-                                "from Detalleventa"+
-                                "inner join Prenda p on p.PrendaID = Detalleventa.PrendaID"+
-                                "inner join [O.venta] o on o.[O.ventaID] = Detalleventa.[O.ventaID]"+
-                                "where Fecha between @fromDate and @toDate"+
-                                "group by p.Descripcion"+
-                                "order by q desc";
+                    command.CommandText = @"select top 5 p.Descripcion, sum(Detalleventa.Cantidad) as Q
+                                from Detalleventa
+                                inner join Prenda p on p.PrendaID = Detalleventa.PrendaID
+                                inner join [O.venta] o on o.[O.ventaID] = Detalleventa.[O.ventaID]
+                                where Fecha between @fromDate and @toDate
+                                group by p.Descripcion
+                                order by q desc";
                     command.Parameters.Add("@fromdate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
                     reader = command.ExecuteReader();
@@ -187,9 +188,9 @@ namespace CapaPresentacion.Modelo
                     reader.Close();
 
                     //Obtener productos bajos de stock
-                    command.CommandText = @"select Descripcion, Stock" +
-                                          "from Prenda" +
-                                          "where stock <= 30";
+                    command.CommandText = @"select Descripcion, Stock
+                                          from Prenda
+                                          where stock <= 30";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
