@@ -15,6 +15,13 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Http.Headers;
+using System.Diagnostics;
+using System.Xml;
+using Formatting = Newtonsoft.Json.Formatting;
+using System.Net;
+using System.Xml.Linq;
 
 namespace Proyecto_Minerva
 {
@@ -24,13 +31,15 @@ namespace Proyecto_Minerva
         private FacturacionApi api;
         private entComprobanteventa comprobante;
 
+
         public Carrito(int idVenta)
         {
             _idVenta = idVenta;
             InitializeComponent();
+
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzI5OTE2MzM3LCJleHAiOjE3MzAwMDI3Mzd9.TvGX3VYEfGt7V4Pw9Wx5UW_D6V61pZ3o04Oph34mDTHRoRJPBuCFv8HLcHxudTKc7YpFsNym3QST6HO5aFwSVXz3Wv5EaoIzKNFCSBxFIi9ybji-A4LA7TpGZQ8hUgb317l_uSLGmC1Ko-3O7OrCrExqL9p2PWOivQ0Iv7R6z8QAwEZgOEMOzT_0NvQobiUkUK6uJtcFEHA65YLwr9KL68sfGacgcBcfsy0lsejK7eCm8Nu4Yf8etlvTzgU-Nt0zD-3xjS-g54y4I9NxZ-yKCDC4OyAkfw8uH1b5i5_XoRDU1ege54OrXhRkqhX1uAs3G33seGRjkbTEEQ2R77qS1mFBpEM4WxNtlt3IKcGGgwbNPxHXB219redsngatMm3CTz09PHwSf0hmX6q6r1ZG-U7ceh98iLzJIXX-vOTS9BcdAk29jYkFQ1yo3ubezzFQfd4gC3T7nzmmS6UJODsxxbqBlrfVot5JHR9QnHM0EWs3mBApWO3s-PTUKyyw-kPMuEDKt6elxRr_LktlQnwReEMD2tGcgqi6Ntn3kf81nTb-TqDZ8uWFYV-Ae9uyae1RvlsV4Q-vGPkQ7u_PSXvAiQ5ZP4q1qwcsD6ukwAtlYXY9QfLR4rT7tLOm7GY-3OTwS18lbz75-L5yjfhYk6jh2Jt1pkdJkXzilAmWzAt5puo";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMwOTU1OTY1LCJleHAiOjE3MzEwNDIzNjV9.DFID5FNHt4ZjNka_9c9Ad9-msIWmI6WVpe2jDpJE4X1G2eu_E7kmajD4UtlugAcg8e9y_OLIax-mXZlXmq_4biDdHqPsubNWEKE2z-skdlc8vXqNDeIC-Q3VexLQz01lfLRCZDKYF_VTxknxrL77INAoxmoNSaCMjhYnvCMF1HhYhveSyDKBSuoRpplRlXuoOry8d26whLySfli_fFtfn-tFZW5InOR9wUi9ITehxxqKkeJ0UWv1rYUgSZICzXK9A-oTo7Enb__4cxChsSplLaBAtAQfLMCUMI0jymjfaM-7SOiopKHGhGPfrZrAviA9bPs5MoUpumZITT_1CJTNPuiUUy02k8nlsu4_fLhoU135X4_sqtrzbnyZW7peydXQ97I8487l8V44CNkKUOgigm5jgQcfkP5yPGDq25Zi2ErRGou6RNrBTrrcu0rDROyCc2HASLerzhIpYbT9NXGcVrNW6oSwmZwIwwVFn9GIBk5RVkMDEELgl32KHpCgjTk7TIpUSPn3EAsTrrrbz1WsvpLRVy_GzEc5l8hOm1gxyYYBnL42PXCTj63nLvx8olZXI9BZzzfE7xACnp1TrKDe4xdhwPbfG21IfkNEQA-c4RzfyFx7h8_E0MI3mG8vATtNmp7RjxQaoppybqnp36bCEGPLQEuUJZ0cNrpnVrcLumA";
             api = new FacturacionApi(token);
             decimal montoTotal = logOVenta.Instancia.ObtenerMontoTotalPorId(_idVenta);
             txtTotalGravada.Text = montoTotal.ToString("C"); // Formatear como moneda
@@ -45,6 +54,23 @@ namespace Proyecto_Minerva
             txtIGV.Text = igv.ToString("C"); // Formatea como moneda
             txtSubTotal.Text = subtotal.ToString("C"); // Formatea como moneda
 
+
+            // Llamar a la capa lógica para obtener la información del cliente
+            entCliente cliente = logCliente.Instancia.BuscarClientePorVentaID(_idVenta);
+
+            if (cliente != null)
+            {
+                // Mostrar los datos del cliente en los TextBoxes correspondientes
+                txtTipoDoc.Text = cliente.TipoDoc;
+                txtDocumento.Text = cliente.Documento.ToString();
+                txtNombre.Text = $"{cliente.Nombre} {cliente.Apellidos}";
+                txtEmail.Text = cliente.Email;
+                txtDireccion.Text = cliente.Direccion;
+            }
+            else
+            {
+                MessageBox.Show("No se encontró información del cliente para esta venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             //this.FormClosing += Carrito_FormClosing;
         }
 
@@ -52,6 +78,7 @@ namespace Proyecto_Minerva
         {
             try
             {
+                dgvDetalleventa.DataSource = null;
                 List<entOVenta> lista = logOVenta.Instancia.ListarVentasPorId(_idVenta);
                 dgvDetalleventa.DataSource = lista; // Asumiendo que dgvDetalleventa es tu DataGridView
                 dgvDetalleventa.Columns["Documento"].Visible = false;
@@ -87,6 +114,10 @@ namespace Proyecto_Minerva
             }
         }
 
+        private void Carrito_Load(object sender, EventArgs e)
+        {
+        }
+
         private void comboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Solo ejecuta si hay un tipo de comprobante seleccionado
@@ -94,21 +125,28 @@ namespace Proyecto_Minerva
             {
                 string tipoComprobante = comboTipoComprobante.SelectedItem.ToString();
 
-                // Llama al método de la capa lógica para generar el número de comprobante
-                string nuevoNumero = logComprobante.Instancia.GenerarNumeroComprobante(tipoComprobante);
+                // Llama al método de la capa lógica para generar la serie del comprobante
+                string serie = logComprobante.Instancia.GenerarNumeroComprobante(tipoComprobante);
 
-                // Muestra el nuevo número en txtSerie
-                txtSerie.Text = nuevoNumero;
+                // Llama al método de la capa lógica para generar el correlativo del comprobante
+                string correlativo = logComprobante.Instancia.GenerarCorrelativo(tipoComprobante);
+
+                // Muestra la serie en txtSerie y el correlativo en txtCorrelativo
+                txtSerie.Text = serie;
+                txtCorrelativo.Text = correlativo;
             }
         }
 
-        private void btnEmitirComprobante_Click(object sender, EventArgs e)
+
+        private async void btnEmitirComprobante_Click(object sender, EventArgs e)
         {
+            // Validación de campos
             if (string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
                 string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
                 comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -120,7 +158,6 @@ namespace Proyecto_Minerva
                 // Iterar sobre las filas del DataGridView
                 foreach (DataGridViewRow row in dgvDetalleventa.Rows)
                 {
-                    // Asegúrate de no procesar la fila de nuevo registro si está presente
                     if (!row.IsNewRow)
                     {
                         decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
@@ -143,7 +180,7 @@ namespace Proyecto_Minerva
                     }
                 }
 
-                // Obtener los totales desde los TextBox
+                // Obtener los totales
                 decimal mtoOperGravadas = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
                 decimal mtoIGV = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim());
                 decimal subTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
@@ -154,7 +191,7 @@ namespace Proyecto_Minerva
                     tipoOperacion = "0101",
                     tipoDoc = "03",
                     serie = txtSerie.Text,
-                    correlativo = "1",
+                    correlativo = txtCorrelativo.Text,
                     fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
                     formaPago = new
                     {
@@ -206,6 +243,8 @@ namespace Proyecto_Minerva
                 }
             }
                 };
+
+                // Registrar el comprobante en la base de datos local
                 entComprobanteventa comprobante = new entComprobanteventa
                 {
                     id_venta = _idVenta,
@@ -216,25 +255,19 @@ namespace Proyecto_Minerva
                     igv = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim()),
                     total = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim())
                 };
+
                 int idComprobante = logComprobante.Instancia.RegistrarComprobantePago(comprobante);
+                MessageBox.Show($"Comprobante registrado con ID: {idComprobante}", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show($"Comprobante registrado con ID: {idComprobante}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                // Generar y guardar el PDF usando el nuevo cliente HTTP
                 string url = "https://facturacion.apisperu.com/api/v1/invoice/pdf";
-                dynamic respuesta = api.Post(url, facturacionData);
+                string pdfPath = api.PostForPdfResponse(url, facturacionData);
 
-                // Verificar si el PDF fue guardado correctamente
-                if (respuesta != null && respuesta.pdf_url != null)
+                if (!string.IsNullOrEmpty(pdfPath))
                 {
-                    string pdfPath = respuesta.pdf_url.ToString();
-
-                    // Asegurarse de que la ruta sea absoluta
-                    if (!Path.IsPathRooted(pdfPath))
-                    {
-                        pdfPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), pdfPath);
-                    }
-
-                    MessageBox.Show($"PDF generado y guardado como: {pdfPath}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"PDF generado y guardado como: {pdfPath}", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Abrir el PDF con el visor predeterminado
                     try
@@ -248,20 +281,184 @@ namespace Proyecto_Minerva
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error al abrir el PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error al abrir el PDF: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                else
-                {
-                    MessageBox.Show($"Respuesta de la API: {JsonConvert.SerializeObject(respuesta, Formatting.Indented)}", "Respuesta de la API", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al emitir factura: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al emitir factura: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void btnGenerarXML_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+                string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
+                comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Crear una lista para almacenar los detalles de los productos
+                var detallesProductos = new List<object>();
+
+                // Iterar sobre las filas del DataGridView
+                foreach (DataGridViewRow row in dgvDetalleventa.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
+                        int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+
+                        detallesProductos.Add(new
+                        {
+                            codProducto = row.Cells["OventaID"].Value?.ToString(),
+                            unidad = "NIU", // Añadido el campo unidad requerido
+                            descripcion = row.Cells["Descripcion"].Value?.ToString(),
+                            cantidad = cantidad,
+                            mtoValorUnitario = precioVenta,
+                            mtoValorVenta = precioVenta * cantidad,
+                            mtoBaseIgv = precioVenta * cantidad,
+                            porcentajeIgv = 18m,
+                            igv = (precioVenta * cantidad) * 0.18m,
+                            tipAfeIgv = 10,
+                            totalImpuestos = (precioVenta * cantidad) * 0.18m,
+                            mtoPrecioUnitario = precioVenta * 1.18m
+                        });
+                    }
+                }
+
+                // Obtener los totales desde los TextBox
+                decimal mtoOperGravadas = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
+                decimal mtoIGV = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim());
+                decimal subTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
+
+                var facturacionData = new
+                {
+                    ublVersion = "2.1",
+                    tipoOperacion = "0101",
+                    tipoDoc = "03",
+                    serie = txtSerie.Text,
+                    correlativo = txtCorrelativo.Text,
+                    fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                    formaPago = new
+                    {
+                        moneda = "PEN",
+                        tipo = comboMetodoPago.Text.Trim()
+                    },
+                    tipoMoneda = "PEN",
+                    client = new
+                    {
+                        tipoDoc = txtTipoDoc.Text.Trim(),
+                        numDoc = txtDocumento.Text.Trim(),
+                        rznSocial = txtNombre.Text.Trim(),
+                        address = new
+                        {
+                            direccion = txtDireccion.Text.Trim(),
+                            provincia = "LIMA",
+                            departamento = "LIMA",
+                            distrito = "LIMA",
+                            ubigueo = "150101"
+                        }
+                    },
+                    company = new
+                    {
+                        ruc = 20482329731,
+                        razonSocial = "Minerva",
+                        nombreComercial = "Minerva",
+                        address = new
+                        {
+                            direccion = "Av. America Oeste Mz H Lt 27, Trujillo, Peru",
+                            provincia = "Trujillo",
+                            departamento = "La Libertad",
+                            distrito = "Trujillo",
+                            ubigueo = "150101"
+                        }
+                    },
+                    mtoOperGravadas = mtoOperGravadas,
+                    mtoIGV = mtoIGV,
+                    valorVenta = mtoOperGravadas,
+                    totalImpuestos = mtoIGV,
+                    subTotal = subTotal,
+                    mtoImpVenta = subTotal,
+                    details = detallesProductos,
+                    legends = new[] {
+                new {
+                    code = "1000",
+                    value = ConvertirNumeroALetras(subTotal) + " SOLES"
+                }
+            }
+                };
+
+                // Llamar a la API para generar el XML
+                string url = "https://facturacion.apisperu.com/api/v1/invoice/send";
+                dynamic respuesta = api.PostForJsonResponse(url, facturacionData);
+
+                // Verificar la respuesta y manejar el XML
+                if (respuesta != null)
+                {
+                    // Verificar si hay respuesta de SUNAT
+                    if (respuesta.sunatResponse != null)
+                    {
+                        string mensajeSunat = respuesta.sunatResponse.ToString();
+                        MessageBox.Show($"Respuesta de SUNAT: {mensajeSunat}", "Respuesta SUNAT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    // Verificar si hay XML firmado
+                    if (respuesta.xmlSigned != null)
+                    {
+                        // Guardar el XML en documentos
+                        string xmlPath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                            $"Comprobante_{txtSerie.Text}_{DateTime.Now:yyyyMMddHHmmss}.xml"
+                        );
+
+                        try
+                        {
+                            // Guardar el archivo XML
+                            File.WriteAllText(xmlPath, respuesta.xmlSigned.ToString());
+                            MessageBox.Show($"XML guardado en: {xmlPath}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Verificar si el archivo existe antes de intentar abrirlo
+                            if (File.Exists(xmlPath))
+                            {
+                                // Abrir el XML con el programa predeterminado
+                                var psi = new System.Diagnostics.ProcessStartInfo
+                                {
+                                    UseShellExecute = true,
+                                    FileName = xmlPath
+                                };
+
+                                // Intentar abrir el archivo
+                                System.Diagnostics.Process.Start(psi);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El archivo XML no se ha guardado correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error al guardar o abrir el XML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se recibió respuesta de la API", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar XML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         // Método para convertir número a letras (debes implementar esta función)
         private string ConvertirNumeroALetras(decimal numero)
@@ -318,11 +515,252 @@ namespace Proyecto_Minerva
                 txtTipoDoc.Text = cliente.TipoDoc; // Asumiendo que txtTipoDoc es un TextBox
                 txtNombre.Text = $"{cliente.Nombre} {cliente.Apellidos}"; // Asumiendo que tienes un TextBox para el nombre
                 txtDireccion.Text = cliente.Direccion; // Asumiendo que txtDireccion es un TextBox
+                txtEmail.Text = cliente.Email;
             }
             else
             {
                 MessageBox.Show("Cliente no encontrado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private MercadoPagoService _mpService;
+        private string _currentPaymentId;
+
+        private async void btnPagar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_mpService == null)
+                {
+                    _mpService = new MercadoPagoService("APP_USR-3059736720126511-110201-ffb51e4b1188ad50d8ddc71f649d0f84-1947200127"); // Reemplazar con tu access token
+                }
+
+                btnPagar.Enabled = false; // Deshabilitar el botón mientras se procesa
+
+                // Obtener el monto total del TextBox
+                decimal montoTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
+
+                // Generar un ID único para esta transacción
+                _currentPaymentId = Guid.NewGuid().ToString();
+
+                // Crear la preferencia de pago
+                string paymentUrl = await _mpService.CrearPreferencia(
+                    montoTotal,
+                    $"Pago Minerva - Orden #{_idVenta}",
+                    _currentPaymentId
+                );
+
+                // Abrir el navegador con la URL de pago
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = paymentUrl,
+                    UseShellExecute = true
+                });
+
+                // Iniciar verificación periódica del pago
+                await VerificarPagoPeriodicamenteAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al procesar el pago: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnPagar.Enabled = true; // Rehabilitar el botón
+            }
+        }
+        private async Task VerificarPagoPeriodicamenteAsync()
+        {
+            int intentos = 0;
+            const int maximoIntentos = 20; // 5 minutos máximo (15 segundos * 20 intentos)
+
+            while (intentos < maximoIntentos)
+            {
+                try
+                {
+                    bool pagoCorrecto = await _mpService.VerificarPago(_currentPaymentId);
+
+                    if (pagoCorrecto)
+                    {
+                        MessageBox.Show("¡Pago realizado con éxito!", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Aquí puedes actualizar el estado de la venta en tu base de datos
+                        // y continuar con el proceso de emisión del comprobante
+
+                        return;
+                    }
+
+                    await Task.Delay(15000); // Esperar 15 segundos entre cada verificación
+                    intentos++;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al verificar el pago: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            MessageBox.Show("El tiempo de espera para la verificación del pago ha expirado. " +
+                "Por favor, verifique manualmente el estado del pago.",
+                "Tiempo agotado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnGeneraXML_Click(object sender, EventArgs e)
+        {
+            // Validación de campos
+            if (string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+                string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
+                comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Crear una lista para almacenar los detalles de los productos
+                var detallesProductos = new List<object>();
+
+                // Iterar sobre las filas del DataGridView
+                foreach (DataGridViewRow row in dgvDetalleventa.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
+                        int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+
+                        detallesProductos.Add(new
+                        {
+                            codProducto = row.Cells["OventaID"].Value?.ToString(),
+                            unidad = "NIU",
+                            descripcion = row.Cells["Descripcion"].Value?.ToString(),
+                            cantidad = cantidad,
+                            mtoValorUnitario = precioVenta,
+                            mtoValorVenta = precioVenta * cantidad,
+                            mtoBaseIgv = precioVenta * cantidad,
+                            porcentajeIgv = 18m,
+                            igv = (precioVenta * cantidad) * 0.18m,
+                            tipAfeIgv = 10,
+                            totalImpuestos = (precioVenta * cantidad) * 0.18m,
+                            mtoPrecioUnitario = precioVenta * 1.18m
+                        });
+                    }
+                }
+
+                // Obtener los totales desde los TextBox
+                decimal mtoOperGravadas = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
+                decimal mtoIGV = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim());
+                decimal subTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
+
+                var facturacionData = new
+                {
+                    ublVersion = "2.1",
+                    tipoOperacion = "0101",
+                    tipoDoc = "03",
+                    serie = txtSerie.Text,
+                    correlativo = txtCorrelativo.Text,
+                    fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                    formaPago = new
+                    {
+                        moneda = "PEN",
+                        tipo = comboMetodoPago.Text.Trim()
+                    },
+                    tipoMoneda = "PEN",
+                    client = new
+                    {
+                        tipoDoc = txtTipoDoc.Text.Trim(),
+                        numDoc = txtDocumento.Text.Trim(),
+                        rznSocial = txtNombre.Text.Trim(),
+                        address = new
+                        {
+                            direccion = txtDireccion.Text.Trim(),
+                            provincia = "LIMA",
+                            departamento = "LIMA",
+                            distrito = "LIMA",
+                            ubigueo = "150101"
+                        }
+                    },
+                    company = new
+                    {
+                        ruc = "20482329731",
+                        razonSocial = "Minerva",
+                        nombreComercial = "Minerva",
+                        address = new
+                        {
+                            direccion = "Av. America Oeste Mz H Lt 27, Trujillo, Peru",
+                            provincia = "LIMA",
+                            departamento = "LIMA",
+                            distrito = "LIMA",
+                            ubigueo = "150101"
+                        }
+                    },
+                    mtoOperGravadas = mtoOperGravadas,
+                    mtoIGV = mtoIGV,
+                    valorVenta = mtoOperGravadas,
+                    totalImpuestos = mtoIGV,
+                    subTotal = subTotal,
+                    mtoImpVenta = subTotal,
+                    details = detallesProductos,
+                    legends = new[]
+                    {
+                new
+                {
+                    code = "1000",
+                    value = ConvertirNumeroALetras(subTotal) + " SOLES"
+                }
+            }
+                };
+
+                // Llamar a la API para generar el XML usando el nuevo cliente HTTP
+                string url = "https://facturacion.apisperu.com/api/v1/invoice/xml";
+                string xmlContent = api.PostForXmlResponse(url, facturacionData);
+
+                if (!string.IsNullOrEmpty(xmlContent))
+                {
+                    // Generar nombre de archivo único
+                    string xmlPath = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                        $"Comprobante_{txtSerie.Text}_{DateTime.Now:yyyyMMddHHmmss}.xml"
+                    );
+
+                    try
+                    {
+                        // Guardar el archivo XML
+                        File.WriteAllText(xmlPath, xmlContent);
+                        MessageBox.Show($"XML generado y guardado como: {xmlPath}", "Éxito",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Abrir el XML con el programa predeterminado
+                        var psi = new System.Diagnostics.ProcessStartInfo
+                        {
+                            UseShellExecute = true,
+                            FileName = xmlPath
+                        };
+                        System.Diagnostics.Process.Start(psi);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al guardar o abrir el XML: {ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo generar el XML. La respuesta está vacía.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar XML: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }

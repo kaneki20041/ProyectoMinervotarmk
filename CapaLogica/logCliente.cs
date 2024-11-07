@@ -42,7 +42,17 @@ namespace CapaLogica
         {
             return datCliente.Instancia.BuscarClientePorID(documento);
         }
-
+        public entCliente BuscarClientePorVentaID(int oventaID)
+        {
+            try
+            {
+                return datCliente.Instancia.BuscarClientePorVentaID(oventaID);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica al buscar cliente por venta ID: " + ex.Message);
+            }
+        }
         public List<string> ObtenerTiposClientes()
         {
             return datCliente.Instancia.ObtenerTiposClientes();

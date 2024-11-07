@@ -37,6 +37,11 @@ namespace CapaLogica
             return DatComprobanteventa.Instancia.GenerarNumeroComprobante(tipoComprobante);
         }
 
+        public string GenerarCorrelativo(string tipoComprobante)
+        {
+            // Llama al método de la capa de datos para generar el número de comprobante
+            return DatComprobanteventa.Instancia.GenerarCorrelativo(tipoComprobante);
+        }
 
     }
 }

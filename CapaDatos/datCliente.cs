@@ -108,7 +108,54 @@ namespace CapaDatos
             }
         }
 
+        public entCliente BuscarClientePorVentaID(int oventaID)
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            entCliente cliente = null;
 
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarClientePorVentaID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar parámetro de entrada
+                cmd.Parameters.AddWithValue("@OventaID", oventaID);
+
+                cn.Open();
+                dr = cmd.ExecuteReader();
+
+                // Leer los datos del cliente si existen resultados
+                if (dr.Read())
+                {
+                    cliente = new entCliente
+                    {
+                        Documento = Convert.ToInt32(dr["Documento"]),
+                        Nombre = dr["NombreCompleto"].ToString().Split(' ')[0], // Asignar solo el nombre
+                        Apellidos = string.Join(" ", dr["NombreCompleto"].ToString().Split(' ').Skip(1)), // Asignar el resto como apellidos
+                        Email = dr["Email"].ToString(),
+                        TipoDoc = dr["TipoDoc"].ToString(),
+                        Direccion = dr["Direccion"].ToString(),
+                    };
+                }
+
+                return cliente;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new Exception("Error al buscar el cliente por ID de venta: " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error inesperado: " + ex.Message);
+            }
+            finally
+            {
+                dr?.Close();
+                cmd?.Connection?.Close();
+            }
+        }
         public entCliente BuscarClientePorID(string documento)
         {
             SqlCommand cmd = null;

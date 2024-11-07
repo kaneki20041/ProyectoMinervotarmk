@@ -29,7 +29,7 @@ namespace Proyecto_Minerva
             this.Text = $"Sistema Minera - Usuario: {usuario.NombreCompleto}";
 
             // Si tienes un label para mostrar el usuario actual:
-            // lblUsuarioActual.Text = usuario.NombreCompleto;
+            lblUser.Text = usuario.NombreCompleto;
 
             // Configurar permisos según el rol del usuario
             ConfigurarPermisosSegunRol();

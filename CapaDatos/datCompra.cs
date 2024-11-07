@@ -73,6 +73,41 @@ namespace CapaDatos
             return lista;
         }
 
+        public string ContarCompras()
+        {
+            string totalCompras = string.Empty; // Inicializa la variable
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spCountCompra", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    try
+                    {
+                        cn.Open();
+                        // Ejecuta el lector para obtener el resultado
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            // Almacena todos los IDs de ventas en una lista
+                            List<int> idsCompras = new List<int>();
+                            while (dr.Read())
+                            {
+                                idsCompras.Add(Convert.ToInt32(dr["TotalCompras"])); // Lee el ID de venta
+                            }
+
+                            // Convierte la lista de IDs en una cadena separada por comas
+                            totalCompras = string.Join(", ", idsCompras);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al contar las ventas: " + ex.Message);
+                    }
+                }
+            }
+            return totalCompras; // Retorna los IDs de ventas
+        }
+
         public List<string> ListarUsuariosConectados()
         {
             List<string> lista = new List<string>(); // Cambia el tipo de la lista si necesitas un objeto más complejo

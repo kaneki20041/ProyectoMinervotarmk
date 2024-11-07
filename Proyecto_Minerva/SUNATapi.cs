@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System;
 using System.IO;
 using System.Net;
-using System.Text;
-
 using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Xml;
 
 namespace CapaPresentacion
 {
@@ -27,66 +14,129 @@ namespace CapaPresentacion
             this.token = token;
         }
 
-        public dynamic Post(string url, object body)
+        // Método para obtener respuesta JSON de SUNAT
+        public dynamic PostForJsonResponse(string url, object body)
         {
             string responseContent = string.Empty;
             try
             {
                 string jsonBody = JsonConvert.SerializeObject(body);
-                HttpWebRequest myWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                myWebRequest.Method = "POST";
-                myWebRequest.ContentType = "application/json";
-                myWebRequest.Headers["Authorization"] = $"Bearer {token}";
-                myWebRequest.Credentials = CredentialCache.DefaultCredentials;
-                myWebRequest.Proxy = null;
+                var response = SendRequest(url, jsonBody);
 
-                using (var streamWriter = new StreamWriter(myWebRequest.GetRequestStream()))
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
                 {
-                    streamWriter.Write(jsonBody);
-                    streamWriter.Flush();
+                    responseContent = reader.ReadToEnd();
                 }
 
-                using (HttpWebResponse myHttpWebResponse = (HttpWebResponse)myWebRequest.GetResponse())
-                using (Stream myStream = myHttpWebResponse.GetResponseStream())
+                if (string.IsNullOrWhiteSpace(responseContent))
                 {
-                    if (myHttpWebResponse.ContentType == "application/pdf")
-                    {
-                        // Guardar el PDF en la carpeta de Documentos del usuario
-                        string pdfPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Factura.pdf");
-                        using (var fileStream = new FileStream(pdfPath, FileMode.Create, FileAccess.Write))
-                        {
-                            myStream.CopyTo(fileStream);
-                        }
-                        return new { pdf_url = pdfPath };
-                    }
-                    else
-                    {
-                        using (StreamReader myStreamReader = new StreamReader(myStream))
-                        {
-                            responseContent = myStreamReader.ReadToEnd();
-                        }
-                        if (string.IsNullOrWhiteSpace(responseContent))
-                        {
-                            throw new Exception("La respuesta del servidor está vacía.");
-                        }
-                        return JsonConvert.DeserializeObject<dynamic>(responseContent);
-                    }
+                    throw new Exception("La respuesta del servidor está vacía.");
                 }
+
+                return JsonConvert.DeserializeObject<dynamic>(responseContent);
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                using (var stream = ex.Response?.GetResponseStream())
+                HandleException(ex, responseContent);
+                throw;
+            }
+        }
+
+        // Método para generar y obtener XML
+        public string PostForXmlResponse(string url, object body)
+        {
+            string responseContent = string.Empty;
+            try
+            {
+                string jsonBody = JsonConvert.SerializeObject(body);
+                var response = SendRequest(url, jsonBody);
+
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    responseContent = reader.ReadToEnd();
+                }
+
+                if (string.IsNullOrWhiteSpace(responseContent))
+                {
+                    throw new Exception("La respuesta del servidor está vacía.");
+                }
+
+                return responseContent;  // Retorna el XML como string
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, responseContent);
+                throw;
+            }
+        }
+
+        // Método para guardar PDF si es necesario
+        public string PostForPdfResponse(string url, object body)
+        {
+            try
+            {
+                string jsonBody = JsonConvert.SerializeObject(body);
+                var response = SendRequest(url, jsonBody);
+
+                if (response.ContentType == "application/pdf")
+                {
+                    string pdfPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Factura.pdf");
+                    using (Stream responseStream = response.GetResponseStream())
+                    using (var fileStream = new FileStream(pdfPath, FileMode.Create, FileAccess.Write))
+                    {
+                        responseStream.CopyTo(fileStream);
+                    }
+                    return pdfPath;
+                }
+
+                throw new Exception("La respuesta no es un PDF válido.");
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, string.Empty);
+                throw;
+            }
+        }
+
+        private HttpWebResponse SendRequest(string url, string jsonBody)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.Headers["Authorization"] = $"Bearer {token}";
+            request.Credentials = CredentialCache.DefaultCredentials;
+            request.Proxy = null;
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(jsonBody);
+                streamWriter.Flush();
+            }
+
+            return (HttpWebResponse)request.GetResponse();
+        }
+
+        private void HandleException(Exception ex, string responseContent)
+        {
+            if (ex is WebException webEx)
+            {
+                using (var stream = webEx.Response?.GetResponseStream())
                 using (var reader = new StreamReader(stream ?? Stream.Null))
                 {
                     responseContent = reader.ReadToEnd();
                 }
-                throw new Exception($"Error de red: {ex.Message}. Respuesta del servidor: {responseContent}");
+                throw new Exception($"Error de red: {webEx.Message}. Respuesta del servidor: {responseContent}");
             }
-            catch (Exception ex)
+            else if (ex is JsonException jsonEx)
+            {
+                throw new Exception($"Error al deserializar la respuesta JSON: {jsonEx.Message}");
+            }
+            else
             {
                 throw new Exception($"Error inesperado: {ex.Message}. Contenido de la respuesta: {responseContent}");
             }
         }
     }
 }
-

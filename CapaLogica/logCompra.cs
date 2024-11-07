@@ -32,6 +32,10 @@ namespace CapaLogica
                 throw e;
             }
         }
+        public string ContarCompras()
+        {
+            return datCompra.Instancia.ContarCompras();
+        }
         public List<string> ListarUsuariosConectados()
         {
             return datOVenta.Instancia.ListarUsuariosConectados();

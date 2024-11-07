@@ -121,6 +121,38 @@ namespace CapaDatos
                 }
             }
         }
+
+        public string GenerarCorrelativo(string tipoComprobante)
+        {
+            // Instancia de conexión a la base de datos
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                // Crear el comando con el nombre del procedimiento almacenado
+                using (SqlCommand cmd = new SqlCommand("spGenerarNumeroComprobanteCorrelativo", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Agregar el parámetro de entrada
+                    cmd.Parameters.AddWithValue("@TipoComprobante", tipoComprobante);
+
+                    // Definir el parámetro de salida
+                    SqlParameter nuevoNumeroParam = new SqlParameter
+                    {
+                        ParameterName = "@NuevoNumero",
+                        SqlDbType = SqlDbType.Int,
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(nuevoNumeroParam);
+
+                    // Abrir la conexión y ejecutar el procedimiento almacenado
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    // Convertir el resultado a string y retornar el número correlativo generado
+                    return nuevoNumeroParam.Value.ToString();
+                }
+            }
+        }
         #endregion Métodos
     }
 }
