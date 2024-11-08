@@ -30,6 +30,8 @@ namespace CapaPresentacion
         {
             dgvCategoria.Enabled = false;
             gbDatos.Enabled = false;
+            txtCategoria.Clear();
+            checkBox1.Checked = false;
         }
 
         public void Habilitado()

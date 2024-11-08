@@ -57,5 +57,21 @@ namespace CapaPresentacion
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Clear();
+            cbBusqueda.Text = "";
+        }
+
+        private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

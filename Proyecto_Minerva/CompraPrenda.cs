@@ -17,13 +17,7 @@ namespace Proyecto_Minerva
 
             cmbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             listarMetodoPago();
-            gbInfoUser.Enabled = false;
-            gbInfoProveedor.Enabled = false;
-            gbInfoPrenda.Enabled = false;
-            tablaCompras.Enabled = false;
-            cmbMonto.Enabled = false;
-            cmbMetodoPago.Enabled = false;
-            btnGrabar.Enabled = false;
+            Deshabilitar();
         }
 
         private void BuscProveedor_Click(object sender, EventArgs e)
@@ -278,11 +272,6 @@ namespace Proyecto_Minerva
             this.tablaCompras.Rows.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
         private void txtRUC_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verificar si la tecla presionada es un número (permitir sólo números del 0-9)
@@ -316,8 +305,7 @@ namespace Proyecto_Minerva
                 e.Handled = true;
             }
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+        public void Deshabilitar()
         {
             gbInfoUser.Enabled = false;
             gbInfoProveedor.Enabled = false;
@@ -326,6 +314,24 @@ namespace Proyecto_Minerva
             cmbMonto.Enabled = false;
             cmbMetodoPago.Enabled = false;
             btnGrabar.Enabled = false;
+        }
+        public void LimpiarVariables()
+        {
+            txtNombreRUC.Clear();
+            txtCantidad.Clear();
+            txtCategoria.Clear();
+            txtColegio.Clear();
+            txtNombrePrenda.Clear();
+            txtPrecioCompra.Clear();
+            txtRazonRUC.Clear();
+            txtRUC.Clear();
+            txtStock.Clear();
+            txtTalla.Clear();
+            txtVendedor.Clear();
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Deshabilitar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -360,6 +366,11 @@ namespace Proyecto_Minerva
         private void CompraPrenda_Load(object sender, EventArgs e)
         {
             CargarNombreCompleto();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

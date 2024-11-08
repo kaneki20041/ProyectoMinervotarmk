@@ -51,8 +51,6 @@ namespace CapaPresentacion
             listarUsuario();
             CambiarEncabezados();
             CriteriosBusqueda();
-
-
         }
 
         public void CriteriosBusqueda()
@@ -73,7 +71,6 @@ namespace CapaPresentacion
             dgvUsuarios.Columns["FechaRegistro"].HeaderText = "Fecha de Registro";
             dgvUsuarios.Columns["Correo"].HeaderText = "Correo Electrónico";
             dgvUsuarios.Columns["Estado"].HeaderText = "Estado"; // Cambiar el encabezado si es necesario
-
         }
 
         private void LimpiarVariables()
@@ -110,7 +107,6 @@ namespace CapaPresentacion
             dgvUsuarios.Columns["FechaRegistro"].DisplayIndex = 6; // Fecha
             dgvUsuarios.Columns["descripcion"].DisplayIndex = 7; // Rol
             dgvUsuarios.Columns["Estado"].DisplayIndex = 8; // Estado
-
         }
 
         private void btnNuevoUsuari_Click(object sender, EventArgs e)

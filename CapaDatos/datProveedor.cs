@@ -227,43 +227,44 @@ namespace CapaDatos
             return prov;
         }
 
-        //public Boolean ModificarProveedor(entProveedor prov)
-        //{
-        //    SqlCommand cmd = null;
-        //    Boolean modifica = false;
-        //    try
-        //    {
-        //        SqlConnection cn = Conexion.Instancia.Conectar();
-        //        cmd = new SqlCommand("spModificarProveedor", cn);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.AddWithValue("@RUC", prov.RUC);
-        //        cmd.Parameters.AddWithValue("@NomPro", prov.NomPro);
-        //        cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
-        //        cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
-        //        cmd.Parameters.AddWithValue("@Email", prov.Email);
-        //        cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
-        //        cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
-        //        cmd.Parameters.AddWithValue("@Estado", prov.Estado);
-        //        cn.Open();
-        //        int i = cmd.ExecuteNonQuery();
-        //        if (i > 0)
-        //        {
-        //            modifica = true;
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    finally
-        //    {
-        //        if (cmd != null && cmd.Connection != null)
-        //        {
-        //            cmd.Connection.Close();
-        //        }
-        //    }
-        //    return modifica;
-        //}
+        public Boolean ModificarProveedor(entProveedor prov)
+        {
+            SqlCommand cmd = null;
+            Boolean modifica = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spModificarProveedor", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RUC", prov.RUC);
+                cmd.Parameters.AddWithValue("@NombreComercial", prov.NombreComercial);
+                cmd.Parameters.AddWithValue("@RazonSocial", prov.RazonSocial);
+                cmd.Parameters.AddWithValue("@Direccion", prov.Direccion);
+                cmd.Parameters.AddWithValue("@Email", prov.Email);
+                cmd.Parameters.AddWithValue("@Telefono", prov.Telefono);
+                cmd.Parameters.AddWithValue("@Rubro", prov.Rubro);
+                cmd.Parameters.AddWithValue("@Distrito", prov.Distrito);
+                cmd.Parameters.AddWithValue("@Estado", prov.Estado);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    modifica = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return modifica;
+        }
 
         public entUbigeo BuscarUbigeo(string codigoUbigeo)
         {
@@ -305,35 +306,35 @@ namespace CapaDatos
             }
             return ubigeo;
         }
-        //public Boolean InhabilitarProveedor(string ruc)
-        //{
-        //    SqlCommand cmd = null;
-        //    Boolean inhabilita = false;
-        //    try
-        //    {
-        //        SqlConnection cn = Conexion.Instancia.Conectar();
-        //        cmd = new SqlCommand("spInhabilitarProveedor", cn);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.AddWithValue("@RUC", ruc);
-        //        cn.Open();
-        //        int i = cmd.ExecuteNonQuery();
-        //        if (i > 0)
-        //        {
-        //            inhabilita = true;
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    finally
-        //    {
-        //        if (cmd != null && cmd.Connection != null)
-        //        {
-        //            cmd.Connection.Close();
-        //        }
-        //    }
-        //    return inhabilita;
-        //}
+        public Boolean InhabilitarProveedor(string ruc)
+        {
+            SqlCommand cmd = null;
+            Boolean inhabilita = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInhabilitarProveedor", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RUC", ruc);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inhabilita = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return inhabilita;
+        }
     }
 }

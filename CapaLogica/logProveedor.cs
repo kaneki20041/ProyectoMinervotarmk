@@ -60,14 +60,14 @@ namespace CapaLogica
             return datProveedor.Instancia.BuscarUbigeo(codigoUbigeo);
         }
 
-        //public void ModificarProveedor(entProveedor prov)
-        //{
-        //    datProveedor.Instancia.ModificarProveedor(prov);
-        //}
-        //public void InhabilitarProveedor(string ruc)
-        //{
-        //    datProveedor.Instancia.InhabilitarProveedor(ruc);
-        //}
+        public void ModificarProveedor(entProveedor prov)
+        {
+            datProveedor.Instancia.ModificarProveedor(prov);
+        }
+        public void InhabilitarProveedor(string ruc)
+        {
+            datProveedor.Instancia.InhabilitarProveedor(ruc);
+        }
 
         #endregion metodos
     }

@@ -65,6 +65,34 @@ namespace CapaPresentacion
             }
         }
 
+        public async Task<string> ObtenerEstadoPago(string externalReference)
+        {
+            try
+            {
+                var client = new PaymentClient();
+                var searchRequest = new SearchRequest
+                {
+                    Filters = new Dictionary<string, object> { { "external_reference", externalReference } }
+                };
+
+                var searchResponse = await client.SearchAsync(searchRequest);
+                var payment = searchResponse.Results.FirstOrDefault();
+
+                if (payment != null)
+                {
+                    // Devuelve el estado del pago directamente (aprobado, pendiente, rechazado, etc.)
+                    return payment.Status;
+                }
+
+                return "No encontrado";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al verificar el pago: {ex.Message}");
+            }
+        }
+
+
         public async Task<bool> VerificarPago(string externalReference)
         {
             try

@@ -21,6 +21,7 @@ namespace CapaPresentacion
             listarPrendas();
             InicializarComboBoxes();
             groupBox1.Enabled = false;
+            dataGridView1.Enabled = false;
         }
         public void listarPrendas()
         {
@@ -214,8 +215,15 @@ namespace CapaPresentacion
         private void BtnRemovPro_Click(object sender, EventArgs e)
         {
             groupBox1.Enabled = false;
+            dataGridView1.Enabled = false;
+            LimpiarCampos();
+            LimpiarCamposPrenda();
         }
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Enabled = true;
+            dataGridView1.Enabled = true;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -253,22 +261,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Prendas1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            groupBox1.Enabled = true;
-
         }
     }
 }

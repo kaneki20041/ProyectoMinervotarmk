@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.btnThisMonth = new System.Windows.Forms.Button();
@@ -164,7 +164,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.MintCream;
             this.panel1.Controls.Add(this.lblNumOrders);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(190, 16);
@@ -194,7 +194,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.MintCream;
             this.panel2.Controls.Add(this.lblTotalRevenue);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(368, 16);
@@ -224,7 +224,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BackColor = System.Drawing.Color.MintCream;
             this.panel3.Controls.Add(this.lblTotalProfit);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(687, 16);
@@ -254,54 +254,55 @@
             // 
             // chartGrossRevenue
             // 
-            chartArea15.Name = "ChartArea1";
-            this.chartGrossRevenue.ChartAreas.Add(chartArea15);
-            legend15.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend15.Name = "Legend1";
-            this.chartGrossRevenue.Legends.Add(legend15);
+            this.chartGrossRevenue.BackColor = System.Drawing.Color.MintCream;
+            chartArea1.Name = "ChartArea1";
+            this.chartGrossRevenue.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Name = "Legend1";
+            this.chartGrossRevenue.Legends.Add(legend1);
             this.chartGrossRevenue.Location = new System.Drawing.Point(224, 99);
             this.chartGrossRevenue.Name = "chartGrossRevenue";
-            series15.ChartArea = "ChartArea1";
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            this.chartGrossRevenue.Series.Add(series15);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartGrossRevenue.Series.Add(series1);
             this.chartGrossRevenue.Size = new System.Drawing.Size(564, 297);
             this.chartGrossRevenue.TabIndex = 10;
-            title15.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            title15.Name = "Title1";
-            title15.Text = "Ingresos Brutos";
-            this.chartGrossRevenue.Titles.Add(title15);
+            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            title1.Name = "Title1";
+            title1.Text = "Ingresos Brutos";
+            this.chartGrossRevenue.Titles.Add(title1);
             // 
             // chartTopProducts
             // 
-            chartArea16.Name = "ChartArea1";
-            this.chartTopProducts.ChartAreas.Add(chartArea16);
-            legend16.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend16.Name = "Legend1";
-            this.chartTopProducts.Legends.Add(legend16);
+            chartArea2.Name = "ChartArea1";
+            this.chartTopProducts.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chartTopProducts.Legends.Add(legend2);
             this.chartTopProducts.Location = new System.Drawing.Point(803, 99);
             this.chartTopProducts.Name = "chartTopProducts";
-            series16.ChartArea = "ChartArea1";
-            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            series16.IsValueShownAsLabel = true;
-            series16.LabelForeColor = System.Drawing.Color.White;
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            this.chartTopProducts.Series.Add(series16);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartTopProducts.Series.Add(series2);
             this.chartTopProducts.Size = new System.Drawing.Size(327, 516);
             this.chartTopProducts.TabIndex = 11;
             this.chartTopProducts.Text = "chartTopProducts";
-            title16.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            title16.Name = "Title1";
-            title16.Text = "Top Prendas";
-            this.chartTopProducts.Titles.Add(title16);
+            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            title2.Name = "Title1";
+            title2.Text = "Top Prendas";
+            this.chartTopProducts.Titles.Add(title2);
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.MintCream;
             this.panel4.Controls.Add(this.lblNumProducts);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lblNumSuppliers);
@@ -419,6 +420,8 @@
             // dgvUnderstock
             // 
             this.dgvUnderstock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUnderstock.BackgroundColor = System.Drawing.Color.MintCream;
+            this.dgvUnderstock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUnderstock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUnderstock.Location = new System.Drawing.Point(20, 36);
             this.dgvUnderstock.Name = "dgvUnderstock";
@@ -427,7 +430,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackColor = System.Drawing.Color.MintCream;
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.dgvUnderstock);
             this.panel5.Location = new System.Drawing.Point(224, 411);
@@ -449,6 +452,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(1142, 627);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.groupBox1);

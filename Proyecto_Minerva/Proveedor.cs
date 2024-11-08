@@ -211,7 +211,7 @@ namespace Proyecto_Minerva
                 }
 
                 string razonSocial = txtRazonSocial.Text.Trim();
-                string nomPro = txtNombre.Text.Trim();
+                string nombreComercial = txtNombre.Text.Trim();
                 string direccion = txtDireccion.Text.Trim();
                 string email = txtEmail.Text.Trim();
                 string distrito = txtDistrito.Text.Trim();
@@ -219,16 +219,18 @@ namespace Proyecto_Minerva
 
                 entProveedor proveedorActualizado = new entProveedor
                 {
+                    NombreComercial = nombreComercial,
                     RazonSocial = razonSocial,
                     RUC = ruc,
                     Direccion = direccion,
                     Email = email,
                     Telefono = telefono,
                     Rubro = rubro,
+                    Distrito = distrito,
                     Estado = estado
                 };
 
-                //logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
+                logProveedor.Instancia.ModificarProveedor(proveedorActualizado);
                 MessageBox.Show("Proveedor modificado con éxito");
                 LimpiarCampos();
                 listarProveedor();
@@ -304,7 +306,7 @@ namespace Proyecto_Minerva
             {
                 try
                 {
-                    //logProveedor.Instancia.InhabilitarProveedor(txtRUC.Text);
+                    logProveedor.Instancia.InhabilitarProveedor(txtRUC.Text);
                     MessageBox.Show("Proveedor inhabilitado con éxito.");
                     txtRUC.Clear();
                     listarProveedor();
@@ -324,6 +326,7 @@ namespace Proyecto_Minerva
             btnAgregar.Enabled = false;
             btnInhabilitar.Enabled = false;
             btnModificar.Enabled = false;
+            LimpiarCampos();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

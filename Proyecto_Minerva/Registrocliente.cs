@@ -23,9 +23,7 @@ namespace Proyecto_Minerva
             InitializeComponent();
             listarCliente();
             InicializarComboBoxes();
-        }
-        private void Registrocliente_Load_1(object sender, EventArgs e)
-        {
+            Deshabilitar();
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
@@ -42,6 +40,11 @@ namespace Proyecto_Minerva
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Deshabilitar();
+            LimpiarCampos();
+        }
+        public void Deshabilitar()
+        {
             gboInformacion.Enabled = false;
             gbContacto.Enabled = false;
             gboDatosBusqueda.Enabled = false;
@@ -50,7 +53,6 @@ namespace Proyecto_Minerva
             btnModificar.Enabled = false;
             btnInhabilitar.Enabled = false;
             chkEstado.Enabled = false;
-            LimpiarCampos();
         }
 
         public void listarCliente()

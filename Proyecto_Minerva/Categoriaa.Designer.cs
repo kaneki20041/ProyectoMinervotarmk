@@ -28,160 +28,161 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvCategoria = new DataGridView();
-            btnAgregar = new Button();
-            btnModificar = new Button();
-            btnDeshabilitar = new Button();
-            checkBox1 = new CheckBox();
-            txtCategoria = new TextBox();
-            gbDatos = new GroupBox();
-            btnNuevo = new Button();
-            btnCancelar = new Button();
-            label15 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
-            gbDatos.SuspendLayout();
-            SuspendLayout();
+            this.dgvCategoria = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnDeshabilitar = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
+            this.gbDatos.SuspendLayout();
+            this.SuspendLayout();
             // 
             // dgvCategoria
             // 
-            dgvCategoria.BackgroundColor = Color.MintCream;
-            dgvCategoria.BorderStyle = BorderStyle.None;
-            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategoria.Location = new Point(353, 50);
-            dgvCategoria.Name = "dgvCategoria";
-            dgvCategoria.ReadOnly = true;
-            dgvCategoria.Size = new Size(448, 477);
-            dgvCategoria.TabIndex = 3;
+            this.dgvCategoria.BackgroundColor = System.Drawing.Color.MintCream;
+            this.dgvCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Location = new System.Drawing.Point(360, 89);
+            this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
+            this.dgvCategoria.Size = new System.Drawing.Size(426, 413);
+            this.dgvCategoria.TabIndex = 3;
             // 
             // btnAgregar
             // 
-            btnAgregar.BackColor = Color.LightBlue;
-            btnAgregar.FlatAppearance.BorderSize = 0;
-            btnAgregar.FlatStyle = FlatStyle.Flat;
-            btnAgregar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.Location = new Point(23, 146);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(105, 42);
-            btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgrega_Click;
+            this.btnAgregar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnAgregar.Location = new System.Drawing.Point(36, 142);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(90, 40);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgrega_Click);
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.LightBlue;
-            btnModificar.FlatAppearance.BorderSize = 0;
-            btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.Location = new Point(134, 146);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(105, 42);
-            btnModificar.TabIndex = 5;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = false;
-            btnModificar.Click += btnModificar_Click;
+            this.btnModificar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnModificar.Location = new System.Drawing.Point(132, 142);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(90, 40);
+            this.btnModificar.TabIndex = 5;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnDeshabilitar
             // 
-            btnDeshabilitar.BackColor = Color.LightBlue;
-            btnDeshabilitar.FlatAppearance.BorderSize = 0;
-            btnDeshabilitar.FlatStyle = FlatStyle.Flat;
-            btnDeshabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDeshabilitar.Location = new Point(81, 194);
-            btnDeshabilitar.Name = "btnDeshabilitar";
-            btnDeshabilitar.Size = new Size(105, 42);
-            btnDeshabilitar.TabIndex = 6;
-            btnDeshabilitar.Text = "Deshabilitar";
-            btnDeshabilitar.UseVisualStyleBackColor = false;
-            btnDeshabilitar.Click += btnDeshabilitar_Click;
+            this.btnDeshabilitar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnDeshabilitar.FlatAppearance.BorderSize = 0;
+            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnDeshabilitar.Location = new System.Drawing.Point(74, 188);
+            this.btnDeshabilitar.Name = "btnDeshabilitar";
+            this.btnDeshabilitar.Size = new System.Drawing.Size(102, 40);
+            this.btnDeshabilitar.TabIndex = 6;
+            this.btnDeshabilitar.Text = "Deshabilitar";
+            this.btnDeshabilitar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // checkBox1
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(98, 106);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(67, 21);
-            checkBox1.TabIndex = 7;
-            checkBox1.Text = "Estado";
-            checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(84, 101);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(67, 21);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Estado";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // txtCategoria
             // 
-            txtCategoria.Location = new Point(42, 69);
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(187, 22);
-            txtCategoria.TabIndex = 8;
+            this.txtCategoria.Location = new System.Drawing.Point(36, 69);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(161, 22);
+            this.txtCategoria.TabIndex = 8;
             // 
             // gbDatos
             // 
-            gbDatos.Controls.Add(label15);
-            gbDatos.Controls.Add(txtCategoria);
-            gbDatos.Controls.Add(checkBox1);
-            gbDatos.Controls.Add(btnDeshabilitar);
-            gbDatos.Controls.Add(btnAgregar);
-            gbDatos.Controls.Add(btnModificar);
-            gbDatos.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gbDatos.Location = new Point(27, 126);
-            gbDatos.Name = "gbDatos";
-            gbDatos.Size = new Size(268, 272);
-            gbDatos.TabIndex = 9;
-            gbDatos.TabStop = false;
-            gbDatos.Text = "Datos";
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.BackColor = Color.LightBlue;
-            btnNuevo.FlatAppearance.BorderSize = 0;
-            btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevo.Location = new Point(53, 418);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(105, 42);
-            btnNuevo.TabIndex = 10;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = false;
-            btnNuevo.Click += btnNuevo_Click;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.LightBlue;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(164, 418);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(105, 42);
-            btnCancelar.TabIndex = 11;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            this.gbDatos.Controls.Add(this.label15);
+            this.gbDatos.Controls.Add(this.txtCategoria);
+            this.gbDatos.Controls.Add(this.checkBox1);
+            this.gbDatos.Controls.Add(this.btnDeshabilitar);
+            this.gbDatos.Controls.Add(this.btnAgregar);
+            this.gbDatos.Controls.Add(this.btnModificar);
+            this.gbDatos.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.gbDatos.Location = new System.Drawing.Point(37, 123);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(262, 268);
+            this.gbDatos.TabIndex = 9;
+            this.gbDatos.TabStop = false;
+            this.gbDatos.Text = "Datos";
             // 
             // label15
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(42, 49);
-            label15.Name = "label15";
-            label15.Size = new Size(69, 17);
-            label15.TabIndex = 39;
-            label15.Text = "Categoria";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 49);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 17);
+            this.label15.TabIndex = 39;
+            this.label15.Text = "Categoria";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnNuevo.Location = new System.Drawing.Point(73, 429);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(90, 40);
+            this.btnNuevo.TabIndex = 10;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCancelar.Location = new System.Drawing.Point(169, 429);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 40);
+            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Categoriaa
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MintCream;
-            ClientSize = new Size(851, 573);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnNuevo);
-            Controls.Add(gbDatos);
-            Controls.Add(dgvCategoria);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Categoriaa";
-            Text = "Categoriaa";
-            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
-            gbDatos.ResumeLayout(false);
-            gbDatos.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(869, 603);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.gbDatos);
+            this.Controls.Add(this.dgvCategoria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Categoriaa";
+            this.Text = "Categoriaa";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

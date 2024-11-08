@@ -24,7 +24,7 @@ namespace Proyecto_Minerva
             InitializeComponent();
             IniciaComboBox();
             textBox13.TextChanged += TextBox13_TextChanged;
-
+            Deshabilitar();
         }
         public string NumVenta
         {
@@ -429,6 +429,33 @@ namespace Proyecto_Minerva
                 e.Handled = true;
             }
         }
+        private void Deshabilitar()
+        {
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            tablaVentas.Enabled = false;
+            textBox6.Enabled = false;
+            textBox13.Enabled = false;
+            textBox14.Enabled = false;
+            button1.Enabled = false;
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            groupBox1.Enabled = true;
+            groupBox2.Enabled = true;
+            groupBox3.Enabled = true;
+            tablaVentas.Enabled = true;
+            textBox6.Enabled = true;
+            textBox13.Enabled = true;
+            textBox14.Enabled = true;
+            button1.Enabled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Deshabilitar();
+        }
     }
 }

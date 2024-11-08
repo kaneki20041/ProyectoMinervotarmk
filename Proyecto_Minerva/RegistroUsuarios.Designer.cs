@@ -28,414 +28,415 @@
         /// </summary>
         private void InitializeComponent()
         {
-            gboDetalleUsuario = new GroupBox();
-            txtUsuario = new TextBox();
-            label10 = new Label();
-            btnBuscarDni = new FontAwesome.Sharp.IconButton();
-            txtID = new TextBox();
-            label7 = new Label();
-            cbEstado = new ComboBox();
-            cbRol = new ComboBox();
-            label6 = new Label();
-            label5 = new Label();
-            txtCorreo = new TextBox();
-            label4 = new Label();
-            txtPass = new TextBox();
-            txtNombre = new TextBox();
-            txtDocumento = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            btnInhabilitar = new Button();
-            btnModificar = new Button();
-            btnAgregar = new Button();
-            dgvUsuarios = new DataGridView();
-            btnCancelar = new Button();
-            btnNuevoUsuari = new Button();
-            dtFecha = new DateTimePicker();
-            gboxBusqueda = new GroupBox();
-            txtBusqueda = new TextBox();
-            btnLimpiar = new FontAwesome.Sharp.IconButton();
-            btnBuscarUsuario = new FontAwesome.Sharp.IconButton();
-            cbBusqueda = new ComboBox();
-            label8 = new Label();
-            label9 = new Label();
-            gboDetalleUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
-            gboxBusqueda.SuspendLayout();
-            SuspendLayout();
+            this.gboDetalleUsuario = new System.Windows.Forms.GroupBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnBuscarDni = new FontAwesome.Sharp.IconButton();
+            this.btnInhabilitar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnNuevoUsuari = new System.Windows.Forms.Button();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.gboxBusqueda = new System.Windows.Forms.GroupBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
+            this.btnBuscarUsuario = new FontAwesome.Sharp.IconButton();
+            this.cbBusqueda = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.gboDetalleUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            this.gboxBusqueda.SuspendLayout();
+            this.SuspendLayout();
             // 
             // gboDetalleUsuario
             // 
-            gboDetalleUsuario.Controls.Add(txtUsuario);
-            gboDetalleUsuario.Controls.Add(label10);
-            gboDetalleUsuario.Controls.Add(btnBuscarDni);
-            gboDetalleUsuario.Controls.Add(txtID);
-            gboDetalleUsuario.Controls.Add(label7);
-            gboDetalleUsuario.Controls.Add(cbEstado);
-            gboDetalleUsuario.Controls.Add(cbRol);
-            gboDetalleUsuario.Controls.Add(label6);
-            gboDetalleUsuario.Controls.Add(label5);
-            gboDetalleUsuario.Controls.Add(txtCorreo);
-            gboDetalleUsuario.Controls.Add(label4);
-            gboDetalleUsuario.Controls.Add(txtPass);
-            gboDetalleUsuario.Controls.Add(txtNombre);
-            gboDetalleUsuario.Controls.Add(txtDocumento);
-            gboDetalleUsuario.Controls.Add(label3);
-            gboDetalleUsuario.Controls.Add(label2);
-            gboDetalleUsuario.Controls.Add(label1);
-            gboDetalleUsuario.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gboDetalleUsuario.Location = new Point(39, 50);
-            gboDetalleUsuario.Name = "gboDetalleUsuario";
-            gboDetalleUsuario.Size = new Size(548, 238);
-            gboDetalleUsuario.TabIndex = 13;
-            gboDetalleUsuario.TabStop = false;
-            gboDetalleUsuario.Text = "Detalle del Usuario";
+            this.gboDetalleUsuario.Controls.Add(this.txtUsuario);
+            this.gboDetalleUsuario.Controls.Add(this.label10);
+            this.gboDetalleUsuario.Controls.Add(this.btnBuscarDni);
+            this.gboDetalleUsuario.Controls.Add(this.btnInhabilitar);
+            this.gboDetalleUsuario.Controls.Add(this.btnModificar);
+            this.gboDetalleUsuario.Controls.Add(this.txtID);
+            this.gboDetalleUsuario.Controls.Add(this.btnAgregar);
+            this.gboDetalleUsuario.Controls.Add(this.label7);
+            this.gboDetalleUsuario.Controls.Add(this.cbEstado);
+            this.gboDetalleUsuario.Controls.Add(this.cbRol);
+            this.gboDetalleUsuario.Controls.Add(this.label6);
+            this.gboDetalleUsuario.Controls.Add(this.label5);
+            this.gboDetalleUsuario.Controls.Add(this.txtCorreo);
+            this.gboDetalleUsuario.Controls.Add(this.label4);
+            this.gboDetalleUsuario.Controls.Add(this.txtPass);
+            this.gboDetalleUsuario.Controls.Add(this.txtNombre);
+            this.gboDetalleUsuario.Controls.Add(this.txtDocumento);
+            this.gboDetalleUsuario.Controls.Add(this.label3);
+            this.gboDetalleUsuario.Controls.Add(this.label2);
+            this.gboDetalleUsuario.Controls.Add(this.label1);
+            this.gboDetalleUsuario.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.gboDetalleUsuario.Location = new System.Drawing.Point(207, 43);
+            this.gboDetalleUsuario.Name = "gboDetalleUsuario";
+            this.gboDetalleUsuario.Size = new System.Drawing.Size(650, 244);
+            this.gboDetalleUsuario.TabIndex = 13;
+            this.gboDetalleUsuario.TabStop = false;
+            this.gboDetalleUsuario.Text = "Detalle del Usuario";
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(253, 40);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(151, 22);
-            txtUsuario.TabIndex = 15;
+            this.txtUsuario.Location = new System.Drawing.Point(290, 50);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(189, 22);
+            this.txtUsuario.TabIndex = 15;
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(196, 42);
-            label10.Name = "label10";
-            label10.Size = new Size(51, 17);
-            label10.TabIndex = 14;
-            label10.Text = "Usuario";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(359, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 17);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Usuario";
             // 
             // btnBuscarDni
             // 
-            btnBuscarDni.BackColor = Color.PowderBlue;
-            btnBuscarDni.FlatStyle = FlatStyle.Popup;
-            btnBuscarDni.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            btnBuscarDni.IconColor = Color.Black;
-            btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscarDni.IconSize = 15;
-            btnBuscarDni.Location = new Point(241, 91);
-            btnBuscarDni.Name = "btnBuscarDni";
-            btnBuscarDni.Size = new Size(34, 23);
-            btnBuscarDni.TabIndex = 13;
-            btnBuscarDni.UseVisualStyleBackColor = false;
-            btnBuscarDni.Click += btnBuscarDni_Click_1;
-            // 
-            // txtID
-            // 
-            txtID.Location = new Point(111, 42);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(47, 22);
-            txtID.TabIndex = 12;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(69, 42);
-            label7.Name = "label7";
-            label7.Size = new Size(20, 17);
-            label7.TabIndex = 11;
-            label7.Text = "ID";
-            // 
-            // cbEstado
-            // 
-            cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(340, 186);
-            cbEstado.Name = "cbEstado";
-            cbEstado.Size = new Size(129, 25);
-            cbEstado.TabIndex = 7;
-            // 
-            // cbRol
-            // 
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(340, 135);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(132, 25);
-            cbRol.TabIndex = 6;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(375, 166);
-            label6.Name = "label6";
-            label6.Size = new Size(48, 17);
-            label6.TabIndex = 10;
-            label6.Text = "Estado";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(387, 117);
-            label5.Name = "label5";
-            label5.Size = new Size(26, 17);
-            label5.TabIndex = 9;
-            label5.Text = "Rol";
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.Location = new Point(40, 141);
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(195, 22);
-            txtCorreo.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(109, 121);
-            label4.Name = "label4";
-            label4.Size = new Size(49, 17);
-            label4.TabIndex = 7;
-            label4.Text = "Correo";
-            // 
-            // txtPass
-            // 
-            txtPass.Location = new Point(40, 189);
-            txtPass.Name = "txtPass";
-            txtPass.Size = new Size(195, 22);
-            txtPass.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(305, 92);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(220, 22);
-            txtNombre.TabIndex = 3;
-            // 
-            // txtDocumento
-            // 
-            txtDocumento.Location = new Point(38, 92);
-            txtDocumento.Name = "txtDocumento";
-            txtDocumento.Size = new Size(197, 22);
-            txtDocumento.TabIndex = 2;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(94, 169);
-            label3.Name = "label3";
-            label3.Size = new Size(77, 17);
-            label3.TabIndex = 3;
-            label3.Text = "Contraseña";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(351, 72);
-            label2.Name = "label2";
-            label2.Size = new Size(118, 17);
-            label2.TabIndex = 2;
-            label2.Text = "Nombre completo";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(94, 72);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 17);
-            label1.TabIndex = 1;
-            label1.Text = "Documento";
+            this.btnBuscarDni.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarDni.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscarDni.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarDni.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarDni.IconSize = 15;
+            this.btnBuscarDni.Location = new System.Drawing.Point(219, 99);
+            this.btnBuscarDni.Name = "btnBuscarDni";
+            this.btnBuscarDni.Size = new System.Drawing.Size(29, 22);
+            this.btnBuscarDni.TabIndex = 13;
+            this.btnBuscarDni.UseVisualStyleBackColor = false;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click_1);
             // 
             // btnInhabilitar
             // 
-            btnInhabilitar.BackColor = Color.PowderBlue;
-            btnInhabilitar.FlatAppearance.BorderSize = 0;
-            btnInhabilitar.FlatStyle = FlatStyle.Flat;
-            btnInhabilitar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnInhabilitar.Location = new Point(737, 453);
-            btnInhabilitar.Name = "btnInhabilitar";
-            btnInhabilitar.Size = new Size(98, 40);
-            btnInhabilitar.TabIndex = 19;
-            btnInhabilitar.Text = "Inhabilitar";
-            btnInhabilitar.UseVisualStyleBackColor = false;
-            btnInhabilitar.Click += btnInhabilitar_Click;
+            this.btnInhabilitar.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnInhabilitar.FlatAppearance.BorderSize = 0;
+            this.btnInhabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInhabilitar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnInhabilitar.Location = new System.Drawing.Point(533, 153);
+            this.btnInhabilitar.Name = "btnInhabilitar";
+            this.btnInhabilitar.Size = new System.Drawing.Size(100, 45);
+            this.btnInhabilitar.TabIndex = 19;
+            this.btnInhabilitar.Text = "Inhabilitar";
+            this.btnInhabilitar.UseVisualStyleBackColor = false;
+            this.btnInhabilitar.Click += new System.EventHandler(this.btnInhabilitar_Click);
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.PowderBlue;
-            btnModificar.FlatAppearance.BorderSize = 0;
-            btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.Location = new Point(737, 407);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(98, 40);
-            btnModificar.TabIndex = 18;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = false;
-            btnModificar.Click += btnModificar_Click;
+            this.btnModificar.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnModificar.Location = new System.Drawing.Point(533, 102);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(100, 45);
+            this.btnModificar.TabIndex = 18;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(96, 50);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(41, 22);
+            this.txtID.TabIndex = 12;
             // 
             // btnAgregar
             // 
-            btnAgregar.BackColor = Color.PowderBlue;
-            btnAgregar.FlatAppearance.BorderSize = 0;
-            btnAgregar.FlatStyle = FlatStyle.Flat;
-            btnAgregar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnAgregar.Location = new Point(737, 361);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(98, 40);
-            btnAgregar.TabIndex = 17;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = false;
-            btnAgregar.Click += btnAgregar_Click;
+            this.btnAgregar.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnAgregar.Location = new System.Drawing.Point(533, 51);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(100, 45);
+            this.btnAgregar.TabIndex = 17;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(105, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(20, 17);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "ID";
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(329, 191);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(114, 25);
+            this.cbEstado.TabIndex = 7;
+            // 
+            // cbRol
+            // 
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(329, 141);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(114, 25);
+            this.cbRol.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(363, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Estado";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(370, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Rol";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(34, 144);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(168, 22);
+            this.txtCorreo.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(93, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Correo";
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(34, 194);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(168, 22);
+            this.txtPass.TabIndex = 4;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(290, 99);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(189, 22);
+            this.txtNombre.TabIndex = 3;
+            // 
+            // txtDocumento
+            // 
+            this.txtDocumento.Location = new System.Drawing.Point(33, 99);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(169, 22);
+            this.txtDocumento.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(81, 174);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 17);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Contraseña";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(359, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nombre";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(81, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Documento";
             // 
             // dgvUsuarios
             // 
-            dgvUsuarios.BackgroundColor = Color.MintCream;
-            dgvUsuarios.BorderStyle = BorderStyle.None;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(12, 294);
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.ReadOnly = true;
-            dgvUsuarios.RowTemplate.Height = 25;
-            dgvUsuarios.Size = new Size(701, 267);
-            dgvUsuarios.TabIndex = 20;
-            dgvUsuarios.CellDoubleClick += dgvUsuarios_CellDoubleClick;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.MintCream;
+            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Location = new System.Drawing.Point(12, 301);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowTemplate.Height = 25;
+            this.dgvUsuarios.Size = new System.Drawing.Size(700, 290);
+            this.dgvUsuarios.TabIndex = 20;
+            this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = Color.PowderBlue;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(737, 499);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(98, 40);
-            btnCancelar.TabIndex = 16;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            this.btnCancelar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnCancelar.Location = new System.Drawing.Point(740, 448);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(100, 45);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNuevoUsuari
             // 
-            btnNuevoUsuari.BackColor = Color.PowderBlue;
-            btnNuevoUsuari.FlatAppearance.BorderSize = 0;
-            btnNuevoUsuari.FlatStyle = FlatStyle.Flat;
-            btnNuevoUsuari.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNuevoUsuari.Location = new Point(737, 315);
-            btnNuevoUsuari.Name = "btnNuevoUsuari";
-            btnNuevoUsuari.Size = new Size(98, 40);
-            btnNuevoUsuari.TabIndex = 14;
-            btnNuevoUsuari.Text = "Nuevo";
-            btnNuevoUsuari.UseVisualStyleBackColor = false;
-            btnNuevoUsuari.Click += btnNuevoUsuari_Click;
+            this.btnNuevoUsuari.BackColor = System.Drawing.Color.LightBlue;
+            this.btnNuevoUsuari.FlatAppearance.BorderSize = 0;
+            this.btnNuevoUsuari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoUsuari.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnNuevoUsuari.Location = new System.Drawing.Point(740, 397);
+            this.btnNuevoUsuari.Name = "btnNuevoUsuari";
+            this.btnNuevoUsuari.Size = new System.Drawing.Size(100, 45);
+            this.btnNuevoUsuari.TabIndex = 14;
+            this.btnNuevoUsuari.Text = "Nuevo";
+            this.btnNuevoUsuari.UseVisualStyleBackColor = false;
+            this.btnNuevoUsuari.Click += new System.EventHandler(this.btnNuevoUsuari_Click);
             // 
             // dtFecha
             // 
-            dtFecha.CustomFormat = "dd-MM-yyyy";
-            dtFecha.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dtFecha.Format = DateTimePickerFormat.Custom;
-            dtFecha.Location = new Point(737, 12);
-            dtFecha.Name = "dtFecha";
-            dtFecha.Size = new Size(104, 22);
-            dtFecha.TabIndex = 15;
-            dtFecha.UseWaitCursor = true;
+            this.dtFecha.CustomFormat = "dd-MM-yyyy";
+            this.dtFecha.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFecha.Location = new System.Drawing.Point(767, 12);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(90, 22);
+            this.dtFecha.TabIndex = 15;
+            this.dtFecha.UseWaitCursor = true;
             // 
             // gboxBusqueda
             // 
-            gboxBusqueda.Controls.Add(txtBusqueda);
-            gboxBusqueda.Controls.Add(btnLimpiar);
-            gboxBusqueda.Controls.Add(btnBuscarUsuario);
-            gboxBusqueda.Controls.Add(cbBusqueda);
-            gboxBusqueda.Controls.Add(label8);
-            gboxBusqueda.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gboxBusqueda.Location = new Point(593, 50);
-            gboxBusqueda.Name = "gboxBusqueda";
-            gboxBusqueda.Size = new Size(221, 199);
-            gboxBusqueda.TabIndex = 21;
-            gboxBusqueda.TabStop = false;
-            gboxBusqueda.Text = "Buscar Usuario";
+            this.gboxBusqueda.Controls.Add(this.txtBusqueda);
+            this.gboxBusqueda.Controls.Add(this.btnLimpiar);
+            this.gboxBusqueda.Controls.Add(this.btnBuscarUsuario);
+            this.gboxBusqueda.Controls.Add(this.cbBusqueda);
+            this.gboxBusqueda.Controls.Add(this.label8);
+            this.gboxBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.gboxBusqueda.Location = new System.Drawing.Point(12, 43);
+            this.gboxBusqueda.Name = "gboxBusqueda";
+            this.gboxBusqueda.Size = new System.Drawing.Size(189, 244);
+            this.gboxBusqueda.TabIndex = 21;
+            this.gboxBusqueda.TabStop = false;
+            this.gboxBusqueda.Text = "Buscar Usuario";
             // 
             // txtBusqueda
             // 
-            txtBusqueda.Location = new Point(30, 100);
-            txtBusqueda.Name = "txtBusqueda";
-            txtBusqueda.Size = new Size(159, 22);
-            txtBusqueda.TabIndex = 14;
+            this.txtBusqueda.Location = new System.Drawing.Point(24, 122);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(137, 22);
+            this.txtBusqueda.TabIndex = 14;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.BackColor = Color.PowderBlue;
-            btnLimpiar.FlatStyle = FlatStyle.Popup;
-            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            btnLimpiar.IconColor = Color.Black;
-            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnLimpiar.IconSize = 15;
-            btnLimpiar.Location = new Point(122, 149);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(34, 23);
-            btnLimpiar.TabIndex = 15;
-            btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiar.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiar.IconSize = 15;
+            this.btnLimpiar.Location = new System.Drawing.Point(101, 166);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(29, 20);
+            this.btnLimpiar.TabIndex = 15;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // btnBuscarUsuario
             // 
-            btnBuscarUsuario.BackColor = Color.PowderBlue;
-            btnBuscarUsuario.FlatStyle = FlatStyle.Popup;
-            btnBuscarUsuario.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            btnBuscarUsuario.IconColor = Color.Black;
-            btnBuscarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnBuscarUsuario.IconSize = 15;
-            btnBuscarUsuario.Location = new Point(63, 149);
-            btnBuscarUsuario.Name = "btnBuscarUsuario";
-            btnBuscarUsuario.Size = new Size(34, 23);
-            btnBuscarUsuario.TabIndex = 14;
-            btnBuscarUsuario.UseVisualStyleBackColor = false;
-            btnBuscarUsuario.Click += btnBuscarUsuario_Click;
+            this.btnBuscarUsuario.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarUsuario.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnBuscarUsuario.IconColor = System.Drawing.Color.Black;
+            this.btnBuscarUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarUsuario.IconSize = 15;
+            this.btnBuscarUsuario.Location = new System.Drawing.Point(50, 166);
+            this.btnBuscarUsuario.Name = "btnBuscarUsuario";
+            this.btnBuscarUsuario.Size = new System.Drawing.Size(29, 20);
+            this.btnBuscarUsuario.TabIndex = 14;
+            this.btnBuscarUsuario.UseVisualStyleBackColor = false;
+            this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
             // cbBusqueda
             // 
-            cbBusqueda.FormattingEnabled = true;
-            cbBusqueda.Location = new Point(30, 65);
-            cbBusqueda.Name = "cbBusqueda";
-            cbBusqueda.Size = new Size(159, 25);
-            cbBusqueda.TabIndex = 14;
+            this.cbBusqueda.FormattingEnabled = true;
+            this.cbBusqueda.Location = new System.Drawing.Point(24, 85);
+            this.cbBusqueda.Name = "cbBusqueda";
+            this.cbBusqueda.Size = new System.Drawing.Size(137, 25);
+            this.cbBusqueda.TabIndex = 14;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(30, 45);
-            label8.Name = "label8";
-            label8.Size = new Size(73, 17);
-            label8.TabIndex = 12;
-            label8.Text = "Buscar por:";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Buscar por:";
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(684, 14);
-            label9.Name = "label9";
-            label9.Size = new Size(45, 17);
-            label9.TabIndex = 22;
-            label9.Text = "Fecha";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label9.Location = new System.Drawing.Point(713, 15);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Fecha";
             // 
             // RegistroUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MintCream;
-            ClientSize = new Size(851, 573);
-            Controls.Add(label9);
-            Controls.Add(gboxBusqueda);
-            Controls.Add(gboDetalleUsuario);
-            Controls.Add(btnInhabilitar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
-            Controls.Add(dgvUsuarios);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnNuevoUsuari);
-            Controls.Add(dtFecha);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "RegistroUsuarios";
-            Text = "RegistroUsuarios";
-            Load += RegistroUsuarios_Load;
-            gboDetalleUsuario.ResumeLayout(false);
-            gboDetalleUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
-            gboxBusqueda.ResumeLayout(false);
-            gboxBusqueda.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(869, 603);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.gboxBusqueda);
+            this.Controls.Add(this.gboDetalleUsuario);
+            this.Controls.Add(this.dgvUsuarios);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnNuevoUsuari);
+            this.Controls.Add(this.dtFecha);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "RegistroUsuarios";
+            this.Text = "RegistroUsuarios";
+            this.Load += new System.EventHandler(this.RegistroUsuarios_Load);
+            this.gboDetalleUsuario.ResumeLayout(false);
+            this.gboDetalleUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            this.gboxBusqueda.ResumeLayout(false);
+            this.gboxBusqueda.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

@@ -9,13 +9,13 @@ namespace Proyecto_Minerva
         {
             InitializeComponent();
             listarMetPago();
+            Deshabilitar();
         }
         private void Desc_Formpago_Load(object sender, EventArgs e)
         {
             txtid.Enabled = false;
             txtMetpago.Enabled = false;
             cbkEstMetPago.Enabled = false;
-
         }
         public void listarMetPago()
         {
@@ -23,6 +23,7 @@ namespace Proyecto_Minerva
         }
         private void button5_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
             txtid.Clear();
             txtMetpago.Enabled = true;
             txtid.Enabled = false;
@@ -31,16 +32,7 @@ namespace Proyecto_Minerva
             btnAgreMpag.Visible = true;
             btnModFpag.Visible = false;
             LimpiarVariables();
-
         }
-
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAgreMpag_Click(object sender, EventArgs e)
         {
             //insertar
@@ -58,19 +50,13 @@ namespace Proyecto_Minerva
             LimpiarVariables();
             listarMetPago();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void LimpiarVariables()
         {
             txtMetpago.Text = "";
         }
         private void button4_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
             txtid.Enabled = true;
             txtMetpago.Enabled = true;
             cbkEstMetPago.Enabled = false;
@@ -120,9 +106,16 @@ namespace Proyecto_Minerva
 
         private void btnEstado_Click(object sender, EventArgs e)
         {
+            groupBox2.Enabled = true;
             txtid.Enabled = true;
             txtMetpago.Enabled = false;
             cbkEstMetPago.Enabled = true;
+        }
+        public void Deshabilitar()
+        {
+            groupBox2.Enabled=false;
+            txtMetpago.Clear();
+            txtid.Clear();
         }
     }
 }
