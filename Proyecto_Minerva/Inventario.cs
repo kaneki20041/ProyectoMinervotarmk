@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Documents;
 using System.Windows.Forms;
 
@@ -31,61 +32,24 @@ namespace CapaPresentacion
         public Inventario()
         {
             InitializeComponent();
-            dgvInventario.CellDoubleClick += dgvInventario_CellDoubleClick;
-        }
-        private void Inventario_Load(object sender, EventArgs e)
-        {
-            ListarPrendas();
-
-            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
-
-
-            // Agregar opciones al comboBoxCriterio
-            cbBusqueda.Items.Add("Descripcion");
-            cbBusqueda.Items.Add("Talla");
-            cbBusqueda.Items.Add("Colegio");
-            cbBusqueda.Items.Add("PrecioVenta");
-
-            txtNuevoPrecio.Enabled = false;
-
-            gbBuscar.Enabled = false;
-            gbPrenda.Enabled = false;
+            dgvInvetario.CellDoubleClick += dgvInventario_CellDoubleClick;
         }
 
-
-        private void ListarPrendas()
+        private void AplicarFiltroPrenda()
         {
-            try
-            {
-                // Cargar la lista original de prendas
-                listaOriginalPrendas = logPrendas.Instancia.ListarPrendas();
-
-                // Asignar la lista al DataGridView sin filtrar
-                dgvInventario.DataSource = listaOriginalPrendas;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-        // Método para aplicar el filtro a las prendas basado en el comboBox y el textBox
-        private void AplicarFiltroPrendas()
-        {
-            // Asegúrate de que haya un valor seleccionado en el ComboBox
             if (cbBusqueda.SelectedItem == null) return;
 
-            // Obtener el filtro seleccionado y el texto de búsqueda
             string filtro = cbBusqueda.SelectedItem.ToString();
             string busqueda = txtBuscar.Text.ToLower();
 
-            // Filtrar la lista original de prendas, no la lista actual del DataGridView
             var prendasFiltradas = listaOriginalPrendas.Where(p =>
             {
                 switch (filtro)
                 {
                     case "Descripcion":
                         return p.Descripcion.ToLower().Contains(busqueda);
+                    case "Categoria":
+                        return p.Categoria.ToLower().Contains(busqueda);
                     case "Talla":
                         // Modificamos esta parte para manejar tallas numéricas y de letras
                         if (int.TryParse(busqueda, out int tallaNumero))
@@ -100,32 +64,37 @@ namespace CapaPresentacion
                         }
                     case "Colegio":
                         return p.Colegio.ToLower().Contains(busqueda);
-                    case "PrecioVenta":
-                        return p.PrecioVenta.ToString().Contains(busqueda);
+
                     default:
                         return false;
                 }
             }).ToList();
 
-            // Actualizar el DataGridView con los resultados filtrados
-            dgvInventario.DataSource = prendasFiltradas;
+            dgvInvetario.DataSource = prendasFiltradas;
         }
 
-        private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        public void listarPrendas()
         {
-            AplicarFiltroPrendas(); // Llamar al método de filtrado
+            try
+            {
+                // Cargar la lista original de prendas
+                listaOriginalPrendas = logPrendas.Instancia.ListarPrendas();
+
+                // Asignar la lista al DataGridView sin filtrar
+                dgvInvetario.DataSource = listaOriginalPrendas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            AplicarFiltroPrendas(); // Llamar al método de filtrado
-        }
 
         private void dgvInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvInventario.Rows[e.RowIndex];
+                DataGridViewRow row = dgvInvetario.Rows[e.RowIndex];
 
                 // Asumiendo que tus TextBox se llaman txtID, txtDescripcion y txtPrecio
                 txtID.Text = row.Cells["PrendaID"].Value.ToString();
@@ -138,6 +107,7 @@ namespace CapaPresentacion
             txtDescripcion.Enabled = false;
             txtPrecio.Enabled = false;
             txtNuevoPrecio.Enabled = true;
+            btnActualizar.Enabled = false;
         }
 
         private void btnEliminarFiltro_Click(object sender, EventArgs e)
@@ -148,35 +118,85 @@ namespace CapaPresentacion
 
         private void btnActualizarForm_Click(object sender, EventArgs e)
         {
-            txtID.Text = "";
-            txtDescripcion.Text = "";
-            txtPrecio.Text = "";
-            txtNuevoPrecio.Text = "";
-            txtID.Enabled = true;
-            txtDescripcion.Enabled = true;
-            txtPrecio.Enabled = true;
-            txtNuevoPrecio.Enabled = false;
-            gbPrenda.Enabled = true;
+            try
+            {
+                int prendaID = int.Parse(txtID.Text); // Asumiendo que tienes un TextBox para el ID
+                decimal nuevoPrecio = decimal.Parse(txtNuevoPrecio.Text); // Asumiendo que tienes un TextBox para el nuevo precio
+
+                // Llamada a la capa lógica
+                logPrendas.Instancia.ModificarPrecioUnidad(prendaID, nuevoPrecio);
+                MessageBox.Show("Precio actualizado correctamente.");
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Formato de entrada no válido. Asegúrese de ingresar un número.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+            }
+            listarPrendas();
+            limpiarCampos();
+
+            gbBuscar.Enabled = false;
+            gbPrenda.Enabled = false;
+
+
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             gbBuscar.Enabled = true;
         }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
+        
+        public void limpiarCampos()
         {
+            txtID.Text = "";
+            txtDescripcion.Text = "";
+            txtPrecio.Text = "";
+            txtNuevoPrecio.Text = "";
+        }
+
+        private void Inventario_Load_1(object sender, EventArgs e)
+        {
+            listarPrendas();
+            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtNuevoPrecio.Enabled = false;
+
+            gbBuscar.Enabled = false;
+            gbPrenda.Enabled = false;
 
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            gbBuscar.Enabled = true;
+            gbPrenda.Enabled = true;
+        }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            txtNuevoPrecio.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
+            gbBuscar.Enabled = false;
+            gbPrenda.Enabled = false;
+            limpiarCampos();
+
+        }
+
+        private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            AplicarFiltroPrenda();
         }
     }
 }

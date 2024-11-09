@@ -14,6 +14,8 @@ namespace CapaPresentacion
 {
     public partial class ReporteProveedor : Form
     {
+
+        private List<entProveedor> listaoriginalProveedores;
         public string idProveedor { get; private set; }
         public string razonSocial { get; private set; }
         public string ruc { get; private set; }
@@ -26,6 +28,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             listarReporteProveedor();
+            cbBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -64,6 +67,8 @@ namespace CapaPresentacion
             cbBusqueda.Text = "";
         }
 
+
+
         private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -71,7 +76,32 @@ namespace CapaPresentacion
 
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-
+            AplicarFiltroProveedores();
         }
+        private void AplicarFiltroProveedores()
+        {
+            if (cbBusqueda.SelectedItem == null) return;
+
+            string filtro = cbBusqueda.SelectedItem.ToString();
+            string busqueda = txtBusqueda.Text.ToLower();
+
+            var proveedoresFiltrados = listaoriginalProveedores.Where(p =>
+            {
+                switch (filtro)
+                {
+                    case "RazonSocial":
+                        return p.RazonSocial.ToLower().Contains(busqueda);
+                    case "Telefono":
+                        return p.Telefono.ToString().Contains(busqueda);
+                    case "RUC":
+                        return p.RUC.Contains(busqueda);
+                    default:
+                        return false;
+                }
+            }).ToList();
+
+            dgvProveedor.DataSource = proveedoresFiltrados;
+        }
+
     }
 }

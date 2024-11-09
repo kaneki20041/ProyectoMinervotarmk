@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cbBusqueda = new System.Windows.Forms.ComboBox();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
@@ -36,7 +35,6 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.gbPrenda = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNuevoPrecio = new System.Windows.Forms.TextBox();
             this.btnActualizarForm = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -48,22 +46,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            this.dgvInvetario = new System.Windows.Forms.DataGridView();
             this.gbBuscar.SuspendLayout();
             this.gbPrenda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvetario)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvInventario
-            // 
-            this.dgvInventario.BackgroundColor = System.Drawing.Color.MintCream;
-            this.dgvInventario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Location = new System.Drawing.Point(33, 282);
-            this.dgvInventario.Name = "dgvInventario";
-            this.dgvInventario.RowTemplate.Height = 25;
-            this.dgvInventario.Size = new System.Drawing.Size(798, 309);
-            this.dgvInventario.TabIndex = 0;
-            this.dgvInventario.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
             // 
             // label1
             // 
@@ -78,6 +65,11 @@
             // cbBusqueda
             // 
             this.cbBusqueda.FormattingEnabled = true;
+            this.cbBusqueda.Items.AddRange(new object[] {
+            "Descripcion",
+            "Talla",
+            "Colegio",
+            "Categoria"});
             this.cbBusqueda.Location = new System.Drawing.Point(44, 68);
             this.cbBusqueda.Name = "cbBusqueda";
             this.cbBusqueda.Size = new System.Drawing.Size(141, 25);
@@ -104,7 +96,7 @@
             this.btnEliminarFiltro.FlatAppearance.BorderSize = 0;
             this.btnEliminarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnEliminarFiltro.Location = new System.Drawing.Point(58, 157);
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(59, 154);
             this.btnEliminarFiltro.Name = "btnEliminarFiltro";
             this.btnEliminarFiltro.Size = new System.Drawing.Size(114, 45);
             this.btnEliminarFiltro.TabIndex = 51;
@@ -114,7 +106,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(44, 109);
+            this.txtBuscar.Location = new System.Drawing.Point(44, 111);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(141, 22);
             this.txtBuscar.TabIndex = 0;
@@ -126,9 +118,9 @@
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnActualizar.Location = new System.Drawing.Point(318, 100);
+            this.btnActualizar.Location = new System.Drawing.Point(286, 100);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(114, 45);
+            this.btnActualizar.Size = new System.Drawing.Size(162, 45);
             this.btnActualizar.TabIndex = 51;
             this.btnActualizar.Text = "Actualizar Prenda";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -136,7 +128,6 @@
             // 
             // gbPrenda
             // 
-            this.gbPrenda.Controls.Add(this.btnBuscar);
             this.gbPrenda.Controls.Add(this.txtNuevoPrecio);
             this.gbPrenda.Controls.Add(this.btnActualizarForm);
             this.gbPrenda.Controls.Add(this.txtPrecio);
@@ -155,20 +146,6 @@
             this.gbPrenda.TabStop = false;
             this.gbPrenda.Text = "Información Prenda";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.LightCyan;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnBuscar.Location = new System.Drawing.Point(212, 100);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 45);
-            this.btnBuscar.TabIndex = 54;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // txtNuevoPrecio
             // 
             this.txtNuevoPrecio.Location = new System.Drawing.Point(382, 54);
@@ -182,7 +159,7 @@
             this.btnActualizarForm.FlatAppearance.BorderSize = 0;
             this.btnActualizarForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarForm.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnActualizarForm.Location = new System.Drawing.Point(106, 100);
+            this.btnActualizarForm.Location = new System.Drawing.Point(149, 100);
             this.btnActualizarForm.Name = "btnActualizarForm";
             this.btnActualizarForm.Size = new System.Drawing.Size(100, 45);
             this.btnActualizarForm.TabIndex = 53;
@@ -275,33 +252,40 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dgvInvetario
+            // 
+            this.dgvInvetario.BackgroundColor = System.Drawing.Color.MintCream;
+            this.dgvInvetario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvetario.Location = new System.Drawing.Point(33, 271);
+            this.dgvInvetario.Name = "dgvInvetario";
+            this.dgvInvetario.Size = new System.Drawing.Size(798, 311);
+            this.dgvInvetario.TabIndex = 54;
+            // 
             // Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(869, 603);
+            this.Controls.Add(this.dgvInvetario);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gbPrenda);
             this.Controls.Add(this.gbBuscar);
-            this.Controls.Add(this.dgvInventario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventario";
             this.Text = "Inventario";
-            this.Click += new System.EventHandler(this.Inventario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            this.Load += new System.EventHandler(this.Inventario_Load_1);
             this.gbBuscar.ResumeLayout(false);
             this.gbBuscar.PerformLayout();
             this.gbPrenda.ResumeLayout(false);
             this.gbPrenda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvetario)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DataGridView dgvInventario;
         private Label label1;
         private ComboBox cbBusqueda;
         private GroupBox gbBuscar;
@@ -318,8 +302,8 @@
         private TextBox txtPrecio;
         private Label label5;
         private Button btnActualizarForm;
-        private Button btnBuscar;
         private Button btnNuevo;
         private Button btnCancelar;
+        private DataGridView dgvInvetario;
     }
 }

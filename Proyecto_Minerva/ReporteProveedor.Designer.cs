@@ -58,7 +58,7 @@
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(306, 26);
+            this.txtBusqueda.Location = new System.Drawing.Point(308, 29);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(168, 22);
             this.txtBusqueda.TabIndex = 14;
@@ -96,6 +96,10 @@
             // cbBusqueda
             // 
             this.cbBusqueda.FormattingEnabled = true;
+            this.cbBusqueda.Items.AddRange(new object[] {
+            "Telefono",
+            "Razon Social",
+            "RUC"});
             this.cbBusqueda.Location = new System.Drawing.Point(95, 26);
             this.cbBusqueda.Name = "cbBusqueda";
             this.cbBusqueda.Size = new System.Drawing.Size(148, 25);
