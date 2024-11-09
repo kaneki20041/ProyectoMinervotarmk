@@ -14,8 +14,8 @@ namespace CapaDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source= localhost; Initial Catalog = test3;" +//"User ID=sa; Password=123";
-                                "Integrated Security=true";
+            cn.ConnectionString = "Data Source=35.184.250.185; Initial Catalog=Minerva; User ID=sqlserver; Password=1234; Integrated Security=false";
+
 
             return cn;
         }
