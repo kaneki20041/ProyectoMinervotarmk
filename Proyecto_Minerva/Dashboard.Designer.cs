@@ -69,6 +69,7 @@
             this.dgvUnderstock = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnReporte = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -102,7 +103,6 @@
             // 
             // btnThisMonth
             // 
-            this.btnThisMonth.Enabled = false;
             this.btnThisMonth.Location = new System.Drawing.Point(43, 164);
             this.btnThisMonth.Name = "btnThisMonth";
             this.btnThisMonth.Size = new System.Drawing.Size(120, 30);
@@ -291,7 +291,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartTopProducts.Series.Add(series2);
-            this.chartTopProducts.Size = new System.Drawing.Size(327, 516);
+            this.chartTopProducts.Size = new System.Drawing.Size(327, 458);
             this.chartTopProducts.TabIndex = 11;
             this.chartTopProducts.Text = "chartTopProducts";
             title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -448,12 +448,23 @@
             this.label14.TabIndex = 2;
             this.label14.Text = "Prendas con Bajo Stock";
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Location = new System.Drawing.Point(813, 572);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(120, 30);
+            this.btnReporte.TabIndex = 15;
+            this.btnReporte.Text = "Reporte Venta";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(1142, 627);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
@@ -524,5 +535,6 @@
         private DataGridView dgvUnderstock;
         private Panel panel5;
         private Label label14;
+        private Button btnReporte;
     }
 }
