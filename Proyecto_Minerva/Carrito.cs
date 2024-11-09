@@ -588,5 +588,172 @@ namespace Proyecto_Minerva
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnEstadoSunat_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDocumento.Text.Trim()) || string.IsNullOrEmpty(txtNombre.Text.Trim()) ||
+                string.IsNullOrEmpty(txtDireccion.Text.Trim()) || string.IsNullOrEmpty(txtTipoDoc.Text.Trim()) ||
+                comboTipoComprobante.SelectedIndex == -1 || comboMetodoPago.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, rellene todos los campos del Cliente y Pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Crear una lista para almacenar los detalles de los productos
+                var detallesProductos = new List<object>();
+
+                // Iterar sobre las filas del DataGridView
+                foreach (DataGridViewRow row in dgvDetalleventa.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        decimal precioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value);
+                        int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+
+                        detallesProductos.Add(new
+                        {
+                            codProducto = row.Cells["OventaID"].Value?.ToString(),
+                            unidad = "NIU", // Añadido el campo unidad requerido
+                            descripcion = row.Cells["Descripcion"].Value?.ToString(),
+                            cantidad = cantidad,
+                            mtoValorUnitario = precioVenta,
+                            mtoValorVenta = precioVenta * cantidad,
+                            mtoBaseIgv = precioVenta * cantidad,
+                            porcentajeIgv = 18m,
+                            igv = (precioVenta * cantidad) * 0.18m,
+                            tipAfeIgv = 10,
+                            totalImpuestos = (precioVenta * cantidad) * 0.18m,
+                            mtoPrecioUnitario = precioVenta * 1.18m
+                        });
+                    }
+                }
+
+                // Obtener los totales desde los TextBox
+                decimal mtoOperGravadas = Convert.ToDecimal(txtTotalGravada.Text.Replace("S/", "").Trim());
+                decimal mtoIGV = Convert.ToDecimal(txtIGV.Text.Replace("S/", "").Trim());
+                decimal subTotal = Convert.ToDecimal(txtSubTotal.Text.Replace("S/", "").Trim());
+
+                var facturacionData = new
+                {
+                    ublVersion = "2.1",
+                    tipoOperacion = "0101",
+                    tipoDoc = "03",
+                    serie = txtSerie.Text,
+                    correlativo = txtCorrelativo.Text,
+                    fechaEmision = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                    formaPago = new
+                    {
+                        moneda = "PEN",
+                        tipo = comboMetodoPago.Text.Trim()
+                    },
+                    tipoMoneda = "PEN",
+                    client = new
+                    {
+                        tipoDoc = txtTipoDoc.Text.Trim(),
+                        numDoc = txtDocumento.Text.Trim(),
+                        rznSocial = txtNombre.Text.Trim(),
+                        address = new
+                        {
+                            direccion = txtDireccion.Text.Trim(),
+                            provincia = "LIMA",
+                            departamento = "LIMA",
+                            distrito = "LIMA",
+                            ubigueo = "150101"
+                        }
+                    },
+                    company = new
+                    {
+                        ruc = 20482329731,
+                        razonSocial = "Minerva",
+                        nombreComercial = "Minerva",
+                        address = new
+                        {
+                            direccion = "Av. America Oeste Mz H Lt 27, Trujillo, Peru",
+                            provincia = "Trujillo",
+                            departamento = "La Libertad",
+                            distrito = "Trujillo",
+                            ubigueo = "150101"
+                        }
+                    },
+                    mtoOperGravadas = mtoOperGravadas,
+                    mtoIGV = mtoIGV,
+                    valorVenta = mtoOperGravadas,
+                    totalImpuestos = mtoIGV,
+                    subTotal = subTotal,
+                    mtoImpVenta = subTotal,
+                    details = detallesProductos,
+                    legends = new[] {
+           new {
+               code = "1000",
+               value = ConvertirNumeroALetras(subTotal) + " SOLES"
+           }
+       }
+                };
+
+                // Llamar a la API para generar el XML
+                string url = "https://facturacion.apisperu.com/api/v1/invoice/send";
+                dynamic respuesta = api.PostForJsonResponse(url, facturacionData);
+
+                // Verificar la respuesta y manejar el XML
+                if (respuesta != null)
+                {
+                    // Verificar si hay respuesta de SUNAT
+                    if (respuesta.sunatResponse != null)
+                    {
+                        string mensajeSunat = respuesta.sunatResponse.ToString();
+                        MessageBox.Show($"Respuesta de SUNAT: {mensajeSunat}", "Respuesta SUNAT", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    // Verificar si hay XML firmado
+                    if (respuesta.xmlSigned != null)
+                    {
+                        // Guardar el XML en documentos
+                        string xmlPath = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                            $"Comprobante_{txtSerie.Text}_{DateTime.Now:yyyyMMddHHmmss}.xml"
+                        );
+
+                        try
+                        {
+                            // Guardar el archivo XML
+                            File.WriteAllText(xmlPath, respuesta.xmlSigned.ToString());
+                            MessageBox.Show($"XML guardado en: {xmlPath}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Verificar si el archivo existe antes de intentar abrirlo
+                            if (File.Exists(xmlPath))
+                            {
+                                // Abrir el XML con el programa predeterminado
+                                var psi = new System.Diagnostics.ProcessStartInfo
+                                {
+                                    UseShellExecute = true,
+                                    FileName = xmlPath
+                                };
+
+                                // Intentar abrir el archivo
+                                System.Diagnostics.Process.Start(psi);
+                            }
+                            else
+                            {
+                                MessageBox.Show("El archivo XML no se ha guardado correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error al guardar o abrir el XML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se recibió respuesta de la API", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar XML: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

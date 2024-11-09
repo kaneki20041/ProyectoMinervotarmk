@@ -31,6 +31,10 @@ namespace CapaLogica
             return DatComprobanteventa.Instancia.RegistrarComprobantePago(comprobante); // Llama al método de la capa de datos
         }
 
+        public int RegistrarComprobantePagoCompra(entComprobanteCompra comprobante)
+        {
+            return datComprobanteCompra.Instancia.RegistrarComprobantePagoCompra(comprobante); // Llama al método de la capa de datos
+        }
         public string GenerarNumeroComprobante(string tipoComprobante)
         {
             // Llama al método de la capa de datos para generar el número de comprobante

@@ -72,7 +72,33 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return lista;
         }
+        public decimal ObtenerMontoTotalPorCompra(int compraID)
+        {
+            decimal montoTotal = 0;
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spObtenerMontoTotalCompra", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@OcompraID", compraID);
 
+                    try
+                    {
+                        cn.Open();
+                        var result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            montoTotal = Convert.ToDecimal(result);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al obtener el monto total: " + ex.Message);
+                    }
+                }
+            }
+            return montoTotal;
+        }
         public string ContarCompras()
         {
             string totalCompras = string.Empty; // Inicializa la variable
@@ -106,6 +132,46 @@ namespace CapaDatos
                 }
             }
             return totalCompras; // Retorna los IDs de ventas
+        }
+        public List<entCompra> ListarItemsPorCompra(int compraID)
+        {
+            List<entCompra> lista = new List<entCompra>();
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("spListarCompras", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CompraID", compraID); // Añadimos el parámetro de entrada
+
+                    try
+                    {
+                        cn.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                entCompra compra = new entCompra
+                                {
+                                    idCompra = Convert.ToInt32(dr["OcompraID"]),
+                                    Monto = (decimal)(dr["Monto"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["Monto"])),
+                                    fechCompra = Convert.ToDateTime(dr["FechaRegistroC"]), // Fecha de registro de la compra
+                                    PrendaID = dr["PrendaID"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["PrendaID"]),
+                                    Descripcion = dr["DescripcionTalla"].ToString(), // Descripción con talla concatenada
+                                    Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                                    PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"])
+                                };
+
+                                lista.Add(compra);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Ocurrió un error al listar las compras: " + ex.Message);
+                    }
+                }
+            }
+            return lista;
         }
 
         public List<string> ListarUsuariosConectados()
@@ -157,9 +223,9 @@ namespace CapaDatos
                 cmd.Parameters.AddWithValue("@FechaRegistroC", Com.fechCompra); // La fecha de registro de la compra
                 cmd.Parameters.AddWithValue("@Monto", Com.Monto); // El monto de la compra
 
-                // Parámetro de retorno
-                SqlParameter m = new SqlParameter("@retorno", DbType.Int32);
-                m.Direction = ParameterDirection.ReturnValue;
+                // Parámetro de salida
+                SqlParameter m = new SqlParameter("@Retorno", SqlDbType.Int);
+                m.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(m);
 
                 // Abrir conexión y ejecutar
@@ -167,7 +233,7 @@ namespace CapaDatos
                 cmd.ExecuteNonQuery();
 
                 // Obtener el valor retornado por el procedimiento almacenado
-                idCom = Convert.ToInt32(cmd.Parameters["@retorno"].Value);
+                idCom = Convert.ToInt32(cmd.Parameters["@Retorno"].Value);
                 return idCom;
             }
             catch (Exception e)
@@ -179,6 +245,7 @@ namespace CapaDatos
                 if (cmd.Connection != null) cmd.Connection.Close();
             }
         }
+
 
 
         public Boolean InsertarDetCompra(entDetCompra dCom)

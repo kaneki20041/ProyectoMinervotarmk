@@ -90,7 +90,6 @@ namespace CapaDatos
             }
         }
 
-
         public string GenerarNumeroComprobante(string tipoComprobante)
         {
             using (SqlConnection cn = Conexion.Instancia.Conectar())
@@ -153,6 +152,8 @@ namespace CapaDatos
                 }
             }
         }
+
+
         #endregion Métodos
     }
 }

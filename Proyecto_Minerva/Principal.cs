@@ -292,7 +292,7 @@ namespace Proyecto_Minerva
 
         private void btn_IngMaterial_Click(object sender, EventArgs e)
         {
-            AbrirForm(new DetalleCompra());
+            //AbrirForm(new DetalleCompra());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

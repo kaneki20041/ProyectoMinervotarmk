@@ -51,6 +51,19 @@ namespace CapaLogica
         {
             return datProveedor.Instancia.BuscarProveedorPorRUC(ruc);
         }
+
+        public entProveedor BuscarProveedorporID(int oventaID)
+        {
+            try
+            {
+                return datProveedor.Instancia.BuscarProveedorPorCompraID(oventaID);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en la lógica al buscar cliente por venta ID: " + ex.Message);
+            }
+        }
+
         //public entProveedor BuscarProveedorPorNombre(string nombre)
         //{
         //    return datProveedor.Instancia.BuscarProveedorPorNombre(nombre);

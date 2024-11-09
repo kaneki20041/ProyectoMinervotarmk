@@ -75,6 +75,8 @@
             this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtNumCompra = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gbInfoPrenda.SuspendLayout();
             this.gbInfoUser.SuspendLayout();
             this.gbInfoProveedor.SuspendLayout();
@@ -84,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 51);
+            this.label2.Location = new System.Drawing.Point(25, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 1;
@@ -120,6 +122,7 @@
             // 
             this.txtRUC.Location = new System.Drawing.Point(102, 64);
             this.txtRUC.Name = "txtRUC";
+            this.txtRUC.ReadOnly = true;
             this.txtRUC.Size = new System.Drawing.Size(143, 22);
             this.txtRUC.TabIndex = 17;
             this.txtRUC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRUC_KeyPress);
@@ -357,14 +360,16 @@
             // 
             // gbInfoUser
             // 
+            this.gbInfoUser.Controls.Add(this.label7);
+            this.gbInfoUser.Controls.Add(this.txtNumCompra);
             this.gbInfoUser.Controls.Add(this.label3);
             this.gbInfoUser.Controls.Add(this.txtVendedor);
             this.gbInfoUser.Controls.Add(this.label2);
             this.gbInfoUser.Controls.Add(this.dateTimePicker1);
             this.gbInfoUser.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.gbInfoUser.Location = new System.Drawing.Point(413, 16);
+            this.gbInfoUser.Location = new System.Drawing.Point(415, 19);
             this.gbInfoUser.Name = "gbInfoUser";
-            this.gbInfoUser.Size = new System.Drawing.Size(284, 153);
+            this.gbInfoUser.Size = new System.Drawing.Size(284, 146);
             this.gbInfoUser.TabIndex = 49;
             this.gbInfoUser.TabStop = false;
             this.gbInfoUser.Text = "Informacion de Compra";
@@ -372,7 +377,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 86);
+            this.label3.Location = new System.Drawing.Point(48, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 17);
             this.label3.TabIndex = 52;
@@ -380,8 +385,9 @@
             // 
             // txtVendedor
             // 
-            this.txtVendedor.Location = new System.Drawing.Point(89, 48);
+            this.txtVendedor.Location = new System.Drawing.Point(99, 67);
             this.txtVendedor.Name = "txtVendedor";
+            this.txtVendedor.ReadOnly = true;
             this.txtVendedor.Size = new System.Drawing.Size(174, 22);
             this.txtVendedor.TabIndex = 51;
             this.txtVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -391,7 +397,7 @@
             this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(89, 82);
+            this.dateTimePicker1.Location = new System.Drawing.Point(129, 100);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(87, 22);
             this.dateTimePicker1.TabIndex = 14;
@@ -547,6 +553,25 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtNumCompra
+            // 
+            this.txtNumCompra.Location = new System.Drawing.Point(127, 35);
+            this.txtNumCompra.Name = "txtNumCompra";
+            this.txtNumCompra.ReadOnly = true;
+            this.txtNumCompra.Size = new System.Drawing.Size(100, 22);
+            this.txtNumCompra.TabIndex = 53;
+            this.txtNumCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 17);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "N° Compra";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // CompraPrenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,6 +592,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CompraPrenda";
             this.Text = "Cambio";
+            this.Load += new System.EventHandler(this.CompraPrenda_Load_1);
             this.gbInfoPrenda.ResumeLayout(false);
             this.gbInfoPrenda.PerformLayout();
             this.gbInfoUser.ResumeLayout(false);
@@ -635,5 +661,7 @@
         private Label label3;
         private Button btnNuevo;
         private Button btnCancelar;
+        private Label label7;
+        private TextBox txtNumCompra;
     }
 }

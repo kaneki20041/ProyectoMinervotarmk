@@ -35,7 +35,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtTipoDoc = new System.Windows.Forms.TextBox();
+            this.txtRubro = new System.Windows.Forms.TextBox();
             this.btnBuscarDoc = new FontAwesome.Sharp.IconButton();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.gbIDVenta = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxTipoComprobante = new System.Windows.Forms.TextBox();
             this.comboMetodoPago = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,6 +62,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnEmitirComprobante = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTotalExoneradas = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.detallito)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gbIDVenta.SuspendLayout();
@@ -106,7 +110,7 @@
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtTipoDoc);
+            this.groupBox1.Controls.Add(this.txtRubro);
             this.groupBox1.Controls.Add(this.btnBuscarDoc);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.txtNombre);
@@ -144,16 +148,16 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(290, 31);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 17);
+            this.label12.Size = new System.Drawing.Size(42, 17);
             this.label12.TabIndex = 59;
-            this.label12.Text = "Tipo Doc";
+            this.label12.Text = "Rubro";
             // 
-            // txtTipoDoc
+            // txtRubro
             // 
-            this.txtTipoDoc.Location = new System.Drawing.Point(356, 28);
-            this.txtTipoDoc.Name = "txtTipoDoc";
-            this.txtTipoDoc.Size = new System.Drawing.Size(123, 22);
-            this.txtTipoDoc.TabIndex = 58;
+            this.txtRubro.Location = new System.Drawing.Point(356, 28);
+            this.txtRubro.Name = "txtRubro";
+            this.txtRubro.Size = new System.Drawing.Size(123, 22);
+            this.txtRubro.TabIndex = 58;
             // 
             // btnBuscarDoc
             // 
@@ -244,9 +248,9 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.CustomFormat = "yy-MM-dd";
+            this.dateTimePicker2.CustomFormat = "dd-MM-yy";
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(766, 12);
+            this.dateTimePicker2.Location = new System.Drawing.Point(518, 13);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(85, 20);
             this.dateTimePicker2.TabIndex = 47;
@@ -255,7 +259,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.label3.Location = new System.Drawing.Point(631, 15);
+            this.label3.Location = new System.Drawing.Point(383, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 17);
             this.label3.TabIndex = 46;
@@ -263,7 +267,7 @@
             // 
             // gbIDVenta
             // 
-            this.gbIDVenta.Controls.Add(this.textBox1);
+            this.gbIDVenta.Controls.Add(this.txtBoxTipoComprobante);
             this.gbIDVenta.Controls.Add(this.comboMetodoPago);
             this.gbIDVenta.Controls.Add(this.label4);
             this.gbIDVenta.Controls.Add(this.label2);
@@ -275,14 +279,14 @@
             this.gbIDVenta.TabStop = false;
             this.gbIDVenta.Text = "INFORMACION PAGO";
             // 
-            // textBox1
+            // txtBoxTipoComprobante
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 22);
-            this.textBox1.TabIndex = 42;
-            this.textBox1.Text = "FACTURA";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxTipoComprobante.Location = new System.Drawing.Point(167, 35);
+            this.txtBoxTipoComprobante.Name = "txtBoxTipoComprobante";
+            this.txtBoxTipoComprobante.Size = new System.Drawing.Size(113, 22);
+            this.txtBoxTipoComprobante.TabIndex = 42;
+            this.txtBoxTipoComprobante.Text = "Factura";
+            this.txtBoxTipoComprobante.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboMetodoPago
             // 
@@ -325,6 +329,7 @@
             this.btnGeneraXML.TabIndex = 63;
             this.btnGeneraXML.Text = "DESCARGAR XML";
             this.btnGeneraXML.UseVisualStyleBackColor = false;
+            this.btnGeneraXML.Click += new System.EventHandler(this.btnGeneraXML_Click);
             // 
             // btnEstadoSunat
             // 
@@ -339,6 +344,7 @@
             this.btnEstadoSunat.TabIndex = 62;
             this.btnEstadoSunat.Text = "CONSULTAR ESTADO SUNAT";
             this.btnEstadoSunat.UseVisualStyleBackColor = false;
+            this.btnEstadoSunat.Click += new System.EventHandler(this.btnEstadoSunat_Click);
             // 
             // btnPagar
             // 
@@ -357,7 +363,7 @@
             // txtSubTotal
             // 
             this.txtSubTotal.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.txtSubTotal.Location = new System.Drawing.Point(669, 393);
+            this.txtSubTotal.Location = new System.Drawing.Point(678, 420);
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.Size = new System.Drawing.Size(128, 22);
             this.txtSubTotal.TabIndex = 59;
@@ -365,7 +371,7 @@
             // txtIGV
             // 
             this.txtIGV.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.txtIGV.Location = new System.Drawing.Point(669, 339);
+            this.txtIGV.Location = new System.Drawing.Point(678, 366);
             this.txtIGV.Name = "txtIGV";
             this.txtIGV.Size = new System.Drawing.Size(128, 22);
             this.txtIGV.TabIndex = 55;
@@ -373,7 +379,7 @@
             // txtTotalGravada
             // 
             this.txtTotalGravada.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.txtTotalGravada.Location = new System.Drawing.Point(669, 286);
+            this.txtTotalGravada.Location = new System.Drawing.Point(678, 259);
             this.txtTotalGravada.Name = "txtTotalGravada";
             this.txtTotalGravada.Size = new System.Drawing.Size(128, 22);
             this.txtTotalGravada.TabIndex = 57;
@@ -382,7 +388,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.label9.Location = new System.Drawing.Point(702, 373);
+            this.label9.Location = new System.Drawing.Point(711, 400);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 17);
             this.label9.TabIndex = 58;
@@ -392,7 +398,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.label8.Location = new System.Drawing.Point(713, 319);
+            this.label8.Location = new System.Drawing.Point(722, 346);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 17);
             this.label8.TabIndex = 56;
@@ -402,7 +408,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.label7.Location = new System.Drawing.Point(686, 266);
+            this.label7.Location = new System.Drawing.Point(695, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 17);
             this.label7.TabIndex = 54;
@@ -421,6 +427,45 @@
             this.btnEmitirComprobante.TabIndex = 53;
             this.btnEmitirComprobante.Text = "DESCARGAR PDF";
             this.btnEmitirComprobante.UseVisualStyleBackColor = false;
+            this.btnEmitirComprobante.Click += new System.EventHandler(this.btnEmitirComprobante_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd-MM-yy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(754, 14);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePicker1.TabIndex = 65;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 12, 9, 1, 53, 0, 0);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label1.Location = new System.Drawing.Point(619, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 17);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Fecha vencimiento";
+            // 
+            // txtTotalExoneradas
+            // 
+            this.txtTotalExoneradas.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.txtTotalExoneradas.Location = new System.Drawing.Point(678, 312);
+            this.txtTotalExoneradas.Name = "txtTotalExoneradas";
+            this.txtTotalExoneradas.Size = new System.Drawing.Size(128, 22);
+            this.txtTotalExoneradas.TabIndex = 67;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label14.Location = new System.Drawing.Point(691, 292);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(105, 17);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "Total exonerado";
             // 
             // DetalleCompra
             // 
@@ -428,6 +473,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(869, 603);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtTotalExoneradas);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnGeneraXML);
             this.Controls.Add(this.btnEstadoSunat);
             this.Controls.Add(this.btnPagar);
@@ -469,7 +518,7 @@
         private TextBox txtEmail;
         private Label label13;
         private Label label12;
-        private TextBox txtTipoDoc;
+        private TextBox txtRubro;
         private FontAwesome.Sharp.IconButton btnBuscarDoc;
         private TextBox txtDireccion;
         private TextBox txtNombre;
@@ -485,7 +534,7 @@
         private ComboBox comboMetodoPago;
         private Label label4;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtBoxTipoComprobante;
         private Button btnGeneraXML;
         private Button btnEstadoSunat;
         private Button btnPagar;
@@ -496,5 +545,9 @@
         private Label label8;
         private Label label7;
         private Button btnEmitirComprobante;
+        private DateTimePicker dateTimePicker1;
+        private Label label1;
+        private TextBox txtTotalExoneradas;
+        private Label label14;
     }
 }

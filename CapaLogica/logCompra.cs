@@ -52,6 +52,15 @@ namespace CapaLogica
 
             return a;
         }
+        public List<entCompra> ListarComprasPorId(int compraID)
+        {
+            return datCompra.Instancia.ListarItemsPorCompra(compraID);
+        }
+        public decimal ObtenerMontoTotalPorId(int compraID)
+        {
+            return datCompra.Instancia.ObtenerMontoTotalPorCompra(compraID);
+        }
+
         public void InsertarDetCompra(entDetCompra dCom)
         {
             try
@@ -61,6 +70,8 @@ namespace CapaLogica
             catch (Exception e)
             { throw e; }
         }
+
+
         #endregion metodos
     }
 }

@@ -165,7 +165,7 @@
             this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Archive;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Database;
             this.iconButton1.IconColor = System.Drawing.Color.Black;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 25;

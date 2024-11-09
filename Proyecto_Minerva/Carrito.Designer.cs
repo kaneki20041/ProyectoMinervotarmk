@@ -411,6 +411,7 @@ namespace Proyecto_Minerva
             this.btnEstadoSunat.TabIndex = 45;
             this.btnEstadoSunat.Text = "CONSULTAR ESTADO SUNAT";
             this.btnEstadoSunat.UseVisualStyleBackColor = false;
+            this.btnEstadoSunat.Click += new System.EventHandler(this.btnEstadoSunat_Click);
             // 
             // btnGeneraXML
             // 

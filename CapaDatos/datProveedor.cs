@@ -142,6 +142,60 @@ namespace CapaDatos
             return inserta;
         }
 
+        public entProveedor BuscarProveedorPorCompraID(int ocompraID)
+        {
+            SqlCommand cmd = null;
+            SqlDataReader dr = null;
+            entProveedor proveedor = null;
+
+            try
+            {
+                // Establecer la conexión a la base de datos
+                SqlConnection cn = Conexion.Instancia.Conectar();
+
+                // Configurar el comando para llamar al procedimiento almacenado
+                cmd = new SqlCommand("spBuscarProveedorporCompraID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar parámetro de entrada
+                cmd.Parameters.AddWithValue("@OcompraID", ocompraID);
+
+                // Abrir la conexión y ejecutar el comando
+                cn.Open();
+                dr = cmd.ExecuteReader();
+
+                // Verificar si hay resultados
+                if (dr.Read())
+                {
+                    // Asignar los valores al objeto proveedor
+                    proveedor = new entProveedor
+                    {
+                        RUC = dr["RUC"].ToString(),
+                        NombreComercial = dr["NombreComercial"].ToString(),
+                        Email = dr["Email"].ToString(),
+                        Rubro = dr["Rubro"].ToString(),
+                        Direccion = dr["Direccion"].ToString()
+                    };
+                }
+
+                return proveedor;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw new Exception("Error al buscar proveedor por ID de compra: " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error inesperado: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar el lector y la conexión
+                dr?.Close();
+                cmd?.Connection?.Close();
+            }
+        }
+
         //public entProveedor BuscarProveedorPorNombre(string nombre)
         //{
         //    SqlCommand cmd = null;

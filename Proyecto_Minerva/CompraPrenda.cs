@@ -2,6 +2,7 @@
 using CapaEntidad;
 using CapaLogica;
 using CapaPresentacion;
+using System.Transactions;
 
 namespace Proyecto_Minerva
 {
@@ -18,6 +19,12 @@ namespace Proyecto_Minerva
             cmbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             listarMetodoPago();
             Deshabilitar();
+        }
+
+        private void CompraPrenda_Load_1(object sender, EventArgs e)
+        {
+            CargarNombreCompleto();
+            CargarTotalCompras();
         }
 
         private void BuscProveedor_Click(object sender, EventArgs e)
@@ -118,9 +125,19 @@ namespace Proyecto_Minerva
                 }
 
                 // Validar que haya detalles en la tabla
-                if (tablaCompras.Rows.Count <= 1) // Considerando la fila nueva
+                if (tablaCompras.Rows.Count <= 1)
                 {
                     MessageBox.Show("Debe agregar al menos un detalle de compra", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Preguntar al usuario si ha terminado de registrar la compra
+                DialogResult result = MessageBox.Show("¿Has terminado de registrar la compra?", "Confirmación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("Puedes continuar agregando detalles a la compra.", "Información",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -129,6 +146,7 @@ namespace Proyecto_Minerva
                 entProveedor p = new entProveedor();
                 EntMetPago met = new EntMetPago();
                 entUsuario u = new entUsuario();
+                int idCom = 0;
 
                 try
                 {
@@ -151,33 +169,49 @@ namespace Proyecto_Minerva
                 Com.ID = p;
                 Com.RazonSocial = p;
 
-                // Iniciar la transacción de grabación
-                int idCom = logCompra.Instancia.InsertarCompra(Com);
+                // Usar TransactionScope para asegurar la integridad de la transacción
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    // Registrar la compra
+                    idCom = logCompra.Instancia.InsertarCompra(Com);
+                    if (idCom <= 0)
+                    {
+                        MessageBox.Show("Error al registrar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-                if (idCom <= 0)
-                {
-                    MessageBox.Show("Error al registrar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    // Grabar los detalles
+                    if (GrabarDetalle(idCom))
+                    {
+                        scope.Complete();
+                        MessageBox.Show("Compra registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al grabar los detalles de la compra.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
-                // Si la compra se registró correctamente, grabar los detalles
-                if (GrabarDetalle(idCom))
-                {
-                    MessageBox.Show("Compra registrada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    // Si hubo algún error en los detalles, informar al usuario
-                    MessageBox.Show("La compra se registró pero hubo errores en algunos detalles. " +
-                                  "Por favor, revise los mensajes de error mostrados.",
-                                  "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                // Redirigir al formulario DetalleCompra después de que la transacción haya sido completada
+                Form Principal = this.ParentForm;
+                Panel panelContainer = (Panel)Principal.Controls["panelconteiner"];
+                panelContainer.Controls.Clear();
+
+                DetalleCompra formDetalle = new DetalleCompra(idCom); // Asumiendo que DetalleCompra acepta un idCompra en su constructor
+                formDetalle.TopLevel = false;
+                formDetalle.FormBorderStyle = FormBorderStyle.None;
+                formDetalle.Dock = DockStyle.Fill;
+                panelContainer.Controls.Add(formDetalle);
+                formDetalle.Show();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al procesar la compra: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private bool GrabarDetalle(int cod)
         {
@@ -362,15 +396,22 @@ namespace Proyecto_Minerva
                 txtVendedor.Text = "No hay usuarios conectados"; // Mensaje alternativo
             }
         }
-
-        private void CompraPrenda_Load(object sender, EventArgs e)
+        private void CargarTotalCompras()
         {
-            CargarNombreCompleto();
+            logCompra logicaComprita = new logCompra();
+            string totalCompras = logicaComprita.ContarCompras();
+
+            txtNumCompra.Text = totalCompras; // Asumiendo que tienes un TextBox para mostrar el total
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
