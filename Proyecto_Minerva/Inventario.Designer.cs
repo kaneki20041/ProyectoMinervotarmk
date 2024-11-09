@@ -36,7 +36,9 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.gbPrenda = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNuevoPrecio = new System.Windows.Forms.TextBox();
+            this.btnActualizarForm = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnActualizarForm = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
@@ -63,6 +63,7 @@
             this.dgvInventario.RowTemplate.Height = 25;
             this.dgvInventario.Size = new System.Drawing.Size(798, 309);
             this.dgvInventario.TabIndex = 0;
+            this.dgvInventario.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
             // 
             // label1
             // 
@@ -81,6 +82,7 @@
             this.cbBusqueda.Name = "cbBusqueda";
             this.cbBusqueda.Size = new System.Drawing.Size(141, 25);
             this.cbBusqueda.TabIndex = 2;
+            this.cbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cbBusqueda_SelectedIndexChanged);
             // 
             // gbBuscar
             // 
@@ -108,6 +110,7 @@
             this.btnEliminarFiltro.TabIndex = 51;
             this.btnEliminarFiltro.Text = "Eliminar Filtro";
             this.btnEliminarFiltro.UseVisualStyleBackColor = false;
+            this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
             // 
             // txtBuscar
             // 
@@ -115,6 +118,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(141, 22);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnActualizar
             // 
@@ -128,6 +132,7 @@
             this.btnActualizar.TabIndex = 51;
             this.btnActualizar.Text = "Actualizar Prenda";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // gbPrenda
             // 
@@ -150,12 +155,40 @@
             this.gbPrenda.TabStop = false;
             this.gbPrenda.Text = "Información Prenda";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.LightCyan;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnBuscar.Location = new System.Drawing.Point(212, 100);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(100, 45);
+            this.btnBuscar.TabIndex = 54;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // txtNuevoPrecio
             // 
             this.txtNuevoPrecio.Location = new System.Drawing.Point(382, 54);
             this.txtNuevoPrecio.Name = "txtNuevoPrecio";
             this.txtNuevoPrecio.Size = new System.Drawing.Size(137, 22);
             this.txtNuevoPrecio.TabIndex = 7;
+            // 
+            // btnActualizarForm
+            // 
+            this.btnActualizarForm.BackColor = System.Drawing.Color.LightCyan;
+            this.btnActualizarForm.FlatAppearance.BorderSize = 0;
+            this.btnActualizarForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarForm.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnActualizarForm.Location = new System.Drawing.Point(106, 100);
+            this.btnActualizarForm.Name = "btnActualizarForm";
+            this.btnActualizarForm.Size = new System.Drawing.Size(100, 45);
+            this.btnActualizarForm.TabIndex = 53;
+            this.btnActualizarForm.Text = "Actualizar";
+            this.btnActualizarForm.UseVisualStyleBackColor = false;
+            this.btnActualizarForm.Click += new System.EventHandler(this.btnActualizarForm_Click);
             // 
             // txtPrecio
             // 
@@ -214,32 +247,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ID";
             // 
-            // btnActualizarForm
-            // 
-            this.btnActualizarForm.BackColor = System.Drawing.Color.LightCyan;
-            this.btnActualizarForm.FlatAppearance.BorderSize = 0;
-            this.btnActualizarForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizarForm.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnActualizarForm.Location = new System.Drawing.Point(106, 100);
-            this.btnActualizarForm.Name = "btnActualizarForm";
-            this.btnActualizarForm.Size = new System.Drawing.Size(100, 45);
-            this.btnActualizarForm.TabIndex = 53;
-            this.btnActualizarForm.Text = "Actualizar";
-            this.btnActualizarForm.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.LightCyan;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnBuscar.Location = new System.Drawing.Point(212, 100);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 45);
-            this.btnBuscar.TabIndex = 54;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.LightBlue;
@@ -282,6 +289,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventario";
             this.Text = "Inventario";
+            this.Click += new System.EventHandler(this.Inventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.gbBuscar.ResumeLayout(false);
             this.gbBuscar.PerformLayout();

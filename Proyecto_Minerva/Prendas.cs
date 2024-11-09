@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Prendas1 : Form
+    public partial class Prendas : Form
     {
-        public Prendas1()
+        public Prendas()
         {
             InitializeComponent();
             listarPrendas();

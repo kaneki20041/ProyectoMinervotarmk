@@ -31,6 +31,10 @@ namespace CapaLogica
         {
             datCategoria.Instancia.InsertaCat(gato);
         }
+        public void ModificarCat(entCategoria cat)
+        {
+            datCategoria.Instancia.ModificarCat(cat);
+        }
 
         #endregion Metodos
     }

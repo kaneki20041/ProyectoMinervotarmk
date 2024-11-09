@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Minerva
 {
-    partial class Desc_Formpago
+    partial class MetodosPago
     {
         /// <summary>
         /// Required designer variable.

@@ -24,7 +24,6 @@ namespace CapaDatos
             }
         }
         #endregion singleton
-        #region metodos
         //////////////////listado de Proveedores
         public List<entProveedor> ListarProveedor()
         {
@@ -64,8 +63,6 @@ namespace CapaDatos
             }
             return lista;
         }
-
-        #endregion metodos
         public List<string> ObtenerRubro()
         {
             List<string> rubro = new List<string>();

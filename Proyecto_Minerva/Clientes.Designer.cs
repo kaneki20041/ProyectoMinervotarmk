@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Minerva
 {
-    partial class Registrocliente
+    partial class Clientes
     {
         /// <summary>
         /// Required designer variable.

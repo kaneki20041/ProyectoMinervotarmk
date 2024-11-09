@@ -15,10 +15,10 @@ using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {
-    public partial class RegistroUsuarios : Form
+    public partial class Usuarios : Form
     {
         ApisPeru ApísPeru = new ApisPeru();
-        public RegistroUsuarios()
+        public Usuarios()
         {
             InitializeComponent();
 

@@ -37,7 +37,7 @@ namespace CapaDatos
                 while (dr.Read())
                 {
                     entCategoria gato = new entCategoria();
-                    gato.idactegoria = Convert.ToInt32(dr["CategoriaID"]);
+                    gato.categoriaID = Convert.ToInt32(dr["CategoriaID"]);
                     gato.descripcion = dr["Categoria"].ToString();
                     gato.estado = Convert.ToBoolean(dr["estado"]);
                     lista.Add(gato);
@@ -58,28 +58,88 @@ namespace CapaDatos
         }
 
         public void InsertaCat(entCategoria cat)
+        {
+            try
             {
-                try
-                {
-                    SqlConnection cn = Conexion.Instancia.Conectar();
-                    SqlCommand cmd = new SqlCommand("spAgregarCategoria", cn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                SqlCommand cmd = new SqlCommand("spAgregarCategoria", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@descripcion", cat.descripcion);
-                    cmd.Parameters.AddWithValue("@estado", cat.estado);
+                cmd.Parameters.AddWithValue("@descripcion", cat.descripcion);
+                cmd.Parameters.AddWithValue("@estado", cat.estado);
 
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-
-
-                }
+                cn.Open();
+                cmd.ExecuteNonQuery();
+             }
                 catch (Exception ex)
-                {
-                    throw ex;
-
-                }
-            }
+             {
+                throw ex;
+             }
         }
 
+        public Boolean ModificarCat(entCategoria cat)
+        {
+            SqlCommand cmd = null;
+            Boolean modifica = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spModificarCategoria", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CategoriaID", cat.categoriaID);
+                cmd.Parameters.AddWithValue("@Estado", cat.estado);
+                cmd.Parameters.AddWithValue("@Categoria", cat.descripcion);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    modifica = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return modifica;
+        }
+
+        public Boolean InhabilitarCat(entCategoria cat)
+        {
+            SqlCommand cmd = null;
+            Boolean inhabilita = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spInhabilitarCategoria", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CategoriaID", cat.categoriaID);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inhabilita = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return inhabilita;
+        }
         #endregion metodos
+    }
 }

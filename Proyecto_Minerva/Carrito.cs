@@ -39,7 +39,7 @@ namespace Proyecto_Minerva
 
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMwOTU1OTY1LCJleHAiOjE3MzEwNDIzNjV9.DFID5FNHt4ZjNka_9c9Ad9-msIWmI6WVpe2jDpJE4X1G2eu_E7kmajD4UtlugAcg8e9y_OLIax-mXZlXmq_4biDdHqPsubNWEKE2z-skdlc8vXqNDeIC-Q3VexLQz01lfLRCZDKYF_VTxknxrL77INAoxmoNSaCMjhYnvCMF1HhYhveSyDKBSuoRpplRlXuoOry8d26whLySfli_fFtfn-tFZW5InOR9wUi9ITehxxqKkeJ0UWv1rYUgSZICzXK9A-oTo7Enb__4cxChsSplLaBAtAQfLMCUMI0jymjfaM-7SOiopKHGhGPfrZrAviA9bPs5MoUpumZITT_1CJTNPuiUUy02k8nlsu4_fLhoU135X4_sqtrzbnyZW7peydXQ97I8487l8V44CNkKUOgigm5jgQcfkP5yPGDq25Zi2ErRGou6RNrBTrrcu0rDROyCc2HASLerzhIpYbT9NXGcVrNW6oSwmZwIwwVFn9GIBk5RVkMDEELgl32KHpCgjTk7TIpUSPn3EAsTrrrbz1WsvpLRVy_GzEc5l8hOm1gxyYYBnL42PXCTj63nLvx8olZXI9BZzzfE7xACnp1TrKDe4xdhwPbfG21IfkNEQA-c4RzfyFx7h8_E0MI3mG8vATtNmp7RjxQaoppybqnp36bCEGPLQEuUJZ0cNrpnVrcLumA";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMxMTMxOTM5LCJleHAiOjE3MzEyMTgzMzl9.VqpjeturaVEZaapwK3AOp8j9MZKIj3HhfkUSbScBftT8IlNtTq0yZ9C1sPzdAWprwzeiYMBNuLY7nx1rxvIjHwzvEv3lbDgLwq1SHi5waawubtOMs7LUVH3pdE-Q40nx7qPZzDxtf1mZi4iuq69ROeBd4cg9Py7bAWCwTUFV9I0aVqfmHdRaO41AXdQ3m9dY32Q62cxzSKfbDjfFGkDw2uVc5R_Y7fqThg_cZwCpEksxDgUaX5F9jCLFokDUn3vVNJto76ip5S1FvaUHhS11R3kV4HHX4g9hXXovoGUUBy_iV3lqSI5kZ8iFB49QSxa4bxVJaFNbOASYRrkj9LnLxKKN5sC1XWsLMC-Klmo43G7zYMcsEW2YEy-KbEPDiYZO9a2Mw6qM3oIieO-Izix1v39DI2wg7W8CsAc7wJBK1UKwzR2cq05L9PnyfHVd_0j-iiRhG-sqxoMlttJFo7C5iW47o_7oiE9QBD4OSgK4vANMWS6B1FsWExc3BpgxrAe3ZHl0hgJqlY3NHc44AcWxyv-6Nezcv6m7b-tHKYfnfu1lIRCfn3SPsYRtzMpnw15Kr3o2qHgqRMP6CATQ59Mo7_VXJpShJcyfoN-1o4yxejeGmAKx1YZXxl2nCc7gzp92ccpQDBa4aBkD5-qXmi_AvvXMD3c1wkvp-1BBZ0m4AMQ";
             api = new FacturacionApi(token);
             decimal montoTotal = logOVenta.Instancia.ObtenerMontoTotalPorId(_idVenta);
             txtTotalGravada.Text = $"S/ {montoTotal:F2}"; // Formatear como moneda
@@ -132,7 +132,6 @@ namespace Proyecto_Minerva
                 txtCorrelativo.Text = correlativo;
             }
         }
-
 
         private async void btnEmitirComprobante_Click(object sender, EventArgs e)
         {

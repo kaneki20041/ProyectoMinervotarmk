@@ -166,22 +166,6 @@ namespace CapaPresentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int prendaID = Convert.ToInt32(txtID.Text);
-                decimal nuevoPrecio = Convert.ToDecimal(txtNuevoPrecio.Text);
-
-                logPrendas logica = new logPrendas();
-                logica.ModificarPrecioUnidad(prendaID, nuevoPrecio);
-
-                MessageBox.Show("Precio modificado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                ListarPrendas();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al modificar el precio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
         }
 
@@ -191,11 +175,6 @@ namespace CapaPresentacion
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void Deshabilitar()
         {
 
         }

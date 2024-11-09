@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace Proyecto_Minerva
 {
-    public partial class Registrocliente : Form
+    public partial class Clientes : Form
     {
         ApisPeru ApísPeru = new ApisPeru();
 
-        public Registrocliente()
+        public Clientes()
         {
             InitializeComponent();
             listarCliente();

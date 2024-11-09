@@ -184,7 +184,7 @@ namespace Proyecto_Minerva
                         panelContainer.Controls.Clear();
 
                         // Crear nueva instancia del formulario de registro
-                        Registrocliente formRegistro = new Registrocliente();
+                        Clientes formRegistro = new Clientes();
                         formRegistro.TopLevel = false;
                         formRegistro.FormBorderStyle = FormBorderStyle.None;
                         formRegistro.Dock = DockStyle.Fill;

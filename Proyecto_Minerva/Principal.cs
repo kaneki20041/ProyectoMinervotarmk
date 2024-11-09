@@ -287,7 +287,7 @@ namespace Proyecto_Minerva
         }
         private void btn_Cliente_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Registrocliente());
+            AbrirForm(new Clientes());
         }
 
         private void btn_IngMaterial_Click(object sender, EventArgs e)
@@ -348,7 +348,7 @@ namespace Proyecto_Minerva
 
         private void btnMetodoPago_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Desc_Formpago());
+            AbrirForm(new MetodosPago());
         }
 
         private void btnProveedores_Click(object sender, EventArgs e)
@@ -358,7 +358,7 @@ namespace Proyecto_Minerva
 
         private void btnPrendas_Click(object sender, EventArgs e)
         {
-            AbrirForm(new Prendas1());
+            AbrirForm(new Prendas());
         }
 
         private void btnComprarPrendas_Click(object sender, EventArgs e)
@@ -373,7 +373,7 @@ namespace Proyecto_Minerva
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirForm(new RegistroUsuarios());
+            AbrirForm(new Usuarios());
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
