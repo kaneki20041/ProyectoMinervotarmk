@@ -72,32 +72,36 @@ namespace Proyecto_Minerva
 
             if ((this.txtRUC.Text.Trim() != "") && (txtCantidad.Text.Trim() != ""))
             {
-                if ((Convert.ToInt32(txtCantidad.Text) > 0) && (Convert.ToInt32(txtCantidad.Text) <= Convert.ToInt32(txtStock.Text)))
-                {
-                    if (confilas == 0)
-                    {
+                int cantidadSolicitada = Convert.ToInt32(txtCantidad.Text);
+                int stockDisponible = string.IsNullOrEmpty(txtStock.Text) ? 0 : Convert.ToInt32(txtStock.Text);
 
-                        tablaCompras.Rows.Add(txtNombrePrenda.Text, txtCategoria.Text, txtColegio.Text, txtTalla.Text, txtCantidad.Text, txtPrecioCompra.Text);
-                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
-                        tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
-                        confilas++;
-                    }
-                    else
-                    {
-                        tablaCompras.Rows.Add(txtNombrePrenda.Text, txtCategoria.Text, txtColegio.Text, txtTalla.Text, txtCantidad.Text, txtPrecioCompra.Text);
-                        decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
-                        tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
-                        confilas++;
-                    }
-                }
-                Total = 0;
-                foreach (DataGridViewRow Fila in tablaCompras.Rows)
+                if (cantidadSolicitada > 0)
                 {
 
-                    Total += Convert.ToInt32(Fila.Cells[6].Value);
+                    // Agregar a la tabla de compras
+                    tablaCompras.Rows.Add(txtNombrePrenda.Text, txtCategoria.Text, txtColegio.Text, txtTalla.Text, txtCantidad.Text, txtPrecioCompra.Text);
+                    decimal subTotal = Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[4].Value) * Convert.ToDecimal(tablaCompras.Rows[confilas].Cells[5].Value);
+                    tablaCompras.Rows[confilas].Cells[6].Value = subTotal;
+                    confilas++;
+
+                    // Recalcular el total
+                    Total = 0;
+                    foreach (DataGridViewRow Fila in tablaCompras.Rows)
+                    {
+                        Total += Convert.ToInt32(Fila.Cells[6].Value);
+                    }
+                    cmbMonto.Text = Total.ToString();
                 }
-                cmbMonto.Text = Total.ToString();
+                else
+                {
+                    MessageBox.Show("La cantidad debe ser mayor a 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -241,6 +245,7 @@ namespace Proyecto_Minerva
 
                         entPrendas pren = new entPrendas();
                         pren.Descripcion = fila.Cells[0].Value.ToString().Trim();
+                        pren.Talla = fila.Cells[3].Value.ToString().Trim();
                         detalleCompra.Prenda = pren;
 
                         // Validar y obtener la cantidad y precio

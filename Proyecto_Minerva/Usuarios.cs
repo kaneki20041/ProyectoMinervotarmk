@@ -18,6 +18,8 @@ namespace CapaPresentacion
     public partial class Usuarios : Form
     {
         ApisPeru ApísPeru = new ApisPeru();
+        private List<entdescUsuario> listaUsuarios;
+
         public Usuarios()
         {
             InitializeComponent();
@@ -50,17 +52,8 @@ namespace CapaPresentacion
             listarRol();
             listarUsuario();
             CambiarEncabezados();
-            CriteriosBusqueda();
         }
 
-        public void CriteriosBusqueda()
-        {
-            // Agregar opciones al comboBoxCriterio
-            cbBusqueda.Items.Add("Documento");
-            cbBusqueda.Items.Add("Nombre Completo");
-            cbBusqueda.Items.Add("Rol");
-            cbBusqueda.Items.Add("Estado");
-        }
         public void CambiarEncabezados()
         {
             dgvUsuarios.Columns["UsuarioID"].HeaderText = "ID";
@@ -287,38 +280,40 @@ namespace CapaPresentacion
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            string criterio = cbBusqueda.SelectedItem.ToString(); // Obtiene la selección del ComboBox
-            entUsuario usuario = new entUsuario();
 
-            // Verificar el criterio seleccionado y establecer el valor en el objeto `usuario`
-            if (criterio == "Documento" && int.TryParse(txtBusqueda.Text, out int documento))
-            {
-                usuario.Documento = documento;
-            }
-            else if (criterio == "Nombre Completo")
-            {
-                usuario.NombreCompleto = txtBusqueda.Text;
-            }
-            else if (criterio == "Rol" && int.TryParse(txtBusqueda.Text, out int rol))
-            {
-                usuario.idRol = rol;
-            }
-            else if (criterio == "Estado")
-            {
-                // Convertir el texto ingresado a un valor booleano
-                usuario.Estado = txtBusqueda.Text.Equals("Activo", StringComparison.OrdinalIgnoreCase) ? true :
-                                 txtBusqueda.Text.Equals("Inactivo", StringComparison.OrdinalIgnoreCase) ? false : false;
+        }
 
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un criterio de búsqueda válido o ingrese un valor apropiado.");
-                return;
-            }
+        private void AplicarFiltroUsuario()
+        {
+            //if (cbBusqueda.SelectedItem == null) return;
 
-            // Llamada a la capa lógica para buscar usuarios con los criterios establecidos
-            List<entUsuario> resultados = logUsuario.Instancia.BuscarUsuarios(usuario);
-            dgvUsuarios.DataSource = resultados; // Muestra los resultados en el DataGridView
+            //string filtro = cbBusqueda.SelectedItem.ToString();
+            //string busqueda = txtBusqueda.Text.ToLower();
+
+            //var proveedoresFiltrados = listaUsuarios.Where(p =>
+            //{
+            //    switch (filtro)
+            //    {
+            //        case "Documento":
+            //            return p.Documento.ToString().Contains(busqueda);
+            //        case "Nombre":
+            //            return p.NombreCompleto.ToString().Contains(busqueda);
+            //        default:
+            //            return false;
+            //    }
+            //}).ToList();
+
+            //dgvUsuarios.DataSource = proveedoresFiltrados;
+        }
+
+        private void cbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //AplicarFiltroUsuario();
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

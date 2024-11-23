@@ -121,7 +121,7 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Agregar parámetro de entrada
-                cmd.Parameters.AddWithValue("@OventaID", oventaID);
+                cmd.Parameters.AddWithValue("@OrdenVentaID", oventaID);
 
                 cn.Open();
                 dr = cmd.ExecuteReader();

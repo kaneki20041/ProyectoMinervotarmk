@@ -24,6 +24,8 @@ namespace Proyecto_Minerva
             listarCliente();
             InicializarComboBoxes();
             Deshabilitar();
+            cbxDocumento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxTipoCliente.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
@@ -373,6 +375,11 @@ namespace Proyecto_Minerva
                 // Cancelar el evento si se intenta agregar más de 9 caracteres
                 e.Handled = true;
             }
+        }
+
+        private void btnBuscarDni_Click_1(object sender, EventArgs e)
+        {
+            consultar();
         }
     }
 }

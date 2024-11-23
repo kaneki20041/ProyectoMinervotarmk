@@ -22,6 +22,9 @@ namespace CapaPresentacion
             InicializarComboBoxes();
             groupBox1.Enabled = false;
             dataGridView1.Enabled = false;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         public void listarPrendas()
         {

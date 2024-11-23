@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaLogica;
 using CapaPresentacion;
 using System;
@@ -27,6 +28,8 @@ namespace Proyecto_Minerva
             btnAgregar.Enabled = false;
             btnInhabilitar.Enabled = false;
             btnModificar.Enabled = false;
+            comboBoxRubro.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
         }
         private void InicializarComboBoxes()
@@ -408,6 +411,26 @@ namespace Proyecto_Minerva
                 e.Handled = true;
             }
 
+        }
+
+        private void dvgProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dvgProveedor.Rows[e.RowIndex];
+
+                // Asumiendo que tus TextBox se llaman txtID, txtDescripcion y txtPrecio
+                txtNombre.Text = row.Cells["NombreComercial"].Value.ToString();
+                txtRazonSocial.Text = row.Cells["RazonSocial"].Value.ToString();
+                txtRUC.Text = row.Cells["RUC"].Value.ToString();
+                comboBoxRubro.Text = row.Cells["Rubro"].Value.ToString();
+                txtDireccion.Text = row.Cells["Direccion"].Value.ToString();
+                txtEmail.Text = row.Cells["Email"].Value.ToString();
+                txtTelefono.Text = row.Cells["Telefono"].Value.ToString();
+                //txtCodigoUbigeo.Text = row.Cells["UbigeoID"].Value.ToString();
+
+                // No actualizamos el "Nuevo Precio" ya que parece ser un campo para entrada del usuario
+            }
         }
     }
 }

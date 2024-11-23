@@ -75,6 +75,7 @@ namespace Proyecto_Minerva
             this.dgvDetalleventa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalleventa.Location = new System.Drawing.Point(12, 222);
             this.dgvDetalleventa.Name = "dgvDetalleventa";
+            this.dgvDetalleventa.ReadOnly = true;
             this.dgvDetalleventa.RowHeadersWidth = 51;
             this.dgvDetalleventa.RowTemplate.Height = 25;
             this.dgvDetalleventa.Size = new System.Drawing.Size(608, 369);
@@ -207,6 +208,7 @@ namespace Proyecto_Minerva
             this.txtIGV.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtIGV.Location = new System.Drawing.Point(682, 333);
             this.txtIGV.Name = "txtIGV";
+            this.txtIGV.ReadOnly = true;
             this.txtIGV.Size = new System.Drawing.Size(128, 22);
             this.txtIGV.TabIndex = 34;
             // 
@@ -215,6 +217,7 @@ namespace Proyecto_Minerva
             this.txtTotalGravada.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtTotalGravada.Location = new System.Drawing.Point(682, 287);
             this.txtTotalGravada.Name = "txtTotalGravada";
+            this.txtTotalGravada.ReadOnly = true;
             this.txtTotalGravada.Size = new System.Drawing.Size(128, 22);
             this.txtTotalGravada.TabIndex = 35;
             // 
@@ -223,6 +226,7 @@ namespace Proyecto_Minerva
             this.txtSubTotal.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtSubTotal.Location = new System.Drawing.Point(682, 381);
             this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.ReadOnly = true;
             this.txtSubTotal.Size = new System.Drawing.Size(128, 22);
             this.txtSubTotal.TabIndex = 36;
             // 
@@ -281,6 +285,7 @@ namespace Proyecto_Minerva
             // 
             this.txtEmail.Location = new System.Drawing.Point(124, 124);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(362, 22);
             this.txtEmail.TabIndex = 61;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -307,6 +312,7 @@ namespace Proyecto_Minerva
             // 
             this.txtTipoDoc.Location = new System.Drawing.Point(387, 28);
             this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.ReadOnly = true;
             this.txtTipoDoc.Size = new System.Drawing.Size(99, 22);
             this.txtTipoDoc.TabIndex = 58;
             // 
@@ -330,6 +336,7 @@ namespace Proyecto_Minerva
             // 
             this.txtDireccion.Location = new System.Drawing.Point(125, 91);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(362, 22);
             this.txtDireccion.TabIndex = 44;
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -338,6 +345,7 @@ namespace Proyecto_Minerva
             // 
             this.txtNombre.Location = new System.Drawing.Point(125, 60);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(362, 22);
             this.txtNombre.TabIndex = 43;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

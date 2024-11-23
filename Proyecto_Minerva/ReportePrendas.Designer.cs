@@ -137,9 +137,10 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvPrendas);
             this.Controls.Add(this.gboxBusqueda);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ReportePrendas";
-            this.Text = "ReportePrendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reporte Prendas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrendas)).EndInit();
             this.gboxBusqueda.ResumeLayout(false);
             this.gboxBusqueda.PerformLayout();

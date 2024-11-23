@@ -37,6 +37,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrevioVenta = new System.Windows.Forms.TextBox();
+            this.btnEditPro = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.BtnRemovPro = new System.Windows.Forms.Button();
-            this.btnEditPro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 235);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(690, 356);
@@ -167,6 +168,20 @@
             this.txtPrevioVenta.Name = "txtPrevioVenta";
             this.txtPrevioVenta.Size = new System.Drawing.Size(123, 22);
             this.txtPrevioVenta.TabIndex = 84;
+            // 
+            // btnEditPro
+            // 
+            this.btnEditPro.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnEditPro.FlatAppearance.BorderSize = 0;
+            this.btnEditPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditPro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.btnEditPro.Location = new System.Drawing.Point(716, 81);
+            this.btnEditPro.Name = "btnEditPro";
+            this.btnEditPro.Size = new System.Drawing.Size(104, 47);
+            this.btnEditPro.TabIndex = 80;
+            this.btnEditPro.Text = "Modificar";
+            this.btnEditPro.UseVisualStyleBackColor = false;
+            this.btnEditPro.Click += new System.EventHandler(this.btnEditPro_Click);
             // 
             // label4
             // 
@@ -306,21 +321,7 @@
             this.BtnRemovPro.UseVisualStyleBackColor = false;
             this.BtnRemovPro.Click += new System.EventHandler(this.BtnRemovPro_Click);
             // 
-            // btnEditPro
-            // 
-            this.btnEditPro.BackColor = System.Drawing.Color.PowderBlue;
-            this.btnEditPro.FlatAppearance.BorderSize = 0;
-            this.btnEditPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditPro.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.btnEditPro.Location = new System.Drawing.Point(716, 81);
-            this.btnEditPro.Name = "btnEditPro";
-            this.btnEditPro.Size = new System.Drawing.Size(104, 47);
-            this.btnEditPro.TabIndex = 80;
-            this.btnEditPro.Text = "Modificar";
-            this.btnEditPro.UseVisualStyleBackColor = false;
-            this.btnEditPro.Click += new System.EventHandler(this.btnEditPro_Click);
-            // 
-            // Prendas1
+            // Prendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -332,7 +333,7 @@
             this.Controls.Add(this.BtnRemovPro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Prendas1";
+            this.Name = "Prendas";
             this.Text = "Prendas1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -130,6 +130,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(90, 130);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(389, 22);
             this.txtEmail.TabIndex = 61;
             this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -156,6 +157,7 @@
             // 
             this.txtRubro.Location = new System.Drawing.Point(356, 28);
             this.txtRubro.Name = "txtRubro";
+            this.txtRubro.ReadOnly = true;
             this.txtRubro.Size = new System.Drawing.Size(123, 22);
             this.txtRubro.TabIndex = 58;
             // 
@@ -178,6 +180,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(90, 96);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(389, 22);
             this.txtDireccion.TabIndex = 44;
             this.txtDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -186,6 +189,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(90, 62);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(389, 22);
             this.txtNombre.TabIndex = 43;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -221,6 +225,7 @@
             // 
             this.txtDocumento.Location = new System.Drawing.Point(91, 28);
             this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.ReadOnly = true;
             this.txtDocumento.Size = new System.Drawing.Size(117, 22);
             this.txtDocumento.TabIndex = 33;
             this.txtDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -283,6 +288,7 @@
             // 
             this.txtBoxTipoComprobante.Location = new System.Drawing.Point(167, 35);
             this.txtBoxTipoComprobante.Name = "txtBoxTipoComprobante";
+            this.txtBoxTipoComprobante.ReadOnly = true;
             this.txtBoxTipoComprobante.Size = new System.Drawing.Size(113, 22);
             this.txtBoxTipoComprobante.TabIndex = 42;
             this.txtBoxTipoComprobante.Text = "Factura";
@@ -365,6 +371,7 @@
             this.txtSubTotal.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtSubTotal.Location = new System.Drawing.Point(678, 420);
             this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.ReadOnly = true;
             this.txtSubTotal.Size = new System.Drawing.Size(128, 22);
             this.txtSubTotal.TabIndex = 59;
             // 
@@ -373,6 +380,7 @@
             this.txtIGV.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtIGV.Location = new System.Drawing.Point(678, 366);
             this.txtIGV.Name = "txtIGV";
+            this.txtIGV.ReadOnly = true;
             this.txtIGV.Size = new System.Drawing.Size(128, 22);
             this.txtIGV.TabIndex = 55;
             // 
@@ -381,6 +389,7 @@
             this.txtTotalGravada.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtTotalGravada.Location = new System.Drawing.Point(678, 259);
             this.txtTotalGravada.Name = "txtTotalGravada";
+            this.txtTotalGravada.ReadOnly = true;
             this.txtTotalGravada.Size = new System.Drawing.Size(128, 22);
             this.txtTotalGravada.TabIndex = 57;
             // 
@@ -454,6 +463,7 @@
             this.txtTotalExoneradas.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtTotalExoneradas.Location = new System.Drawing.Point(678, 312);
             this.txtTotalExoneradas.Name = "txtTotalExoneradas";
+            this.txtTotalExoneradas.ReadOnly = true;
             this.txtTotalExoneradas.Size = new System.Drawing.Size(128, 22);
             this.txtTotalExoneradas.TabIndex = 67;
             // 
@@ -463,9 +473,9 @@
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.label14.Location = new System.Drawing.Point(691, 292);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(105, 17);
+            this.label14.Size = new System.Drawing.Size(103, 17);
             this.label14.TabIndex = 68;
-            this.label14.Text = "Total exonerado";
+            this.label14.Text = "Total Exonerado";
             // 
             // DetalleCompra
             // 

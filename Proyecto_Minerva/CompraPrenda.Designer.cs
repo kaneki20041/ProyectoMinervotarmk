@@ -56,6 +56,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.gbInfoUser = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNumCompra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtVendedor = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -75,8 +77,6 @@
             this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtNumCompra = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gbInfoPrenda.SuspendLayout();
             this.gbInfoUser.SuspendLayout();
             this.gbInfoProveedor.SuspendLayout();
@@ -374,6 +374,25 @@
             this.gbInfoUser.TabStop = false;
             this.gbInfoUser.Text = "Informacion de Compra";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 38);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 17);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "N° Compra";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // txtNumCompra
+            // 
+            this.txtNumCompra.Location = new System.Drawing.Point(127, 35);
+            this.txtNumCompra.Name = "txtNumCompra";
+            this.txtNumCompra.ReadOnly = true;
+            this.txtNumCompra.Size = new System.Drawing.Size(100, 22);
+            this.txtNumCompra.TabIndex = 53;
+            this.txtNumCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -478,6 +497,7 @@
             this.Column8});
             this.tablaCompras.Location = new System.Drawing.Point(60, 377);
             this.tablaCompras.Name = "tablaCompras";
+            this.tablaCompras.ReadOnly = true;
             this.tablaCompras.RowTemplate.Height = 25;
             this.tablaCompras.Size = new System.Drawing.Size(742, 214);
             this.tablaCompras.TabIndex = 54;
@@ -486,36 +506,43 @@
             // 
             this.Column2.HeaderText = "Prenda";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Categoria";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Colegio";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Talla";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Cantidad";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Precio";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Subtotal";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // cmbMetodoPago
             // 
@@ -552,25 +579,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // txtNumCompra
-            // 
-            this.txtNumCompra.Location = new System.Drawing.Point(127, 35);
-            this.txtNumCompra.Name = "txtNumCompra";
-            this.txtNumCompra.ReadOnly = true;
-            this.txtNumCompra.Size = new System.Drawing.Size(100, 22);
-            this.txtNumCompra.TabIndex = 53;
-            this.txtNumCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 17);
-            this.label7.TabIndex = 54;
-            this.label7.Text = "N° Compra";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // CompraPrenda
             // 

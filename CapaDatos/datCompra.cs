@@ -258,6 +258,7 @@ namespace CapaDatos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Descripcion", dCom.Prenda.Descripcion);
+                cmd.Parameters.AddWithValue("@Talla", dCom.Prenda.Talla);
                 cmd.Parameters.AddWithValue("@OcompraID", dCom.idCompra);
                 cmd.Parameters.AddWithValue("@Cantidad", dCom.cantPrenda);
                 cmd.Parameters.AddWithValue("@PrecioCompra", dCom.precPrenda);
@@ -281,7 +282,9 @@ namespace CapaDatos
                     cmd.Connection.Close();
                 }
             }
-        #endregion metodos
         }
+
+        #endregion metodos
+
     }
 }

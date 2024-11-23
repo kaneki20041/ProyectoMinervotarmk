@@ -20,17 +20,17 @@ namespace CapaPresentacion {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSetMostrarFecha")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet1 : global::System.Data.DataSet {
+    public partial class DataSetMostrarFecha : global::System.Data.DataSet {
         
-        private DataTable1DataTable tableDataTable1;
+        private spConsultaVentaPorRangoFechasDataTable tablespConsultaVentaPorRangoFechas;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataSet1() {
+        public DataSetMostrarFecha() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace CapaPresentacion {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSetMostrarFecha(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace CapaPresentacion {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["spConsultaVentaPorRangoFechas"] != null)) {
+                    base.Tables.Add(new spConsultaVentaPorRangoFechasDataTable(ds.Tables["spConsultaVentaPorRangoFechas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace CapaPresentacion {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable1DataTable DataTable1 {
+        public spConsultaVentaPorRangoFechasDataTable spConsultaVentaPorRangoFechas {
             get {
-                return this.tableDataTable1;
+                return this.tablespConsultaVentaPorRangoFechas;
             }
         }
         
@@ -127,7 +127,7 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet1 cln = ((DataSet1)(base.Clone()));
+            DataSetMostrarFecha cln = ((DataSetMostrarFecha)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace CapaPresentacion {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["spConsultaVentaPorRangoFechas"] != null)) {
+                    base.Tables.Add(new spConsultaVentaPorRangoFechasDataTable(ds.Tables["spConsultaVentaPorRangoFechas"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            this.tablespConsultaVentaPorRangoFechas = ((spConsultaVentaPorRangoFechasDataTable)(base.Tables["spConsultaVentaPorRangoFechas"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable1 != null)) {
-                    this.tableDataTable1.InitVars();
+                if ((this.tablespConsultaVentaPorRangoFechas != null)) {
+                    this.tablespConsultaVentaPorRangoFechas.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet1";
+            this.DataSetName = "DataSetMostrarFecha";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/DataSetMostrarFecha.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDataTable1 = new DataTable1DataTable();
-            base.Tables.Add(this.tableDataTable1);
+            this.tablespConsultaVentaPorRangoFechas = new spConsultaVentaPorRangoFechasDataTable();
+            base.Tables.Add(this.tablespConsultaVentaPorRangoFechas);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDataTable1() {
+        private bool ShouldSerializespConsultaVentaPorRangoFechas() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace CapaPresentacion {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet1 ds = new DataSet1();
+            DataSetMostrarFecha ds = new DataSetMostrarFecha();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,18 +270,16 @@ namespace CapaPresentacion {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        public delegate void spConsultaVentaPorRangoFechasRowChangeEventHandler(object sender, spConsultaVentaPorRangoFechasRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+        public partial class spConsultaVentaPorRangoFechasDataTable : global::System.Data.TypedTableBase<spConsultaVentaPorRangoFechasRow> {
             
-            private global::System.Data.DataColumn columnO_ventaID;
-            
-            private global::System.Data.DataColumn columnFecha;
+            private global::System.Data.DataColumn columnOrdenVentaID;
             
             private global::System.Data.DataColumn columnNombre;
             
@@ -289,12 +287,14 @@ namespace CapaPresentacion {
             
             private global::System.Data.DataColumn columnCantidad;
             
-            private global::System.Data.DataColumn columnPrecioVenta;
+            private global::System.Data.DataColumn columnMontoTotal;
+            
+            private global::System.Data.DataColumn columnFecha;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1DataTable() {
-                this.TableName = "DataTable1";
+            public spConsultaVentaPorRangoFechasDataTable() {
+                this.TableName = "spConsultaVentaPorRangoFechas";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +302,7 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DataTable1DataTable(global::System.Data.DataTable table) {
+            internal spConsultaVentaPorRangoFechasDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,24 +319,16 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected spConsultaVentaPorRangoFechasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn O_ventaIDColumn {
+            public global::System.Data.DataColumn OrdenVentaIDColumn {
                 get {
-                    return this.columnO_ventaID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn FechaColumn {
-                get {
-                    return this.columnFecha;
+                    return this.columnOrdenVentaID;
                 }
             }
             
@@ -366,9 +358,17 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PrecioVentaColumn {
+            public global::System.Data.DataColumn MontoTotalColumn {
                 get {
-                    return this.columnPrecioVenta;
+                    return this.columnMontoTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn FechaColumn {
+                get {
+                    return this.columnFecha;
                 }
             }
             
@@ -383,57 +383,57 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row this[int index] {
+            public spConsultaVentaPorRangoFechasRow this[int index] {
                 get {
-                    return ((DataTable1Row)(this.Rows[index]));
+                    return ((spConsultaVentaPorRangoFechasRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            public event spConsultaVentaPorRangoFechasRowChangeEventHandler spConsultaVentaPorRangoFechasRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            public event spConsultaVentaPorRangoFechasRowChangeEventHandler spConsultaVentaPorRangoFechasRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            public event spConsultaVentaPorRangoFechasRowChangeEventHandler spConsultaVentaPorRangoFechasRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            public event spConsultaVentaPorRangoFechasRowChangeEventHandler spConsultaVentaPorRangoFechasRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDataTable1Row(DataTable1Row row) {
+            public void AddspConsultaVentaPorRangoFechasRow(spConsultaVentaPorRangoFechasRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(System.DateTime Fecha, string Nombre, string Descripcion, int Cantidad, int PrecioVenta) {
-                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+            public spConsultaVentaPorRangoFechasRow AddspConsultaVentaPorRangoFechasRow(string Nombre, string Descripcion, int Cantidad, decimal MontoTotal, System.DateTime Fecha) {
+                spConsultaVentaPorRangoFechasRow rowspConsultaVentaPorRangoFechasRow = ((spConsultaVentaPorRangoFechasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Fecha,
                         Nombre,
                         Descripcion,
                         Cantidad,
-                        PrecioVenta};
-                rowDataTable1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable1Row);
-                return rowDataTable1Row;
+                        MontoTotal,
+                        Fecha};
+                rowspConsultaVentaPorRangoFechasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowspConsultaVentaPorRangoFechasRow);
+                return rowspConsultaVentaPorRangoFechasRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row FindByO_ventaID(int O_ventaID) {
-                return ((DataTable1Row)(this.Rows.Find(new object[] {
-                            O_ventaID})));
+            public spConsultaVentaPorRangoFechasRow FindByOrdenVentaID(int OrdenVentaID) {
+                return ((spConsultaVentaPorRangoFechasRow)(this.Rows.Find(new object[] {
+                            OrdenVentaID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                spConsultaVentaPorRangoFechasDataTable cln = ((spConsultaVentaPorRangoFechasDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -441,72 +441,69 @@ namespace CapaPresentacion {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable1DataTable();
+                return new spConsultaVentaPorRangoFechasDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnO_ventaID = base.Columns["O_ventaID"];
-                this.columnFecha = base.Columns["Fecha"];
+                this.columnOrdenVentaID = base.Columns["OrdenVentaID"];
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnCantidad = base.Columns["Cantidad"];
-                this.columnPrecioVenta = base.Columns["PrecioVenta"];
+                this.columnMontoTotal = base.Columns["MontoTotal"];
+                this.columnFecha = base.Columns["Fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnO_ventaID = new global::System.Data.DataColumn("O_ventaID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnO_ventaID);
-                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha);
+                this.columnOrdenVentaID = new global::System.Data.DataColumn("OrdenVentaID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrdenVentaID);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
                 this.columnDescripcion = new global::System.Data.DataColumn("Descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescripcion);
                 this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCantidad);
-                this.columnPrecioVenta = new global::System.Data.DataColumn("PrecioVenta", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrecioVenta);
+                this.columnMontoTotal = new global::System.Data.DataColumn("MontoTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoTotal);
+                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnO_ventaID}, true));
-                this.columnO_ventaID.AutoIncrement = true;
-                this.columnO_ventaID.AutoIncrementSeed = -1;
-                this.columnO_ventaID.AutoIncrementStep = -1;
-                this.columnO_ventaID.AllowDBNull = false;
-                this.columnO_ventaID.ReadOnly = true;
-                this.columnO_ventaID.Unique = true;
-                this.columnO_ventaID.Caption = "O.ventaID";
+                                this.columnOrdenVentaID}, true));
+                this.columnOrdenVentaID.AutoIncrement = true;
+                this.columnOrdenVentaID.AllowDBNull = false;
+                this.columnOrdenVentaID.ReadOnly = true;
+                this.columnOrdenVentaID.Unique = true;
                 this.columnNombre.MaxLength = 50;
                 this.columnDescripcion.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row NewDataTable1Row() {
-                return ((DataTable1Row)(this.NewRow()));
+            public spConsultaVentaPorRangoFechasRow NewspConsultaVentaPorRangoFechasRow() {
+                return ((spConsultaVentaPorRangoFechasRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable1Row(builder);
+                return new spConsultaVentaPorRangoFechasRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable1Row);
+                return typeof(spConsultaVentaPorRangoFechasRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable1RowChanged != null)) {
-                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.spConsultaVentaPorRangoFechasRowChanged != null)) {
+                    this.spConsultaVentaPorRangoFechasRowChanged(this, new spConsultaVentaPorRangoFechasRowChangeEvent(((spConsultaVentaPorRangoFechasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -514,8 +511,8 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable1RowChanging != null)) {
-                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.spConsultaVentaPorRangoFechasRowChanging != null)) {
+                    this.spConsultaVentaPorRangoFechasRowChanging(this, new spConsultaVentaPorRangoFechasRowChangeEvent(((spConsultaVentaPorRangoFechasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -523,8 +520,8 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable1RowDeleted != null)) {
-                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.spConsultaVentaPorRangoFechasRowDeleted != null)) {
+                    this.spConsultaVentaPorRangoFechasRowDeleted(this, new spConsultaVentaPorRangoFechasRowChangeEvent(((spConsultaVentaPorRangoFechasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -532,14 +529,14 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable1RowDeleting != null)) {
-                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.spConsultaVentaPorRangoFechasRowDeleting != null)) {
+                    this.spConsultaVentaPorRangoFechasRowDeleting(this, new spConsultaVentaPorRangoFechasRowChangeEvent(((spConsultaVentaPorRangoFechasRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDataTable1Row(DataTable1Row row) {
+            public void RemovespConsultaVentaPorRangoFechasRow(spConsultaVentaPorRangoFechasRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -548,7 +545,7 @@ namespace CapaPresentacion {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
+                DataSetMostrarFecha ds = new DataSetMostrarFecha();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -566,7 +563,7 @@ namespace CapaPresentacion {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable1DataTable";
+                attribute2.FixedValue = "spConsultaVentaPorRangoFechasDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -610,41 +607,25 @@ namespace CapaPresentacion {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable1Row : global::System.Data.DataRow {
+        public partial class spConsultaVentaPorRangoFechasRow : global::System.Data.DataRow {
             
-            private DataTable1DataTable tableDataTable1;
+            private spConsultaVentaPorRangoFechasDataTable tablespConsultaVentaPorRangoFechas;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+            internal spConsultaVentaPorRangoFechasRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+                this.tablespConsultaVentaPorRangoFechas = ((spConsultaVentaPorRangoFechasDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int O_ventaID {
+            public int OrdenVentaID {
                 get {
-                    return ((int)(this[this.tableDataTable1.O_ventaIDColumn]));
+                    return ((int)(this[this.tablespConsultaVentaPorRangoFechas.OrdenVentaIDColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.O_ventaIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Fecha {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.FechaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'DataTable1\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.FechaColumn] = value;
+                    this[this.tablespConsultaVentaPorRangoFechas.OrdenVentaIDColumn] = value;
                 }
             }
             
@@ -653,14 +634,15 @@ namespace CapaPresentacion {
             public string Nombre {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.NombreColumn]));
+                        return ((string)(this[this.tablespConsultaVentaPorRangoFechas.NombreColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre\' de la tabla \'spConsultaVentaPorRangoFechas\' es DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.NombreColumn] = value;
+                    this[this.tablespConsultaVentaPorRangoFechas.NombreColumn] = value;
                 }
             }
             
@@ -669,14 +651,15 @@ namespace CapaPresentacion {
             public string Descripcion {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.DescripcionColumn]));
+                        return ((string)(this[this.tablespConsultaVentaPorRangoFechas.DescripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Descripcion\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Descripcion\' de la tabla \'spConsultaVentaPorRangoFechas\' " +
+                                "es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.DescripcionColumn] = value;
+                    this[this.tablespConsultaVentaPorRangoFechas.DescripcionColumn] = value;
                 }
             }
             
@@ -685,91 +668,110 @@ namespace CapaPresentacion {
             public int Cantidad {
                 get {
                     try {
-                        return ((int)(this[this.tableDataTable1.CantidadColumn]));
+                        return ((int)(this[this.tablespConsultaVentaPorRangoFechas.CantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cantidad\' de la tabla \'spConsultaVentaPorRangoFechas\' es " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.CantidadColumn] = value;
+                    this[this.tablespConsultaVentaPorRangoFechas.CantidadColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int PrecioVenta {
+            public decimal MontoTotal {
                 get {
                     try {
-                        return ((int)(this[this.tableDataTable1.PrecioVentaColumn]));
+                        return ((decimal)(this[this.tablespConsultaVentaPorRangoFechas.MontoTotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PrecioVenta\' de la tabla \'DataTable1\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MontoTotal\' de la tabla \'spConsultaVentaPorRangoFechas\' e" +
+                                "s DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.PrecioVentaColumn] = value;
+                    this[this.tablespConsultaVentaPorRangoFechas.MontoTotalColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFechaNull() {
-                return this.IsNull(this.tableDataTable1.FechaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFechaNull() {
-                this[this.tableDataTable1.FechaColumn] = global::System.Convert.DBNull;
+            public System.DateTime Fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablespConsultaVentaPorRangoFechas.FechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha\' de la tabla \'spConsultaVentaPorRangoFechas\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespConsultaVentaPorRangoFechas.FechaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNombreNull() {
-                return this.IsNull(this.tableDataTable1.NombreColumn);
+                return this.IsNull(this.tablespConsultaVentaPorRangoFechas.NombreColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetNombreNull() {
-                this[this.tableDataTable1.NombreColumn] = global::System.Convert.DBNull;
+                this[this.tablespConsultaVentaPorRangoFechas.NombreColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDescripcionNull() {
-                return this.IsNull(this.tableDataTable1.DescripcionColumn);
+                return this.IsNull(this.tablespConsultaVentaPorRangoFechas.DescripcionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDescripcionNull() {
-                this[this.tableDataTable1.DescripcionColumn] = global::System.Convert.DBNull;
+                this[this.tablespConsultaVentaPorRangoFechas.DescripcionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCantidadNull() {
-                return this.IsNull(this.tableDataTable1.CantidadColumn);
+                return this.IsNull(this.tablespConsultaVentaPorRangoFechas.CantidadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCantidadNull() {
-                this[this.tableDataTable1.CantidadColumn] = global::System.Convert.DBNull;
+                this[this.tablespConsultaVentaPorRangoFechas.CantidadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPrecioVentaNull() {
-                return this.IsNull(this.tableDataTable1.PrecioVentaColumn);
+            public bool IsMontoTotalNull() {
+                return this.IsNull(this.tablespConsultaVentaPorRangoFechas.MontoTotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPrecioVentaNull() {
-                this[this.tableDataTable1.PrecioVentaColumn] = global::System.Convert.DBNull;
+            public void SetMontoTotalNull() {
+                this[this.tablespConsultaVentaPorRangoFechas.MontoTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFechaNull() {
+                return this.IsNull(this.tablespConsultaVentaPorRangoFechas.FechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFechaNull() {
+                this[this.tablespConsultaVentaPorRangoFechas.FechaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -777,22 +779,22 @@ namespace CapaPresentacion {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DataTable1RowChangeEvent : global::System.EventArgs {
+        public class spConsultaVentaPorRangoFechasRowChangeEvent : global::System.EventArgs {
             
-            private DataTable1Row eventRow;
+            private spConsultaVentaPorRangoFechasRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+            public spConsultaVentaPorRangoFechasRowChangeEvent(spConsultaVentaPorRangoFechasRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row Row {
+            public spConsultaVentaPorRangoFechasRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -808,7 +810,7 @@ namespace CapaPresentacion {
         }
     }
 }
-namespace CapaPresentacion.DataSet1TableAdapters {
+namespace CapaPresentacion.DataSetMostrarFechaTableAdapters {
     
     
     /// <summary>
@@ -820,7 +822,7 @@ namespace CapaPresentacion.DataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+    public partial class spConsultaVentaPorRangoFechasTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -834,7 +836,7 @@ namespace CapaPresentacion.DataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataTable1TableAdapter() {
+        public spConsultaVentaPorRangoFechasTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -931,13 +933,13 @@ namespace CapaPresentacion.DataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("O.ventaID", "O_ventaID");
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
+            tableMapping.DataSetTable = "spConsultaVentaPorRangoFechas";
+            tableMapping.ColumnMappings.Add("OrdenVentaID", "OrdenVentaID");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
-            tableMapping.ColumnMappings.Add("PrecioVenta", "PrecioVenta");
+            tableMapping.ColumnMappings.Add("MontoTotal", "MontoTotal");
+            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -945,7 +947,7 @@ namespace CapaPresentacion.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CapaPresentacion.Properties.Settings.Default.test3ConnectionString;
+            this._connection.ConnectionString = global::CapaPresentacion.Properties.Settings.Default.MinervaConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -954,20 +956,31 @@ namespace CapaPresentacion.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        o.[O.ventaID], o.Fecha, c.Nombre, p.Descripcion, d.Cantidad, d.PrecioVenta
-FROM            [O.venta] AS o INNER JOIN
-                         Detalleventa AS d ON d.[O.ventaID] = o.[O.ventaID] INNER JOIN
-                         Prenda AS p ON p.PrendaID = d.PrendaID INNER JOIN
-                         Cliente AS c ON c.ID = o.ClienteID";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.spConsultaVentaPorRangoFechas";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaInicial", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFinal", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.DataTable1DataTable dataTable) {
+        public virtual int Fill(DataSetMostrarFecha.spConsultaVentaPorRangoFechasDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaInicial, global::System.Nullable<global::System.DateTime> fechaFinal) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((fechaInicial.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaInicial.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((fechaFinal.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fechaFinal.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -979,9 +992,21 @@ FROM            [O.venta] AS o INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.DataTable1DataTable GetData() {
+        public virtual DataSetMostrarFecha.spConsultaVentaPorRangoFechasDataTable GetData(global::System.Nullable<global::System.DateTime> fechaInicial, global::System.Nullable<global::System.DateTime> fechaFinal) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.DataTable1DataTable dataTable = new DataSet1.DataTable1DataTable();
+            if ((fechaInicial.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaInicial.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((fechaFinal.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fechaFinal.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            DataSetMostrarFecha.spConsultaVentaPorRangoFechasDataTable dataTable = new DataSetMostrarFecha.spConsultaVentaPorRangoFechasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1055,7 +1080,7 @@ FROM            [O.venta] AS o INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSetMostrarFecha dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1065,7 +1090,7 @@ FROM            [O.venta] AS o INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSetMostrarFecha dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1075,7 +1100,7 @@ FROM            [O.venta] AS o INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSetMostrarFecha dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1109,7 +1134,7 @@ FROM            [O.venta] AS o INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(DataSet1 dataSet) {
+        public virtual int UpdateAll(DataSetMostrarFecha dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

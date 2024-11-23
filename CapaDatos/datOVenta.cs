@@ -41,7 +41,7 @@ namespace CapaDatos
                             {
                                 entOVenta venta = new entOVenta
                                 {
-                                    OventaID = Convert.ToInt32(dr["O.ventaID"]),
+                                    OventaID = Convert.ToInt32(dr["OrdenVentaID"]),
                                     MontoPago = dr["MontoPago"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(dr["MontoPago"]),
                                     FRegistroV = Convert.ToDateTime(dr["Fecha"]), // Asegúrate de que este nombre sea correcto
                                     PrendaID = dr["PrendaID"] == DBNull.Value ? (int?)null : Convert.ToInt32(dr["PrendaID"]),
@@ -239,7 +239,7 @@ namespace CapaDatos
                 // Agregar parámetros
                 cmd.Parameters.AddWithValue("@Descripcion", detalleVenta.Descripcion.Descripcion);
                 cmd.Parameters.AddWithValue("@Talla", detalleVenta.Talla.Talla);
-                cmd.Parameters.AddWithValue("@OventaID", detalleVenta.OventaID);
+                cmd.Parameters.AddWithValue("@OrdenVentaID", detalleVenta.OventaID);
                 cmd.Parameters.AddWithValue("@Cantidad", detalleVenta.Cantidad);
                 cmd.Parameters.AddWithValue("@PrecioVenta", detalleVenta.PrecioVenta);
 

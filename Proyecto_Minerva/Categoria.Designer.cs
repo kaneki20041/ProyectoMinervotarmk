@@ -54,6 +54,7 @@
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.Size = new System.Drawing.Size(426, 413);
             this.dgvCategoria.TabIndex = 3;
+            this.dgvCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellDoubleClick);
             // 
             // btnAgregar
             // 

@@ -153,9 +153,10 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvProveedor);
             this.Controls.Add(this.gboxBusqueda);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ReporteProveedor";
-            this.Text = "ReporteProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = " Reporte Proveedor";
             this.gboxBusqueda.ResumeLayout(false);
             this.gboxBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();

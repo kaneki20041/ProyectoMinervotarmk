@@ -122,8 +122,8 @@ namespace CapaPresentacion
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-            ReporteVenta reportito = new ReporteVenta();
-            reportito.ShowDialog();
+            ReporteVentas reportito = new ReporteVentas();
+            reportito.Show();
         }
     }
 }

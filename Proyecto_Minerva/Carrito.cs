@@ -37,9 +37,12 @@ namespace Proyecto_Minerva
             _idVenta = idVenta;
             InitializeComponent();
 
+            comboMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboTipoComprobante.DropDownStyle = ComboBoxStyle.DropDownList;
+
             ListarVentas();
             InicializarComboBoxes();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMxMTMxOTM5LCJleHAiOjE3MzEyMTgzMzl9.VqpjeturaVEZaapwK3AOp8j9MZKIj3HhfkUSbScBftT8IlNtTq0yZ9C1sPzdAWprwzeiYMBNuLY7nx1rxvIjHwzvEv3lbDgLwq1SHi5waawubtOMs7LUVH3pdE-Q40nx7qPZzDxtf1mZi4iuq69ROeBd4cg9Py7bAWCwTUFV9I0aVqfmHdRaO41AXdQ3m9dY32Q62cxzSKfbDjfFGkDw2uVc5R_Y7fqThg_cZwCpEksxDgUaX5F9jCLFokDUn3vVNJto76ip5S1FvaUHhS11R3kV4HHX4g9hXXovoGUUBy_iV3lqSI5kZ8iFB49QSxa4bxVJaFNbOASYRrkj9LnLxKKN5sC1XWsLMC-Klmo43G7zYMcsEW2YEy-KbEPDiYZO9a2Mw6qM3oIieO-Izix1v39DI2wg7W8CsAc7wJBK1UKwzR2cq05L9PnyfHVd_0j-iiRhG-sqxoMlttJFo7C5iW47o_7oiE9QBD4OSgK4vANMWS6B1FsWExc3BpgxrAe3ZHl0hgJqlY3NHc44AcWxyv-6Nezcv6m7b-tHKYfnfu1lIRCfn3SPsYRtzMpnw15Kr3o2qHgqRMP6CATQ59Mo7_VXJpShJcyfoN-1o4yxejeGmAKx1YZXxl2nCc7gzp92ccpQDBa4aBkD5-qXmi_AvvXMD3c1wkvp-1BBZ0m4AMQ";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMyMzQ3OTM0LCJleHAiOjE3MzI0MzQzMzR9.lkgPuHwu8gFdeyjN69ARUycodJOvWQ65F6_L4hKMproHudR92w3UwTN7ew-t0Ejqt1423YJBdklSv9MYWQz0jH_o3P5FPZtt3elqxxrpXXAllPJsoAycqACn0WmrXLsGHzA2zPnsVtZw_TjeoI_2viYr-PvD_-5fgACzxzIiDDpoSBM08WncBA3_EKvF0wjyRRbqHDhPhtHO3O8-NxIn1P-DFrUsiaGxXctW1ZwClTPtsxWqyuxVPebfUudgIc9MKcM0ZVDyb9pkIHjDU-BgfRRDc9japj0FH8UXIi4dbMaExKfPSI46VqwD3i0PW2cQASP9tLvMSS_YZOSEeAUrSSeVxiZl16UBxMwwAI2Sa_9f4pBJoa69IBrHpaWRHV8EDxgU9QTaQxKbHYxICbUr_LjQ1ZkoOLifSyT9t28MZ_sk6ftS2OqjpnejECEJ95i7jOUxOUgAB3kBg5Kge0MVwBJMohkxBwKWmrjtwBhevrTuDA-fuu-7OgMnv9w_UE5hrQmbBtNmDZGrfEddqc_s7muQDg_pf8xF66BJzmPhqG_kCTOA2uceiWs434rxLt2fD6cQgie6ISt-Zxy4ZnwN2VijFw_qyFfQJGH0JBnwYuZGdsLJdT00PYv_w3VRSBBrGssbBfE0Yf2t3VkLlaaztQX_Zo8C6LL3dzwIDgb55WY";
             api = new FacturacionApi(token);
             decimal montoTotal = logOVenta.Instancia.ObtenerMontoTotalPorId(_idVenta);
             txtTotalGravada.Text = $"S/ {montoTotal:F2}"; // Formatear como moneda
@@ -57,6 +60,7 @@ namespace Proyecto_Minerva
 
             // Llamar a la capa lógica para obtener la información del cliente
             entCliente cliente = logCliente.Instancia.BuscarClientePorVentaID(_idVenta);
+
 
             if (cliente != null)
             {
@@ -506,9 +510,9 @@ namespace Proyecto_Minerva
                         address = new
                         {
                             direccion = txtDireccion.Text.Trim(),
-                            provincia = "LIMA",
-                            departamento = "LIMA",
-                            distrito = "LIMA",
+                            provincia = "TRUJILLO",
+                            departamento = "LA LIBERTAD",
+                            distrito = "TRUJILLO",
                             ubigueo = "150101"
                         }
                     },
@@ -520,9 +524,9 @@ namespace Proyecto_Minerva
                         address = new
                         {
                             direccion = "Av. America Oeste Mz H Lt 27, Trujillo, Peru",
-                            provincia = "LIMA",
-                            departamento = "LIMA",
-                            distrito = "LIMA",
+                            provincia = "TRUJILLO",
+                            departamento = "LA LIBERTAD",
+                            distrito = "TRUJILLO",
                             ubigueo = "150101"
                         }
                     },
@@ -657,9 +661,9 @@ namespace Proyecto_Minerva
                         address = new
                         {
                             direccion = txtDireccion.Text.Trim(),
-                            provincia = "LIMA",
-                            departamento = "LIMA",
-                            distrito = "LIMA",
+                            provincia = "TRUJILLO",
+                            departamento = "LA LIBERTAD",
+                            distrito = "TRUJILLO",
                             ubigueo = "150101"
                         }
                     },

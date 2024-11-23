@@ -16,8 +16,7 @@ namespace CapaDatos
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = "Data Source=35.184.250.185; Initial Catalog=Minerva; User ID=sqlserver; Password=1234; Integrated Security=false";
 
-
             return cn;
         }
     }
-}
+}   

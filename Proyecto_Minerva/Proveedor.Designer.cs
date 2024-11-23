@@ -342,10 +342,12 @@
             this.dvgProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProveedor.Location = new System.Drawing.Point(12, 325);
             this.dvgProveedor.Name = "dvgProveedor";
+            this.dvgProveedor.ReadOnly = true;
             this.dvgProveedor.RowHeadersWidth = 51;
             this.dvgProveedor.RowTemplate.Height = 25;
             this.dvgProveedor.Size = new System.Drawing.Size(706, 266);
             this.dvgProveedor.TabIndex = 19;
+            this.dvgProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProveedor_CellDoubleClick);
             // 
             // label1
             // 

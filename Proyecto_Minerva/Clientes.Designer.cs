@@ -142,6 +142,7 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(18, 327);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
             this.dgvCliente.RowHeadersWidth = 51;
             this.dgvCliente.RowTemplate.Height = 25;
             this.dgvCliente.Size = new System.Drawing.Size(826, 264);
@@ -304,6 +305,7 @@
             this.btnBuscarDni.Size = new System.Drawing.Size(29, 22);
             this.btnBuscarDni.TabIndex = 39;
             this.btnBuscarDni.UseVisualStyleBackColor = false;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click_1);
             // 
             // txtID
             // 
@@ -438,7 +440,7 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // Registrocliente
+            // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -456,7 +458,7 @@
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Registrocliente";
+            this.Name = "Clientes";
             this.Text = "Registrocliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.gbContacto.ResumeLayout(false);

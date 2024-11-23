@@ -29,191 +29,190 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            btnSalir = new FontAwesome.Sharp.IconButton();
-            txtUsuario = new TextBox();
-            txtPassword = new TextBox();
-            btnIngresar = new FontAwesome.Sharp.IconButton();
-            btnMostrar = new FontAwesome.Sharp.IconButton();
-            btnOcultar = new FontAwesome.Sharp.IconButton();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
+            this.btnSalir = new FontAwesome.Sharp.IconButton();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnIngresar = new FontAwesome.Sharp.IconButton();
+            this.btnMostrar = new FontAwesome.Sharp.IconButton();
+            this.btnOcultar = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = Color.DarkRed;
-            btnSalir.FlatAppearance.BorderSize = 0;
-            btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.IconChar = FontAwesome.Sharp.IconChar.X;
-            btnSalir.IconColor = Color.White;
-            btnSalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            btnSalir.IconSize = 25;
-            btnSalir.Location = new Point(752, 12);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(40, 36);
-            btnSalir.TabIndex = 0;
-            btnSalir.UseVisualStyleBackColor = false;
-            btnSalir.Click += btnSalir_Click;
+            this.btnSalir.BackColor = System.Drawing.Color.DarkRed;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnSalir.IconColor = System.Drawing.Color.White;
+            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnSalir.IconSize = 25;
+            this.btnSalir.Location = new System.Drawing.Point(645, 10);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(34, 31);
+            this.btnSalir.TabIndex = 0;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // txtUsuario
             // 
-            txtUsuario.BackColor = SystemColors.Window;
-            txtUsuario.BorderStyle = BorderStyle.None;
-            txtUsuario.Cursor = Cursors.IBeam;
-            txtUsuario.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtUsuario.ForeColor = Color.Gray;
-            txtUsuario.Location = new Point(222, 365);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.RightToLeft = RightToLeft.No;
-            txtUsuario.Size = new Size(346, 17);
-            txtUsuario.TabIndex = 54;
-            txtUsuario.Text = "Usuario";
-            txtUsuario.Enter += txtDocumento_Enter;
-            txtUsuario.KeyPress += txtDocumento_KeyPress;
-            txtUsuario.Leave += txtDocumento_Leave;
+            this.txtUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtUsuario.ForeColor = System.Drawing.Color.Gray;
+            this.txtUsuario.Location = new System.Drawing.Point(190, 316);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtUsuario.Size = new System.Drawing.Size(297, 17);
+            this.txtUsuario.TabIndex = 54;
+            this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.Enter += new System.EventHandler(this.txtDocumento_Enter);
+            this.txtUsuario.Leave += new System.EventHandler(this.txtDocumento_Leave);
             // 
             // txtPassword
             // 
-            txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.Cursor = Cursors.IBeam;
-            txtPassword.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.ForeColor = Color.Gray;
-            txtPassword.Location = new Point(222, 405);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(346, 17);
-            txtPassword.TabIndex = 2;
-            txtPassword.Text = "Contraseña";
-            txtPassword.Enter += txtPassword_Enter;
-            txtPassword.KeyPress += txtPassword_KeyPress;
-            txtPassword.Leave += txtPassword_Leave;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtPassword.ForeColor = System.Drawing.Color.Gray;
+            this.txtPassword.Location = new System.Drawing.Point(190, 348);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(297, 17);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "Contraseña";
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnIngresar
             // 
-            btnIngresar.BackColor = Color.SandyBrown;
-            btnIngresar.Cursor = Cursors.Hand;
-            btnIngresar.FlatStyle = FlatStyle.Popup;
-            btnIngresar.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnIngresar.ForeColor = SystemColors.ControlText;
-            btnIngresar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnIngresar.IconColor = Color.Black;
-            btnIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnIngresar.IconSize = 1;
-            btnIngresar.Location = new Point(222, 453);
-            btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(346, 39);
-            btnIngresar.TabIndex = 3;
-            btnIngresar.Text = "Ingresar";
-            btnIngresar.UseVisualStyleBackColor = false;
-            btnIngresar.Click += btnIngresar_Click;
-            btnIngresar.KeyPress += btnIngresar_KeyPress;
+            this.btnIngresar.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
+            this.btnIngresar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnIngresar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnIngresar.IconColor = System.Drawing.Color.Black;
+            this.btnIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnIngresar.IconSize = 1;
+            this.btnIngresar.Location = new System.Drawing.Point(190, 389);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(297, 34);
+            this.btnIngresar.TabIndex = 3;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnMostrar
             // 
-            btnMostrar.FlatAppearance.BorderSize = 0;
-            btnMostrar.FlatStyle = FlatStyle.Flat;
-            btnMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            btnMostrar.IconColor = Color.Black;
-            btnMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnMostrar.IconSize = 20;
-            btnMostrar.Location = new Point(575, 404);
-            btnMostrar.Name = "btnMostrar";
-            btnMostrar.Size = new Size(32, 23);
-            btnMostrar.TabIndex = 7;
-            btnMostrar.UseVisualStyleBackColor = true;
-            btnMostrar.Click += btnMostrar_Click;
+            this.btnMostrar.FlatAppearance.BorderSize = 0;
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnMostrar.IconColor = System.Drawing.Color.Black;
+            this.btnMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMostrar.IconSize = 20;
+            this.btnMostrar.Location = new System.Drawing.Point(493, 350);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(27, 20);
+            this.btnMostrar.TabIndex = 7;
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnOcultar
             // 
-            btnOcultar.FlatAppearance.BorderSize = 0;
-            btnOcultar.FlatStyle = FlatStyle.Flat;
-            btnOcultar.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            btnOcultar.IconColor = Color.Black;
-            btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnOcultar.IconSize = 20;
-            btnOcultar.Location = new Point(575, 404);
-            btnOcultar.Name = "btnOcultar";
-            btnOcultar.Size = new Size(32, 23);
-            btnOcultar.TabIndex = 8;
-            btnOcultar.UseVisualStyleBackColor = true;
-            btnOcultar.Click += btnOcultar_Click;
+            this.btnOcultar.FlatAppearance.BorderSize = 0;
+            this.btnOcultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOcultar.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnOcultar.IconColor = System.Drawing.Color.Black;
+            this.btnOcultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOcultar.IconSize = 20;
+            this.btnOcultar.Location = new System.Drawing.Point(493, 350);
+            this.btnOcultar.Name = "btnOcultar";
+            this.btnOcultar.Size = new System.Drawing.Size(27, 20);
+            this.btnOcultar.TabIndex = 8;
+            this.btnOcultar.UseVisualStyleBackColor = true;
+            this.btnOcultar.Click += new System.EventHandler(this.btnOcultar_Click);
             // 
             // label1
             // 
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(221, 385);
-            label1.Name = "label1";
-            label1.Size = new Size(347, 2);
-            label1.TabIndex = 55;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label1.Location = new System.Drawing.Point(189, 334);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(297, 2);
+            this.label1.TabIndex = 55;
             // 
             // label2
             // 
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(222, 425);
-            label2.Name = "label2";
-            label2.Size = new Size(347, 2);
-            label2.TabIndex = 56;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label2.Location = new System.Drawing.Point(190, 368);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(297, 2);
+            this.label2.TabIndex = 56;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft YaHei", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(347, 311);
-            label3.Name = "label3";
-            label3.Size = new Size(101, 22);
-            label3.TabIndex = 57;
-            label3.Text = "Identifícate";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(297, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 22);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Identifícate";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft YaHei", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(338, 105);
-            label4.Name = "label4";
-            label4.Size = new Size(122, 31);
-            label4.TabIndex = 58;
-            label4.Text = "SISTEMA";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(290, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 31);
+            this.label4.TabIndex = 58;
+            this.label4.Text = "SISTEMA";
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.None;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(204, 150);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(389, 144);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 59;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(175, 130);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(333, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 59;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(804, 647);
-            Controls.Add(pictureBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(btnOcultar);
-            Controls.Add(btnMostrar);
-            Controls.Add(btnSalir);
-            Controls.Add(btnIngresar);
-            Controls.Add(txtPassword);
-            Controls.Add(txtUsuario);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Login";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(689, 561);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnOcultar);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

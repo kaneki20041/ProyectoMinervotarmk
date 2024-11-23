@@ -9,12 +9,14 @@ namespace Proyecto_Minerva
     {
         private int _idCompra;
         private FacturacionApi api;
+
         public DetalleCompra(int idCompra)
         {
             _idCompra = idCompra;
             InitializeComponent();
+            comboMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             //ListarPedidos();
-            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMxMTM1MTIzLCJleHAiOjE3MzEyMjE1MjN9.WzY0y3Shfi4m2lEI2vPPlQEW124PnnQ0yPezZkzB8Eb0KLj36uNhIw4UfRtzGSrEzLxcM2OZLknVZb_ptqNsXS94tecHz3XwKNhhKFgWBqaXf29B9IVgmQazOUSvQyTGeh8WwuL2N_bDlbD_NZaFkXZ3iw6k66INmrvSryzb2EMa3FJunSNUMg5C_imfP0hXqH_DuQecQBR_40rEF3suWsWVlrx0THDC33FhBkxbhTb3Fim3rAhYygsPWcxloK_KGH7ngNoPo-MEVbNDHHh2Iwp-_mammcsWGm2DvK2UMILeKnqSlt1eeI6003pX8XxWr9YdUTeftrMu-hGaOqGhfRTXnu-AIqwBaa8FMG7kSVo23DWA4AUh8GMJbzHNfQdS4GsUISoAf6_gKca8mgB9WCBLVmCykTZGB7025TandBAXDGPyefKRwZbxfaB8xV3deunG2oH7jZz7IWGr7VLCyfdEX63vCGuW3OLj-ExYRRjAmWWTBoCBB6dzH4K_d9Kvx2Dx0vpqDiN1qzEl5EZO2qEzF5eKvCD3sD7o-OEVQ6w39o7zcTG3UgdsM_AyfWEHsc35E9QBoPZkYM5xteYpdYKghzzT5B8ZZaLMtA_gmaoOj0u1ykRXDl_DHlUb6iyjo45NKTRi6tonDmVTlM4IlvURBudRcIgqCYO6T61fgdw";
+            string token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VybmFtZSI6ImthbmVraTIwMDQxIiwiaWF0IjoxNzMyMzQ3OTM0LCJleHAiOjE3MzI0MzQzMzR9.lkgPuHwu8gFdeyjN69ARUycodJOvWQ65F6_L4hKMproHudR92w3UwTN7ew-t0Ejqt1423YJBdklSv9MYWQz0jH_o3P5FPZtt3elqxxrpXXAllPJsoAycqACn0WmrXLsGHzA2zPnsVtZw_TjeoI_2viYr-PvD_-5fgACzxzIiDDpoSBM08WncBA3_EKvF0wjyRRbqHDhPhtHO3O8-NxIn1P-DFrUsiaGxXctW1ZwClTPtsxWqyuxVPebfUudgIc9MKcM0ZVDyb9pkIHjDU-BgfRRDc9japj0FH8UXIi4dbMaExKfPSI46VqwD3i0PW2cQASP9tLvMSS_YZOSEeAUrSSeVxiZl16UBxMwwAI2Sa_9f4pBJoa69IBrHpaWRHV8EDxgU9QTaQxKbHYxICbUr_LjQ1ZkoOLifSyT9t28MZ_sk6ftS2OqjpnejECEJ95i7jOUxOUgAB3kBg5Kge0MVwBJMohkxBwKWmrjtwBhevrTuDA-fuu-7OgMnv9w_UE5hrQmbBtNmDZGrfEddqc_s7muQDg_pf8xF66BJzmPhqG_kCTOA2uceiWs434rxLt2fD6cQgie6ISt-Zxy4ZnwN2VijFw_qyFfQJGH0JBnwYuZGdsLJdT00PYv_w3VRSBBrGssbBfE0Yf2t3VkLlaaztQX_Zo8C6LL3dzwIDgb55WY";
             api = new FacturacionApi(token);
             InicializarComboBoxes();
             ListarCompras();

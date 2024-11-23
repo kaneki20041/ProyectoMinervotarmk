@@ -355,6 +355,7 @@
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(137, 22);
             this.txtBusqueda.TabIndex = 14;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // btnLimpiar
             // 
@@ -388,10 +389,14 @@
             // cbBusqueda
             // 
             this.cbBusqueda.FormattingEnabled = true;
+            this.cbBusqueda.Items.AddRange(new object[] {
+            "Documento",
+            "Nombre"});
             this.cbBusqueda.Location = new System.Drawing.Point(24, 85);
             this.cbBusqueda.Name = "cbBusqueda";
             this.cbBusqueda.Size = new System.Drawing.Size(137, 25);
             this.cbBusqueda.TabIndex = 14;
+            this.cbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cbBusqueda_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -412,7 +417,7 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Fecha";
             // 
-            // RegistroUsuarios
+            // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -426,7 +431,7 @@
             this.Controls.Add(this.btnNuevoUsuari);
             this.Controls.Add(this.dtFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RegistroUsuarios";
+            this.Name = "Usuarios";
             this.Text = "RegistroUsuarios";
             this.Load += new System.EventHandler(this.RegistroUsuarios_Load);
             this.gboDetalleUsuario.ResumeLayout(false);

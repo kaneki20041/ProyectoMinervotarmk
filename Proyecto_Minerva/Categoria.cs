@@ -20,6 +20,9 @@ namespace CapaPresentacion
             InitializeComponent();
             listarCat();
             Deshabilitado();
+            txtID.Enabled = false;
+            gbDatos.Enabled = false;
+
         }
 
         public void listarCat()
@@ -68,6 +71,7 @@ namespace CapaPresentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Deshabilitado();
+
         }
 
         private void Limpiar()
@@ -147,6 +151,24 @@ namespace CapaPresentacion
                     MessageBox.Show($"Ocurrió un error: {ex.Message}");
                 }
             }
+        }
+
+        private void dgvCategoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvCategoria.Rows[e.RowIndex];
+
+                // Asumiendo que tus TextBox se llaman txtID, txtDescripcion y txtPrecio
+                txtID.Text = row.Cells["categoriaID"].Value.ToString();
+                txtCategoria.Text = row.Cells["descripcion"].Value.ToString();
+                cbEstado.Checked = Convert.ToBoolean(row.Cells["estado"].Value);
+
+                // No actualizamos el "Nuevo Precio" ya que parece ser un campo para entrada del usuario
+            }
+            txtID.Enabled = false;
+
+
         }
     }
 }

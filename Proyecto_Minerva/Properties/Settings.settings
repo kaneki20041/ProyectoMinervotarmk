@@ -10,5 +10,21 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost;Initial Catalog=test3;Integrated Security=True;Encrypt=False;TrustServerCertificate=True</Value>
     </Setting>
+    <Setting Name="MinervaConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=localhost;Initial Catalog=Minerva;Integrated Security=True;Encrypt=False;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=localhost;Initial Catalog=Minerva;Integrated Security=True;Encrypt=False;TrustServerCertificate=True</Value>
+    </Setting>
+    <Setting Name="MinervaConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;Data Source=35.184.250.185;Initial Catalog=Minerva;User ID=sqlserver;Password=1234;Encrypt=False;TrustServerCertificate=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=35.184.250.185;Initial Catalog=Minerva;User ID=sqlserver;Password=1234;Encrypt=False;TrustServerCertificate=True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

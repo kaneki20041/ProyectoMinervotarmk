@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDatos;
+using CapaEntidad;
 using CapaLogica;
 
 namespace Proyecto_Minerva
@@ -30,7 +31,7 @@ namespace Proyecto_Minerva
             cbkEstMetPago.Checked = true;
             cbkEstMetPago.Enabled = false;
             btnAgreMpag.Visible = true;
-            btnModFpag.Visible = false;
+            btnModFpag.Visible = true;
             LimpiarVariables();
         }
         private void btnAgreMpag_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace Proyecto_Minerva
         }
         private void LimpiarVariables()
         {
+            txtid.Text = "";
             txtMetpago.Text = "";
         }
         private void button4_Click(object sender, EventArgs e)
@@ -101,7 +103,9 @@ namespace Proyecto_Minerva
 
         private void btnCancelFpag_Click(object sender, EventArgs e)
         {
+            LimpiarVariables();
             groupBox2.Enabled = false;
+            btnModFpag.Visible = true;
         }
 
         private void btnEstado_Click(object sender, EventArgs e)
@@ -116,6 +120,22 @@ namespace Proyecto_Minerva
             groupBox2.Enabled=false;
             txtMetpago.Clear();
             txtid.Clear();
+        }
+
+        private void dgvMetPago_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvMetPago.Rows[e.RowIndex];
+
+                // Asumiendo que tus TextBox se llaman txtID, txtDescripcion y txtPrecio
+                txtid.Text = row.Cells["MetPagoid"].Value.ToString();
+                txtMetpago.Text = row.Cells["metodopago"].Value.ToString();
+                cbkEstMetPago.Checked = Convert.ToBoolean(row.Cells["estMetpago"].Value);
+
+                // No actualizamos el "Nuevo Precio" ya que parece ser un campo para entrada del usuario
+            }
+            txtid.Enabled = false;
         }
     }
 }

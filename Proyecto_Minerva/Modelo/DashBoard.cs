@@ -59,8 +59,8 @@ namespace CapaPresentacion.Modelo
                     NumeroPrenda = (int)command.ExecuteScalar();
 
                     //Numero total de Compras
-                    command.CommandText = @"SELECT COUNT([O.ventaID])
-                                            FROM[O.venta]
+                    command.CommandText = @"SELECT COUNT(OrdenVentaID)
+                                            FROM[OrdenVenta]
                                             WHERE Fecha BETWEEN @fromDate AND @toDate";
                     command.Parameters.Add("@fromdate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
@@ -82,7 +82,7 @@ namespace CapaPresentacion.Modelo
                 {
                     command.Connection = connection;
                     command.CommandText = @"select Fecha, sum(MontoTotal) 
-                                          from [O.venta] 
+                                          from [OrdenVenta] 
                                           where Fecha BETWEEN @fromDate AND @toDate
                                           group by Fecha";
                     command.Parameters.Add("@fromdate", System.Data.SqlDbType.DateTime).Value = startDate;
@@ -173,7 +173,7 @@ namespace CapaPresentacion.Modelo
                     command.CommandText = @"select top 5 p.Descripcion, sum(Detalleventa.Cantidad) as Q
                                 from Detalleventa
                                 inner join Prenda p on p.PrendaID = Detalleventa.PrendaID
-                                inner join [O.venta] o on o.[O.ventaID] = Detalleventa.[O.ventaID]
+                                inner join [OrdenVenta] o on o.[OrdenVentaID] = Detalleventa.[OrdenVentaID]
                                 where Fecha between @fromDate and @toDate
                                 group by p.Descripcion
                                 order by q desc";

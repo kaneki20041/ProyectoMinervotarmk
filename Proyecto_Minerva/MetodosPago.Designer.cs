@@ -99,9 +99,11 @@
             this.dgvMetPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMetPago.Location = new System.Drawing.Point(124, 46);
             this.dgvMetPago.Name = "dgvMetPago";
+            this.dgvMetPago.ReadOnly = true;
             this.dgvMetPago.RowTemplate.Height = 25;
             this.dgvMetPago.Size = new System.Drawing.Size(471, 310);
             this.dgvMetPago.TabIndex = 44;
+            this.dgvMetPago.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMetPago_CellDoubleClick);
             // 
             // btnCancelFpag
             // 
@@ -234,7 +236,7 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacion";
             // 
-            // Desc_Formpago
+            // MetodosPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +245,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Desc_Formpago";
+            this.Name = "MetodosPago";
             this.Text = "Motorizado";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMetPago)).EndInit();
             this.groupBox1.ResumeLayout(false);
