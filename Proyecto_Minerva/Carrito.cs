@@ -398,7 +398,7 @@ namespace Proyecto_Minerva
         private async Task VerificarPagoPeriodicamenteAsync()
         {
             int intentos = 0;
-            const int maximoIntentos = 20; // Tiempo máximo de espera de 5 minutos (15 segundos * 20 intentos)
+            const int maximoIntentos = 200; // Tiempo máximo de espera de 5 minutos (15 segundos * 20 intentos)
 
             while (intentos < maximoIntentos)
             {
