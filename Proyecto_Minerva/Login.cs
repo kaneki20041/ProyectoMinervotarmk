@@ -17,12 +17,60 @@ namespace CapaPresentacion
     public partial class Login : Form
     {
         private System.Windows.Forms.Timer activityTimer;
+        private string captchaTexto;
+
         public Login()
         {
             InitializeComponent();
             btnMostrar.Visible = true;
             btnOcultar.Visible = false;
             txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void GenerarCaptcha()
+        {
+            //Generemos un texto aleatorio
+            captchaTexto = GenerarAleatorio(5);
+
+            // Creamos una imagen del texto
+            Bitmap imagenCaptcha = new Bitmap(150, 50);
+
+            Graphics g = Graphics.FromImage(imagenCaptcha);
+            g.Clear(Color.White);
+
+            using (Font fuente = new Font("Arial", 24, FontStyle.Bold))
+            using (SolidBrush pincel = new SolidBrush(Color.Black))
+            {
+                g.DrawString(captchaTexto, fuente, pincel, new PointF(10, 10));
+            }
+
+            // (Opcional) Agrega líneas de ruido
+            Random rnd = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                int x1 = rnd.Next(0, imagenCaptcha.Width);
+                int y1 = rnd.Next(0, imagenCaptcha.Height);
+                int x2 = rnd.Next(0, imagenCaptcha.Width);
+                int y2 = rnd.Next(0, imagenCaptcha.Height);
+                g.DrawLine(Pens.Gray, x1, y1, x2, y2);
+            }
+
+            pictureBoxCaptcha.Image = imagenCaptcha;
+        }
+
+
+        private string GenerarAleatorio(int longitud)
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            Random rnd = new Random();
+            char[] texto = new char[longitud];
+            for (int i = 0; i < longitud; i++)
+            {
+                texto[i] = caracteres[rnd.Next(caracteres.Length)];
+            }
+            return new String(texto);
+
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
@@ -64,6 +112,17 @@ namespace CapaPresentacion
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             string usuarioIngresado = txtUsuario.Text.Trim();
+
+            // Verificar primero el CAPTCHA
+            if (txtCaptcha.Text.Trim().ToUpper() != captchaTexto.ToUpper())
+            {
+                MessageBox.Show("Captcha incorrecto. Intenta nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                GenerarCaptcha(); // Refrescar captcha tras error
+                txtCaptcha.Clear();
+                return;
+            }
+
+            // Si CAPTCHA es correcto, continúa con la validación de usuario
             if (!string.IsNullOrEmpty(usuarioIngresado))
             {
                 // Obtener la lista de usuarios
@@ -82,7 +141,6 @@ namespace CapaPresentacion
                             // Verificar si el usuario ya está conectado
                             if (usuario.EstaConectado)
                             {
-                                // Verificar si la última actividad fue hace más de 30 minutos
                                 if (usuario.UltimaActividad != DateTime.MinValue &&
                                     (DateTime.Now - usuario.UltimaActividad).TotalMinutes > 30)
                                 {
@@ -195,6 +253,17 @@ namespace CapaPresentacion
                 txtUsuario.Text = "Usuario";
                 txtUsuario.ForeColor = Color.Gray;
             }
+        }
+
+        private void btnRefreshCaptcha_Click(object sender, EventArgs e)
+        {
+            GenerarCaptcha();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            FormRecuperarContraseña formRecuperar = new FormRecuperarContraseña();
+            formRecuperar.ShowDialog();
         }
     }
 }
