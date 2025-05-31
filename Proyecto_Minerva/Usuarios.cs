@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
@@ -131,26 +132,40 @@ namespace CapaPresentacion
             gboxBusqueda.Enabled = false;
         }
 
+        private bool EsContrasenaSegura(string contrasena)
+        {
+            // Al menos 8 caracteres, 1 mayúscula, 1 número y 1 carácter especial
+            string patron = @"^(?=.*[A-Z])(?=.*\d)(?=.*[@!#$%^&*.,_+=-]).{8,}$";
+            return Regex.IsMatch(contrasena, patron);
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //insertar
             try
             {
+                string clave = txtPass.Text.Trim();
+
+                if (!EsContrasenaSegura(clave))
+                {
+                    MessageBox.Show("La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial (@, !, #, etc).",
+                                    "Contraseña débil", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 entUsuario p = new entUsuario();
 
                 p.Documento = Convert.ToInt32(txtDocumento.Text);
                 p.idRol = Convert.ToInt32(cbRol.SelectedValue);
-                p.NombreCompleto = Convert.ToString(txtNombre.Text);
+                p.NombreCompleto = txtNombre.Text;
                 p.Estado = ((OpcionesCombo)cbEstado.SelectedItem).Valor;
-                p.Clave = Convert.ToString(txtPass.Text);
+                p.Clave = clave;
                 p.FechaRegistro = DateTime.Now;
-                p.Correo = Convert.ToString(txtCorreo.Text);
-                p.Usuario = Convert.ToString(txtUsuario.Text);
+                p.Correo = txtCorreo.Text;
+                p.Usuario = txtUsuario.Text;
 
                 logUsuario.Instancia.InsertarUsuarios(p);
 
                 MessageBox.Show("Usuario registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
